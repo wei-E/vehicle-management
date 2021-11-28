@@ -1,8 +1,8 @@
 package com.mapper;
 
-import com.pojo.User;
+import com.pojo.Manager;
 
 public interface Usermapper {
-    public void register(User user);
-    public User selectUserByName(String username);
+    public void manager_register(Manager manager);
+    public Manager manager_selectUserById(String work_id);
 }

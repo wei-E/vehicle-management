@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mapper.Usermapper">
-    <insert id="register" parameterType="com.pojo.User">
-        insert into user1 (username,password) values(#{username},#{password})
+    <insert id="manager_register" parameterType="com.pojo.Manager">
+        insert into manager (work_num,name,password,id_num) values(#{work_num},#{name},#{password},#{id_num})
     </insert>
-    <select id="selectUserByName" parameterType="String"
-            resultType="com.pojo.User">
-        select * from user1 where username = #{username}
+
+    <select id="manager_selectUserById" parameterType="String" resultType="com.pojo.Manager">
+        select * from manager where work_num = #{work_num}
     </select>
 </mapper>

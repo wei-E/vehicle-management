@@ -14,7 +14,7 @@
                 <!-- 连接数据库的URL -->
                 <property name="url" value="jdbc:mysql://localhost:3306/vehicle_management?serverTimezone=UTC"/>
                 <property name="username" value="root"/>
-                <property name="password" value="1299952620x"/>
+                <property name="password" value=""/>
             </dataSource>
         </environment>
     </environments>

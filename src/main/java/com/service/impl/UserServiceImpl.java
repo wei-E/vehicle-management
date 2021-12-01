@@ -32,6 +32,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean manager_login(Manager manager) throws IOException {
         Manager manager1 = usermapper.manager_selectUserById(manager.getWork_num());
+        if (manager1 == null) {
+            return false;
+        }
         if (manager1.getPassword().equals(manager.getPassword())) {
             return true;
         } else {
@@ -53,6 +56,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean driver_login(Driver driver) throws IOException {
         Driver driver1 = usermapper.driver_selectUserById(driver.getWork_num());
+        if (driver1 == null) {
+            return false;
+        }
         if (driver1.getPassword().equals(driver.getPassword())) {
             return true;
         } else {

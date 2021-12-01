@@ -12,11 +12,7 @@
 </head>
 <body>
 <h1>欢迎使用查勘车辆管理系统</h1>
-<tr>
-    没有账号？去<a  href="${pageContext.request.contextPath }/index/register">注册</a>
-</tr>
-<tr>
-    已有账号，去<a  href="${pageContext.request.contextPath }/index/login">登录</a>
-</tr>
+<a  href="${pageContext.request.contextPath }/index/manager">管理员</a>
+<a  href="${pageContext.request.contextPath }/index/driver">用户</a>
 </body>
 </html>

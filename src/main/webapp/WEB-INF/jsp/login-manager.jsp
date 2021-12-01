@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1>登录</h1>
-<form action="${pageContext.request.contextPath}/user/login" method="post">
+<form action="${pageContext.request.contextPath}/user/login-manager" method="post">
     工号<input type="text" name="work_num"><br/>
     密码<input type="text" name="password"><br/>
     <input type="submit" value="登录"><br/>

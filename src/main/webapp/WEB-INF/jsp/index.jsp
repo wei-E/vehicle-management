@@ -11,6 +11,12 @@
     <title>Title</title>
 </head>
 <body>
-hello
+<h1>欢迎使用查勘车辆管理系统</h1>
+<tr>
+    没有账号？去<a  href="${pageContext.request.contextPath }/index/register">注册</a>
+</tr>
+<tr>
+    已有账号，去<a  href="${pageContext.request.contextPath }/index/login">登录</a>
+</tr>
 </body>
 </html>

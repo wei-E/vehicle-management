@@ -1,10 +1,15 @@
 package com.pojo;
 
 public class Manager {
+    private Integer id;
     private String work_num;
     private String name;
     private String password;
     private String id_num;
+
+    public Integer getId() {return id;}
+
+    public void setId(Integer id) {this.id = id;}
 
     public String getWork_num() {
         return work_num;
@@ -38,13 +43,4 @@ public class Manager {
         this.id_num = id_num;
     }
 
-    @Override
-    public String toString() {
-        return "Manager{" +
-                "work_num='" + work_num + '\'' +
-                ", name='" + name + '\'' +
-                ", password='" + password + '\'' +
-                ", id_num='" + id_num + '\'' +
-                '}';
-    }
 }

@@ -1,0 +1,107 @@
+Index: src/main/webapp/WEB-INF/jsp/index.jsp
+===================================================================
+diff --git a/src/main/webapp/WEB-INF/jsp/index.jsp b/src/main/webapp/WEB-INF/jsp/index.jsp
+deleted file mode 100644
+--- a/src/main/webapp/WEB-INF/jsp/index.jsp	(revision 0696764f088bda57c6df47a41cb7b6994cac02f8)
++++ /dev/null	(revision 0696764f088bda57c6df47a41cb7b6994cac02f8)
+@@ -1,16 +0,0 @@
+-<%--
+-  Created by IntelliJ IDEA.
+-  User: HP
+-  Date: 2021/11/28
+-  Time: 18:28
+-  To change this template use File | Settings | File Templates.
+---%>
+-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+-<html>
+-<head>
+-    <title>Title</title>
+-</head>
+-<body>
+-hello
+-</body>
+-</html>
+Index: README.md
+===================================================================
+diff --git a/README.md b/README.md
+deleted file mode 100644
+--- a/README.md	(revision 0696764f088bda57c6df47a41cb7b6994cac02f8)
++++ /dev/null	(revision 0696764f088bda57c6df47a41cb7b6994cac02f8)
+@@ -1,29 +0,0 @@
+-# vehicle-management
+-────────────────────██████──────────<br>
+-──────────────────██▓▓▓▓▓▓██────────<br>
+-────────────────██▓▓▓▓▒▒▒▒██────────<br>
+-────────────────██▓▓▒▒▒▒▒▒██────────<br>
+-──────────────██▓▓▓▓▒▒▒▒██──────────<br>
+-──────────────██▓▓▒▒▒▒▒▒██──────────<br>
+-────────────██▓▓▓▓▒▒▒▒▒▒██──────────<br>
+-────────────████▒▒████▒▒██──────────<br>
+-────────────██▓▓▒▒▒▒▒▒▒▒██──────────<br>
+-──────────██────▒▒────▒▒██──────────<br>
+-──────────████──▒▒██──▒▒██──────────<br>
+-──────────██────▒▒────▒▒██──────────<br>
+-──────────██▒▒▒▒▒▒▒▒▒▒▒▒██──────────<br>
+-──────────████████████▒▒▒▒██────────<br>
+-────────██▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██──────<br>
+-──────██▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒██────<br>
+-────██▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒██──<br>
+-──██▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒██<br>
+-██▓▓▒▒▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒██<br>
+-██▓▓▒▒▓▓▒▒▒▒▒▒▓▓▓▓▒▒▒▒▒▒▒▒▒▒▓▓▓▓▒▒██<br>
+-██▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓██<br>
+-──████▐▌▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▐▌▐▌████──<br>
+-────██▐▌▐▌▌▌▌▌▌▌▌▌▐▌▐▌▐▌▐▌▌▌▐▌██────<br>
+-────██▌▌▐▌▐▌▌▌▐▌▌▌▌▌▐▌▌▌▌▌▌▌▌▌██────<br>
+-──────██▌▌▐▌▐▌▐▌▐▌▐▌▐▌▐▌▌▌▌▌██──────<br>
+-──────██▐▌▐▌▐▌████████▐▌▌▌▌▌██──────<br>
+-────────██▒▒██────────██▒▒██────────<br>
+-────────██████────────██████────────
+\ No newline at end of file
+Index: src/main/java/com/controller/IndexController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.controller;\r\n\r\nimport org.springframework.stereotype.Controller;\r\nimport org.springframework.web.bind.annotation.RequestMapping;\r\n\r\n@Controller\r\npublic class IndexController {\r\n\r\n    @RequestMapping(\"/\")\r\n    public String index() {\r\n        //设置视图名称\r\n        return \"index\";\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/controller/IndexController.java b/src/main/java/com/controller/IndexController.java
+--- a/src/main/java/com/controller/IndexController.java	(revision 0696764f088bda57c6df47a41cb7b6994cac02f8)
++++ b/src/main/java/com/controller/IndexController.java	(date 1638270384176)
+@@ -4,12 +4,13 @@
+ import org.springframework.web.bind.annotation.RequestMapping;
+ 
+ @Controller
++@RequestMapping("/index")
+ public class IndexController {
+ 
+-    @RequestMapping("/")
+-    public String index() {
++    @RequestMapping("/main")
++    public String main() {
+         //设置视图名称
+-        return "index";
++        return "main";
+     }
+ 
+ }
+Index: src/main/webapp/WEB-INF/web.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<web-app xmlns=\"http://xmlns.jcp.org/xml/ns/javaee\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd\"\r\n         version=\"4.0\">\r\n    <servlet>\r\n        <servlet-name>SpringMVC</servlet-name>\r\n        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>\r\n\r\n        <init-param>\r\n            <param-name>contextConfigLocation</param-name>\r\n            <param-value>classpath:springMVC.xml</param-value>\r\n        </init-param>\r\n        <load-on-startup>1</load-on-startup>\r\n    </servlet>\r\n    <servlet-mapping>\r\n        <servlet-name>SpringMVC</servlet-name>\r\n        <url-pattern>/</url-pattern>\r\n    </servlet-mapping>\r\n</web-app>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/webapp/WEB-INF/web.xml b/src/main/webapp/WEB-INF/web.xml
+--- a/src/main/webapp/WEB-INF/web.xml	(revision 0696764f088bda57c6df47a41cb7b6994cac02f8)
++++ b/src/main/webapp/WEB-INF/web.xml	(date 1638270518541)
+@@ -3,6 +3,9 @@
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+          version="4.0">
++    <welcome-file-list>
++        <welcome-file>index.jsp</welcome-file>
++    </welcome-file-list>
+     <servlet>
+         <servlet-name>SpringMVC</servlet-name>
+         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

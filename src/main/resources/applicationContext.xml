@@ -22,7 +22,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
         <!-- 连接数据库的URL -->
         <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/vehicle_management?serverTimezone=UTC"/>
         <property name="user" value="root"/>
-        <property name="password" value=""/>
+        <property name="password" value="admin"/>
     </bean>
     <!--配置MyBatis的SqlSessionFactory-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

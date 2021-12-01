@@ -9,4 +9,12 @@
     <select id="manager_selectUserById" parameterType="String" resultType="com.pojo.Manager">
         select * from manager where work_num = #{work_num}
     </select>
+
+    <insert id="driver_register" parameterType="com.pojo.Driver">
+        insert into driver (work_num,name,password,id_num) values(#{work_num},#{name},#{password},#{id_num})
+    </insert>
+
+    <select id="driver_selectUserById" parameterType="String" resultType="com.pojo.Driver">
+        select * from driver where work_num = #{work_num}
+    </select>
 </mapper>

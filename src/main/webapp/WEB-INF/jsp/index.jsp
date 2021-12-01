@@ -13,6 +13,6 @@
 <body>
 <h1>欢迎使用查勘车辆管理系统</h1>
 <a  href="${pageContext.request.contextPath }/index/manager">管理员</a>
-<a  href="${pageContext.request.contextPath }/index/driver">用户</a>
+<a  href="${pageContext.request.contextPath }/index/driver">用户1</a>
 </body>
 </html>

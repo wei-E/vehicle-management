@@ -15,20 +15,18 @@ public class UserController {
     @Autowired
     public UserService userService;
     @RequestMapping("/register")
-    @ResponseBody
     public String register(Manager manager) throws IOException {
         userService.manager_register(manager);
-        return "注册成功";
+        return "login";
     }
 
     @RequestMapping("/login")
-    @ResponseBody
     public String login(Manager manager) throws IOException {
         Manager manager1=userService.manager_selectUserById(manager.getWork_num());
         if(manager1.getPassword().equals(manager.getPassword())){
-            return "登录成功";
+            return "success";
         }
         else
-        return "登录失败";
+        return "login";
     }
 }

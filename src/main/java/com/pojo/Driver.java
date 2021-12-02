@@ -6,6 +6,11 @@ public class Driver {
     private String name;
     private String password;
     private String id_num;
+    private String status;
+
+    public String getStatus() {return status;}
+
+    public void setStatus(String status) {this.status = status;}
 
     public Integer getId() {return id;}
 

@@ -2,19 +2,115 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mapper.Usermapper">
+    <!--  插入信息  -->
     <insert id="manager_register" parameterType="com.pojo.Manager">
         insert into manager (work_num,name,password,id_num) values(#{work_num},#{name},#{password},#{id_num})
     </insert>
 
+    <!--  通过工号查询  -->
     <select id="manager_selectUserById" parameterType="String" resultType="com.pojo.Manager">
         select * from manager where work_num = #{work_num}
     </select>
 
+    <!--  查询全部信息  -->
+    <select id="manager_selectAll" resultType="com.pojo.manager">
+        Select * from manager
+    </select>
+
+    <!--  动态sql查询  -->
+    <select id="manager_selectUserByCondition" parameterType="com.pojo.Manager" resultType="com.pojo.Manager">
+        select * from manager
+        <where>
+            <if test="work_num!=null">
+                and work_num=#{work_num}
+            </if>
+            <if test="name!=null">
+                and name=#{name}
+            </if>
+            <if test="id_num!=null">
+                and id_num=#{id_num}
+            </if>
+        </where>
+    </select>
+
+    <!--  通过工号删除  -->
+    <delete id="manager_deleteById" parameterType="String" resultType="com.pojo.Manager">
+        delete manager where work_num = #{work_num}
+    </delete>
+
+    <!--  更新  -->
+    <update id="manager_updateByCondition" parameterType="com.pojo.Manager">
+        update manager
+        <set>
+            <if test="name!=null">
+                and name=#{name}
+            </if>
+            <if test="password!=null">
+                and password=#{password}
+            </if>
+            <if test="id_num!=null">
+                and id_num=#{id_num}
+            </if>
+        </set>
+        where work_num = #{work_num}
+    </update>
+
+    <!--  插入信息  -->
     <insert id="driver_register" parameterType="com.pojo.Driver">
-        insert into driver (work_num,name,password,id_num) values(#{work_num},#{name},#{password},#{id_num})
+        insert into driver (work_num,name,password,id_num,status) values(#{work_num},#{name},#{password},#{id_num},#{status})
     </insert>
 
+    <!--  通过工号查询  -->
     <select id="driver_selectUserById" parameterType="String" resultType="com.pojo.Driver">
         select * from driver where work_num = #{work_num}
     </select>
+
+    <!--  查询全部信息  -->
+    <select id="driver_selectAll" resultType="com.pojo.Driver">
+        Select * from driver
+    </select>
+
+    <!--  动态sql查询  -->
+    <select id="driver_selectUserByCondition" parameterType="com.pojo.Driver" resultType="com.pojo.Driver">
+        select * from driver
+        <where>
+            <if test="work_num!=null">
+                and work_num=#{work_num}
+            </if>
+            <if test="name!=null">
+                and name=#{name}
+            </if>
+            <if test="id_num!=null">
+                and id_num=#{id_num}
+            </if>
+            <if test="status!=null">
+                and status=#{status}
+            </if>
+        </where>
+    </select>
+
+    <!--  通过工号删除  -->
+    <delete id="driver_deleteById" parameterType="String" resultType="com.pojo.Driver">
+        delete driver where work_num = #{work_num}
+    </delete>
+
+    <!--  更新  -->
+    <update id="driver_updateByCondition" parameterType="com.pojo.Driver">
+        update driver
+        <set>
+            <if test="name!=null">
+                and name=#{name}
+            </if>
+            <if test="id_num!=null">
+                and id_num=#{id_num}
+            </if>
+            <if test="password!=null">
+                and password=#{password}
+            </if>
+            <if test="status!=null">
+                and status=#{status}
+            </if>
+        </set>
+        where work_num = #{work_num}
+    </update>
 </mapper>

@@ -78,4 +78,19 @@ public class UserServiceImpl implements UserService {
             return false;
         }
     }
+
+    @Override
+    public List<Driver> driver_find_all() throws IOException {
+        return usermapper.driver_selectAll();
+    }
+
+    @Override
+    public List<Driver> driver_find_condition(Driver driver) throws IOException {
+        return usermapper.driver_selectUserByCondition(driver);
+    }
+
+    @Override
+    public Driver driver_find_one(String work_num) throws IOException {
+        return usermapper.driver_selectUserById(work_num);
+    }
 }

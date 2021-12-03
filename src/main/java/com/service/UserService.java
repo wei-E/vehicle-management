@@ -14,4 +14,7 @@ public interface UserService {
     public List<Manager> manager_find_condition(Manager manager) throws IOException;
     public boolean driver_register(Driver driver) throws IOException;
     public boolean driver_login(Driver driver) throws IOException;
+    public List<Driver> driver_find_all() throws IOException;
+    public List<Driver> driver_find_condition(Driver driver) throws IOException;
+    public Driver driver_find_one(String work_num) throws IOException;
 }

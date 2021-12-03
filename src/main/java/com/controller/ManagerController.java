@@ -27,8 +27,4 @@ public class ManagerController {
         }
         return model;
     }
-    @Test
-    public void do() {
-        System.out.println("ok");
-    }
 }

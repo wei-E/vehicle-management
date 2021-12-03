@@ -22,13 +22,13 @@
         select * from manager
         <where>
             <if test="work_num!=null">
-                and work_num=#{work_num}
+                and work_num like concat('%',#{work_num},'%')
             </if>
             <if test="name!=null">
-                and name=#{name}
+                and name like concat('%',#{name},'%')
             </if>
             <if test="id_num!=null">
-                and id_num=#{id_num}
+                and id_num like concat('%',#{id_num},'%')
             </if>
         </where>
     </select>
@@ -75,16 +75,16 @@
         select * from driver
         <where>
             <if test="work_num!=null">
-                and work_num=#{work_num}
+                and work_num like concat('%',#{work_num},'%')
             </if>
             <if test="name!=null">
-                and name=#{name}
+                and name like concat('%',#{name},'%')
             </if>
             <if test="id_num!=null">
-                and id_num=#{id_num}
+                and id_num like concat('%',#{id_num},'%')
             </if>
             <if test="status!=null">
-                and status=#{status}
+                and status like concat('%',#{status},'%')
             </if>
         </where>
     </select>

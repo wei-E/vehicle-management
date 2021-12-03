@@ -34,7 +34,7 @@
     </select>
 
     <!--  通过工号删除  -->
-    <delete id="manager_deleteById" parameterType="String" resultType="com.pojo.Manager">
+    <delete id="manager_deleteById" parameterType="String">
         delete manager where work_num = #{work_num}
     </delete>
 
@@ -90,7 +90,7 @@
     </select>
 
     <!--  通过工号删除  -->
-    <delete id="driver_deleteById" parameterType="String" resultType="com.pojo.Driver">
+    <delete id="driver_deleteById" parameterType="String">
         delete driver where work_num = #{work_num}
     </delete>
 

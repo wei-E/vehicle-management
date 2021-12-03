@@ -2,6 +2,7 @@ package com.controller;
 
 import com.pojo.Manager;
 import com.service.UserService;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,15 +17,18 @@ public class ManagerController {
     public UserService userService;
     @RequestMapping("/information")
     public ModelAndView information(Manager manager) throws IOException {
+        System.out.println("ok");
         ModelAndView model = new ModelAndView();
-        if (manager == null) {
-            model.setViewName("welcome-manager");
-            model.addObject("managerList", userService.manager_find_all());
-            return model;
-        } else {
-            model.setViewName("welcome-manager");
+        model.setViewName("welcome-manager");
+        if (manager != null) {
             model.addObject("managerList", userService.manager_find_condition(manager));
-            return model;
+        } else {
+            model.addObject("managerList", userService.manager_find_all());
         }
+        return model;
+    }
+    @Test
+    public void do() {
+        System.out.println("ok");
     }
 }

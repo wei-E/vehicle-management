@@ -35,7 +35,7 @@
 
     <!--  通过工号删除  -->
     <delete id="manager_deleteById" parameterType="String">
-        delete manager where work_num = #{work_num}
+        delete from manager where work_num = #{work_num}
     </delete>
 
     <!--  更新  -->
@@ -43,13 +43,13 @@
         update manager
         <set>
             <if test="name!=null">
-                and name=#{name}
+                name=#{name},
             </if>
             <if test="password!=null">
-                and password=#{password}
+                password=#{password},
             </if>
             <if test="id_num!=null">
-                and id_num=#{id_num}
+                id_num=#{id_num},
             </if>
         </set>
         where work_num = #{work_num}
@@ -99,16 +99,16 @@
         update driver
         <set>
             <if test="name!=null">
-                and name=#{name}
+                name=#{name},
             </if>
             <if test="id_num!=null">
-                and id_num=#{id_num}
+                id_num=#{id_num},
             </if>
             <if test="password!=null">
-                and password=#{password}
+                password=#{password},
             </if>
             <if test="status!=null">
-                and status=#{status}
+                status=#{status},
             </if>
         </set>
         where work_num = #{work_num}

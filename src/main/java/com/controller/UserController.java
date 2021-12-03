@@ -26,7 +26,7 @@ public class UserController {
     @RequestMapping("/login-manager")
     public String login_manager(Manager manager) throws IOException {
         if(userService.manager_login(manager)){
-            return "redirect:/manager/information";
+            return "redirect:/manager/information-manager";
         } else {
             return "login-manager";
         }

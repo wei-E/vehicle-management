@@ -26,7 +26,7 @@ public class UserController {
     @RequestMapping("/login-manager")
     public String login_manager(Manager manager) throws IOException {
         if(userService.manager_login(manager)){
-            return "success";
+            return "redirect:/manager/information";
         } else {
             return "login-manager";
         }
@@ -44,7 +44,7 @@ public class UserController {
     @RequestMapping("/login-driver")
     public String login_driver(Driver driver) throws IOException {
         if(userService.driver_login(driver)){
-            return "success";
+            return "welcome-driver";
         } else {
             return "login-driver";
         }

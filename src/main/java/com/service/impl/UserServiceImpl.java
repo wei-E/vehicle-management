@@ -14,6 +14,8 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
+
 @Service("userService")
 public class UserServiceImpl implements UserService {
     @Autowired
@@ -40,6 +42,16 @@ public class UserServiceImpl implements UserService {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public List<Manager> manager_find_all() throws IOException {
+        return usermapper.manager_selectAll();
+    }
+
+    @Override
+    public List<Manager> manager_find_condition(Manager manager) throws IOException {
+        return usermapper.manager_selectUserByCondition(manager);
     }
 
     @Override

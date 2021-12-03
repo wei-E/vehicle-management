@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/index")
-public class WelcomeController {
+public class LogARegisterController {
     @RequestMapping("/driver")
     public String driver() {
         //设置视图名称

@@ -1,9 +1,7 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: HP
-  Date: 2021/12/1
-  Time: 16:40
-  To change this template use File | Settings | File Templates.
+  User: jjt
+  Date: 2021/12/3
+  Time: 10:27
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -11,6 +9,10 @@
     <title>Title</title>
 </head>
 <body>
-success
+<table>
+    <tr>
+        <th></th>
+    </tr>
+</table>
 </body>
 </html>

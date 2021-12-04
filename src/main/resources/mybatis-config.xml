@@ -4,9 +4,10 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-    <!--配置数据源环境-->
     <mappers>
         <!-- 映射文件的位置 -->
         <mapper resource="com.mapper/UserMapper.xml"/>
+        <mapper resource="com.mapper/CarMapper.xml"/>
+        <mapper resource="com.mapper/CarSendMapper.xml"/>
     </mappers>
 </configuration>

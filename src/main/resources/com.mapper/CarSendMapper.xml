@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.CarSendmapper">
+    <!--查询所有车辆-->
+    <resultMap id="carSendMap" type="com.pojo.CarSend">
+        <result property="id" column="id"></result>
+        <result property="license" column="license"></result>
+        <result property="driver_id" column="driver_id"></result>
+        <result property="reason" column="reason"></result>
+        <result property="departure_time" column="departure_time"></result>
+        <result property="return_time" column="return_time"></result>
+        <association property="driver" javaType="com.pojo.Driver">
+            <result column="id" property="id"></result>
+            <result column="work_num" property="work_num"></result>
+            <result column="name" property="name"></result>
+            <result column="password" property="password"></result>
+            <result column="id_num" property="id_num"></result>
+            <result column="status" property="status"></result>
+        </association>
+    </resultMap>
+
+    <!--查询所有出车信息-->
+    <select id="carSend_selectAll" resultMap="carSendMap">
+        select * from car_send o,driver u where o.driver_id=u.work_num
+    </select>
+
+    <!--条件查询出车信息-->
+    <select id="carSend_selectByCondition" resultMap="carSendMap" parameterType="com.pojo.CarSend">
+        select * from car_send o,driver u
+        <where>
+            o.driver_id=u.work_num
+            <if test="license!=null">
+                and license like concat('%',#{license},'%')
+            </if>
+            <if test="driver_id!=null">
+                and driver_id like concat('%',#{driver_id},'%')
+            </if>
+            <if test="departure_time!=0">
+                and departure_time like concat('%',#{departure_time},'%')
+            </if>
+            <if test="return_time!=0">
+                and return_time like concat('%',#{return_time},'%')
+            </if>
+        </where>
+    </select>
+
+    <!-- 增加出车信息 -->
+    <insert id="carSend_add" parameterType="com.pojo.CarSend">
+        insert into car_send (license,driver_id,reason,departure_time) values(#{license},#{driver_id},#{reason},#{departure_time})
+    </insert>
+    <!-- 更新返回信息 -->
+    <update id="carSend_updateReturn" parameterType="com.pojo.CarSend">
+        update car_send
+        set return_time=#{return_time}
+        where license = #{license} and return_time=0
+    </update>
+
+</mapper>

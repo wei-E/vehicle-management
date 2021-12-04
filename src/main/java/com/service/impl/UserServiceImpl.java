@@ -93,4 +93,9 @@ public class UserServiceImpl implements UserService {
     public Driver driver_find_one(String work_num) throws IOException {
         return usermapper.driver_selectUserById(work_num);
     }
+
+    @Override
+    public void update_driver(Driver driver) throws IOException {
+        usermapper.driver_updateByCondition(driver);
+    }
 }

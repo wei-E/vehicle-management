@@ -71,18 +71,19 @@ public class DriverController {
         ModelAndView model = new ModelAndView();
         model.setViewName("success");  //成功后跳转的界面
 
-        //下面部分用于更新车辆信息
-        Car car = new Car();
-        car.setLicense(license);
-        car.setStatus("出车");
-        carService.update_car(car);
-
         //下面用于更新司机信息
         String work_num = (String) session.getAttribute("user");
         Driver driver = new Driver();
         driver.setWork_num(work_num);
         driver.setStatus("空闲");
         userService.update_driver(driver);
+
+        //下面部分用于更新车辆信息
+        String license
+        Car car = new Car();
+        car.setLicense(license);
+        car.setStatus("空闲");
+        carService.update_car(car);
 
         //下面用于更新信息到派车信息表
         CarSend info = new CarSend();

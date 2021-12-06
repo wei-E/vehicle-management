@@ -66,20 +66,20 @@ public class DriverController {
         return model;
     }
 
-    @RequestMapping("/in-car")
+   /*  @RequestMapping("/in-car")
     public ModelAndView in_car() throws IOException {
         ModelAndView model = new ModelAndView();
         model.setViewName("success");  //成功后跳转的界面
 
         //下面用于更新司机信息
-        String work_num = (String) session.getAttribute("user");
+       String work_num = (String) session.getAttribute("user");
         Driver driver = new Driver();
         driver.setWork_num(work_num);
         driver.setStatus("空闲");
         userService.update_driver(driver);
 
         //下面部分用于更新车辆信息
-        String license
+        String license;
         Car car = new Car();
         car.setLicense(license);
         car.setStatus("空闲");
@@ -93,5 +93,5 @@ public class DriverController {
         carService.give_back(info);
 
         return model;
-    }
+    }*/
 }

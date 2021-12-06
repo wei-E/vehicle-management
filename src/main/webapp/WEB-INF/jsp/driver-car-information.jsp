@@ -12,7 +12,18 @@
     <title>车辆信息</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath }/manager/information" method="post">
+<div >
+    <ul>
+        <li><a href="#" ref="hyjm">欢迎界面</a></li>
+        <li><a href="#" ref="xtgl">系统管理</a></li>
+        <ul show="true">
+            <li><a href="#" ref="ccsq">出车申请</a></li>
+            <li><a href="#" ref="?">?</a></li>
+        </ul>
+        <li><a href="#" ref="grxx">个人信息</a></li>
+    </ul>
+</div>
+<form action="" method="post">
     车牌:<input type="text" name="license"><br>
     车辆型号:<input type="text" name="type"><br>
     状态:<input type="text" name="status"><br>

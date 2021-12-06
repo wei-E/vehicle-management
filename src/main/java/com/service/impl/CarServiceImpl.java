@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.util.List;
 
-@Service("userService")
+@Service("carService")
 public class CarServiceImpl implements CarService {
     @Autowired
     public Carmapper carmapper;

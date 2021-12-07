@@ -21,6 +21,7 @@ import java.util.Timer;
 public class DriverController {
     @Autowired
     public UserService userService;
+    @Autowired
     public CarService carService;
     @RequestMapping("/information")
     public ModelAndView information(String work_num) throws IOException {
@@ -32,7 +33,7 @@ public class DriverController {
     @RequestMapping("/info-car")
     public ModelAndView info_car() throws IOException {
         ModelAndView model = new ModelAndView();
-        model.setViewName("info-car");
+        model.setViewName("driver-car-information");
         model.addObject("carList", carService.get_cars());
         return model;
     }

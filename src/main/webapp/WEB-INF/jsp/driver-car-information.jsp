@@ -14,13 +14,9 @@
 <body>
 <div >
     <ul>
-        <li><a href="#" ref="hyjm">欢迎界面</a></li>
-        <li><a href="#" ref="xtgl">系统管理</a></li>
-        <ul show="true">
-            <li><a href="#" ref="ccsq">出车申请</a></li>
-            <li><a href="#" ref="?">?</a></li>
-        </ul>
-        <li><a href="#" ref="grxx">个人信息</a></li>
+        <li><a href="#">欢迎界面</a></li>
+        <li><a href="#">车辆信息</a></li>
+        <li><a href="#">个人信息</a></li>
     </ul>
 </div>
 <form action="" method="post">
@@ -36,14 +32,13 @@
             <th>状态</th>
             <th>操作</th>
         </tr>
-        <c:forEach items="" var="">
+        <c:forEach items="${carList}" var="car">
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>${car.license}</td>
+                <td>${car.type}</td>
+                <td>${car.status}</td>
                 <td><button class="">出车</button></td>
                 <td><button class="">还车</button></td>
-
             </tr>
         </c:forEach>
     </table>

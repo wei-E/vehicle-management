@@ -29,7 +29,7 @@ public class UserController {
     public String login_manager(Manager manager, HttpSession session) throws IOException {
         if(userService.manager_login(manager)){
             session.setAttribute("user", manager.getWork_num());
-            return "redirect:/manager/information-manager";
+            return "welcome-manager";
         } else {
             return "login-manager";
         }

@@ -12,39 +12,39 @@
 <body>
 <div >
     <ul>
-        <li><a href="#" ref="hyjm">欢迎界面</a></li>
-        <li><a href="#" ref="xtgl">车辆管理</a></li>
+        <li><a href="#">欢迎界面</a></li>
+        <li><a href="#">车辆管理</a></li>
         <ul show="true">
-            <li><a href="#" ref="?">查看</a></li>
-            <li><a href="#" ref="?">增加</a></li>
-            <li><a href="#" ref="?">删除</a></li>
-            <li><a href="#" ref="?">修改</a></li>
+            <li><a href="#">查看</a></li>
+            <li><a href="#">增加</a></li>
+            <li><a href="#">删除</a></li>
+            <li><a href="#">修改</a></li>
         </ul>
-        <li><a href="#" ref="wggl">违规管理</a></li>
+        <li><a href="#">违规管理</a></li>
         <ul show="true">
-            <li><a href="#" ref="?">增加</a></li>
-            <li><a href="#" ref="?">查看</a></li>
+            <li><a href="#">增加</a></li>
+            <li><a href="#">查看</a></li>
 
         </ul>
-        <li><a href="#" ref="wxgl">维修管理</a></li>
+        <li><a href="#">维修管理</a></li>
         <ul show="true">
-            <li><a href="#" ref="?">增加</a></li>
-            <li><a href="#" ref="?">维修查看</a></li>
-            <li><a href="#" ref="?">历史信息</a></li>
+            <li><a href="#">增加</a></li>
+            <li><a href="#">维修查看</a></li>
+            <li><a href="#">历史信息</a></li>
         </ul>
-        <li><a href="#" ref="wxgl">出借管理</a></li>
+        <li><a href="#">出借管理</a></li>
         <ul show="true">
-            <li><a href="#" ref="?">增加</a></li>
-            <li><a href="#" ref="?">出借查看</a></li>
-            <li><a href="#" ref="?">历史信息</a></li>
+            <li><a href="#">增加</a></li>
+            <li><a href="#">出借查看</a></li>
+            <li><a href="#">历史信息</a></li>
         </ul>
-        <li><a href="#" ref="bygl">保养管理</a></li>
+        <li><a href="#">保养管理</a></li>
         <ul show="true">
-            <li><a href="#" ref="?">增加</a></li>
-            <li><a href="#" ref="?">出借查看</a></li>
-            <li><a href="#" ref="?">历史信息</a></li>
+            <li><a href="#">增加</a></li>
+            <li><a href="#">出借查看</a></li>
+            <li><a href="#">历史信息</a></li>
         </ul>
-        <li><a href="#" ref="pcqk">派车情况</a></li>
+        <li><a href="#">派车情况</a></li>
     </ul>
 </div>
 <form action="${pageContext.request.contextPath }/manager/information" method="post">

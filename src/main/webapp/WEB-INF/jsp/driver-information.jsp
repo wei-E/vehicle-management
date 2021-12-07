@@ -32,9 +32,9 @@
             <td><input value="${driver.work_num}" name="up_work_num"></td>
             <td><input value="${driver.name}" name="up_name"></td>
             <td><input value="${driver.id_num}" name="up_id_num"></td>
+            <td><button>修改</button></td>
         </tr>
     </table>
-    <input type="submit" value="save">
 </form>
 </body>
 </html>

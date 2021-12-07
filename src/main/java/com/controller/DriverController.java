@@ -8,6 +8,7 @@ import com.pojo.Manager;
 import com.service.CarService;
 import com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,23 +25,54 @@ public class DriverController {
     @Autowired
     public CarService carService;
     @RequestMapping("/information")
-    public ModelAndView information(String work_num) throws IOException {
+    public ModelAndView information(HttpSession session) throws IOException {
         ModelAndView model = new ModelAndView();
-        model.setViewName("welcome-manager");
+        model.setViewName("driver-information");
+        String work_num = (String) session.getAttribute("user");
         model.addObject("driver", userService.driver_find_one(work_num));
         return model;
     }
     @RequestMapping("/info-car")
-    public ModelAndView info_car() throws IOException {
+    public ModelAndView info_car(HttpSession session) throws IOException {
         ModelAndView model = new ModelAndView();
-        model.setViewName("driver-car-information");
-        model.addObject("carList", carService.get_cars());
+        String work_num = (String) session.getAttribute("user");
+        Driver driver = userService.driver_find_one(work_num);
+        if (driver.getStatus().equals("出车中")) {
+            model.setViewName("");
+        } else {
+            model.addObject("carList", carService.get_cars());
+            model.setViewName("driver-car-information");
+        }
         return model;
     }
+
+    @RequestMapping("/update")
+    public ModelAndView update(String up_work_num, String up_name, String up_id_num, HttpSession session) throws IOException {
+        ModelAndView model = new ModelAndView();
+        model.setViewName("driver-information");
+        String work_num = (String) session.getAttribute("user");
+        Driver driver = new Driver();
+        driver.setWork_num(up_work_num);
+        driver.setName(up_name);
+        driver.setId_num(up_id_num);
+        driver.setWork_num(work_num);
+        userService.update_driver(driver);
+        model.addObject("driver", userService.driver_find_one(work_num));
+        return model;
+    }
+
+    @RequestMapping("driver-car-send")
+    public ModelAndView driver_car_send(String license) throws IOException {
+        ModelAndView model = new ModelAndView();
+        model.setViewName("driver-car-send");
+        model.addObject("license", license);
+        return model;
+    }
+
     @RequestMapping("/out-car")
     public ModelAndView out_car(String reason, String license, HttpSession session) throws IOException {
         ModelAndView model = new ModelAndView();
-        model.setViewName("success");  //成功后跳转的界面
+        model.setViewName("welcome-driver");  //成功后跳转的界面
 
         //下面部分用于更新车辆信息
         Car car = new Car();

@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: jialj
@@ -19,34 +20,21 @@
         <li><a href="#">个人信息</a></li>
     </ul>
 </div>
-<form action="" method="post">
-    工号:<input type="text" name="work_num"><br>
-    名称:<input type="text" name="name"><br>
-    密码:<input type="text" name="password"><br>
-    身份证:<input type="text" name="id_num"><br>
-    状态:<input type="text" name="status"><br>
-    <input type="submit" value="submit">
-</form>
+<form action="${pageContext.request.contextPath}/driver/update" method="post">
     <table>
         <tr>
             <th>工号</th>
             <th>名称</th>
-            <th>密码</th>
             <th>身份证</th>
-            <th>状态</th>
             <th>操作</th>
         </tr>
-        <c:forEach items="" var="">
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                td><button class="">修改</button></td>
-            </tr>
-        </c:forEach>
+        <tr>
+            <td><input value="${driver.work_num}" name="up_work_num"></td>
+            <td><input value="${driver.name}" name="up_name"></td>
+            <td><input value="${driver.id_num}" name="up_id_num"></td>
+        </tr>
     </table>
-
+    <input type="submit" value="save">
+</form>
 </body>
 </html>

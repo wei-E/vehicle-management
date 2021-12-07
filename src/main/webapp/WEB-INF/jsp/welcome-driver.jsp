@@ -16,7 +16,8 @@
     <ul>
         <li><a href="#">欢迎界面</a></li>
         <li><a href="${pageContext.request.contextPath }/driver/info-car">车辆信息</a></li>
-        <li><a href="#">个人信息</a></li>
+        <li><a href="${pageContext.request.contextPath }/driver/information">当前状态</a></li>
+        <li><a href="${pageContext.request.contextPath }/driver/information">我的信息</a></li>
     </ul>
 </div>
 

@@ -23,7 +23,7 @@
     车牌:<input type="text" name="license"><br>
     车辆型号:<input type="text" name="type"><br>
     状态:<input type="text" name="status"><br>
-    <input type="submit" value="submit">
+    <input type="submit" value="find">
 </form>
     <table>
         <tr>
@@ -37,8 +37,7 @@
                 <td>${car.license}</td>
                 <td>${car.type}</td>
                 <td>${car.status}</td>
-                <td><button class="">出车</button></td>
-                <td><button class="">还车</button></td>
+                <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/driver/driver-car-send?license=${car.license}'">出车</button></td>
             </tr>
         </c:forEach>
     </table>

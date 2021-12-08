@@ -13,6 +13,13 @@
 <div >
     <ul>
         <li><a href="#">欢迎界面</a></li>
+        <li><a href="#">驾驶员信息管理</a></li>
+        <ul show="true">
+            <li><a href="#">查看</a></li>
+            <li><a href="#">增加</a></li>
+            <li><a href="#">删除</a></li>
+            <li><a href="#">修改</a></li>
+        </ul>
         <li><a href="#">车辆管理</a></li>
         <ul show="true">
             <li><a href="#">查看</a></li>
@@ -54,6 +61,7 @@
     <input type="submit" value="submit">
 </form>
 <table>
+    <td><button>增加</button></td>
     <tr>
         <th>工号</th>
         <th>姓名</th>

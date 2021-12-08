@@ -56,6 +56,7 @@
     <input type="submit" value="submit">
 </form>
 <table>
+    <td><button class="">增加</button></td>
     <tr>
         <th>车牌</th>
         <th>车辆型号</th>
@@ -67,7 +68,6 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><button class="">增加</button></td>
             <td><button class="">删除</button></td>
             <td><button class="">修改</button></td>
         </tr>

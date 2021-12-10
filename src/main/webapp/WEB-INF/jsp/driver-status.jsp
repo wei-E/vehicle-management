@@ -32,10 +32,25 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><button>出车</button></td>
-            <td><button>还车</button></td>
+            <td><button id="send_car" onclick="stampBill()">出车</button></td>
+            <td><button id="return_car" onclick="stampBill1()">还车</button></td>
         </tr>
     </c:forEach>
 </table>
 </body>
+<script>
+    var send_car=document.getElementById("send_car");
+    var return_car=document.getElementById("return_car");
+    function stampBill() {
+        return_car.disabled=false
+        send_car.disabled=true;
+       
+    }
+    function stampBill1() {
+        var return_car=document.getElementById("back");
+        return_car.disabled=true
+        send_car.disabled=false;
+    }
+
+</script>
 </html>

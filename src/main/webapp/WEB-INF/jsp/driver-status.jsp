@@ -20,7 +20,7 @@
         <li><a href="${pageContext.request.contextPath }/driver/information">我的信息</a></li>
     </ul>
 </div>
-<table>
+<table id="table1">
     <tr>
         <th>工号</th>
         <th>姓名</th>
@@ -31,22 +31,31 @@
         <td>${driver.id_num}</td>
         <td>${driver.name}</td>
         <td>${driver.status}</td>
-        <td><button id="send_car" onclick="stampBill()">出车</button></td>
-        <td><button id="return_car" onclick="stampBill1()">还车</button></td>
+        <td><button id="driver_status" ></button></td>
     </tr>
 </table>
 </body>
-<script>
-    var send_car=document.getElementById("send_car");
-    var return_car=document.getElementById("return_car");
-    function stampBill() {
-        return_car.disabled=false
-        send_car.disabled=true;
-       
-    }
-    function stampBill1() {
-        return_car.disabled=true
-        send_car.disabled=false;
+<script type="text/javascript">
+    window.onload=function (load) {
+        var tab=document.getElementById("table1");
+        var rows=tab.rows;
+        var status=document.getElementById("driver_status");
+        for(var i=1;i<rows.length;i++)
+        {
+            //alert("第"+(i)+"行，第"+(3)+"列的值是:"+rows[i].cells[2].innerHTML);
+            var info=rows[i].cells[2].innerHTML;
+            //alert(info);
+
+            if(info == "未出车"){
+               // alert(1);
+                status.innerHTML="出车"
+            }
+            else if(info == "出车"){
+               // alert(2);
+                status.innerHTML="还车"
+            }
+
+        }
     }
 
 </script>

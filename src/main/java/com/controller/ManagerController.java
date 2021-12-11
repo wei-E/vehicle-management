@@ -16,6 +16,12 @@ import java.io.IOException;
 public class ManagerController {
     @Autowired
     public UserService userService;
+    @RequestMapping("/welcome")
+    public ModelAndView welcome() throws IOException {
+        ModelAndView model = new ModelAndView();
+        model.setViewName("welcome-manager");
+        return model;
+    }
     @RequestMapping("/information-manager")
     public ModelAndView information_manager(Manager manager) throws IOException {
         ModelAndView model = new ModelAndView();

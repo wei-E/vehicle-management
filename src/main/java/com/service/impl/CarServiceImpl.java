@@ -40,4 +40,9 @@ public class CarServiceImpl implements CarService {
     public void give_back(CarSend carSend) throws IOException {
         carSendmapper.carSend_updateReturn(carSend);
     }
+
+    @Override
+    public String get_license(CarSend carSend) throws IOException {
+        return carSendmapper.carSend_selectLicense(carSend);
+    }
 }

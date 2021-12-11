@@ -29,7 +29,7 @@ public class UserController {
     public String login_manager(Manager manager, HttpSession session) throws IOException {
         if(userService.manager_login(manager)){
             session.setAttribute("user", manager.getWork_num());
-            return "welcome-manager";
+            return "redirect:/manager/welcome";
         } else {
             return "login-manager";
         }
@@ -48,7 +48,7 @@ public class UserController {
     public String login_driver(Driver driver, HttpSession session) throws IOException {
         if(userService.driver_login(driver)){
             session.setAttribute("user", driver.getWork_num());
-            return "welcome-driver";
+            return "redirect:/driver/welcome";
         } else {
             return "login-driver";
         }

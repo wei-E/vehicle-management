@@ -15,31 +15,16 @@
 <body>
 <div >
     <ul>
-        <li><a href="#">欢迎界面</a></li>
-        <li><a href="#">车辆信息</a></li>
-        <li><a href="#">个人信息</a></li>
+        <li><a href="${pageContext.request.contextPath }/driver/welcome">欢迎界面</a></li>
+        <li><a href="${pageContext.request.contextPath }/driver/info-car">车辆信息</a></li>
+        <li><a href="${pageContext.request.contextPath }/driver/status">当前状态</a></li>
+        <li><a href="${pageContext.request.contextPath }/driver/information">我的信息</a></li>
     </ul>
 </div>
 <form action="${pageContext.request.contextPath}/driver/update" method="post">
-    工号:<input type="text" name="work_num"><br>
-    名称:<input type="text" name="name"><br>
-    身份证:<input type="text" name="id_num"><br>
-    <input type="submit" value="submit">
+    名称:<input type="text" name="name" value="${driver.name}"><br>
+    身份证:<input type="text" name="id_num" value="${driver.id_num}"><br>
+    <input type="submit" value="save">
 </form>
-    <table>
-        <tr>
-            <th>工号</th>
-            <th>名称</th>
-            <th>身份证</th>
-            <th>操作</th>
-        </tr>
-        <tr>
-            <td><input value="${driver.work_num}" name="up_work_num"></td>
-            <td><input value="${driver.name}" name="up_name"></td>
-            <td><input value="${driver.id_num}" name="up_id_num"></td>
-            <td><button>修改</button></td>
-        </tr>
-    </table>
-
 </body>
 </html>

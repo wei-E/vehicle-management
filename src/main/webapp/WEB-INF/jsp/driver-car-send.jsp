@@ -13,22 +13,17 @@
     <title>出车表</title>
 </head>
 <body>
-<%
-    Date date = new Date();
-    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    String now = df.format(date);
-%>
 <div >
     <ul>
-        <li><a href="#">欢迎界面</a></li>
-        <li><a href="#">车辆信息</a></li>
-        <li><a href="#">个人信息</a></li>
+        <li><a href="${pageContext.request.contextPath }/driver/welcome">欢迎界面</a></li>
+        <li><a href="${pageContext.request.contextPath }/driver/info-car">车辆信息</a></li>
+        <li><a href="${pageContext.request.contextPath }/driver/status">当前状态</a></li>
+        <li><a href="${pageContext.request.contextPath }/driver/information">我的信息</a></li>
     </ul>
 </div>
-<form action="" method="post">
+<form action="${pageContext.request.contextPath}/driver/out-car" method="post">
     车牌: <input type="text" name="license" value="${license}" disabled="disabled"><br>
     出车原因：<input type="text" name="reason"><br>
-    出车时间：<%=now %><br>
     <input type="submit" value="确认"><br>
     <input type="reset" value="返回"><br>
 </form>

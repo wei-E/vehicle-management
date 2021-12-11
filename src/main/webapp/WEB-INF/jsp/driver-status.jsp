@@ -14,28 +14,26 @@
 <body>
 <div >
     <ul>
-        <li><a href="#">欢迎界面</a></li>
+        <li><a href="${pageContext.request.contextPath }/driver/welcome">欢迎界面</a></li>
         <li><a href="${pageContext.request.contextPath }/driver/info-car">车辆信息</a></li>
-        <li><a href="${pageContext.request.contextPath }/driver/information">当前状态</a></li>
+        <li><a href="${pageContext.request.contextPath }/driver/status">当前状态</a></li>
         <li><a href="${pageContext.request.contextPath }/driver/information">我的信息</a></li>
     </ul>
 </div>
 <table>
     <tr>
         <th>工号</th>
-        <th>名称</th>
+        <th>姓名</th>
         <th>状态</th>
         <th>操作</th>
     </tr>
-    <c:forEach items="" var="">
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><button id="send_car" onclick="stampBill()">出车</button></td>
-            <td><button id="return_car" onclick="stampBill1()">还车</button></td>
-        </tr>
-    </c:forEach>
+    <tr>
+        <td>${driver.id_num}</td>
+        <td>${driver.name}</td>
+        <td>${driver.status}</td>
+        <td><button id="send_car" onclick="stampBill()">出车</button></td>
+        <td><button id="return_car" onclick="stampBill1()">还车</button></td>
+    </tr>
 </table>
 </body>
 <script>
@@ -47,7 +45,6 @@
        
     }
     function stampBill1() {
-        var return_car=document.getElementById("back");
         return_car.disabled=true
         send_car.disabled=false;
     }

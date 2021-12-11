@@ -24,6 +24,12 @@ public class DriverController {
     public UserService userService;
     @Autowired
     public CarService carService;
+    @RequestMapping("/welcome")
+    public ModelAndView welcome() throws IOException {
+        ModelAndView model = new ModelAndView();
+        model.setViewName("welcome-driver");
+        return model;
+    }
     @RequestMapping("/information")
     public ModelAndView information(HttpSession session) throws IOException {
         ModelAndView model = new ModelAndView();
@@ -37,8 +43,9 @@ public class DriverController {
         ModelAndView model = new ModelAndView();
         String work_num = (String) session.getAttribute("user");
         Driver driver = userService.driver_find_one(work_num);
-        if (driver.getStatus().equals("出车中")) {
-            model.setViewName("");
+        if (driver.getStatus().equals("出车")) {
+            model.setViewName("driver-status");
+            model.addObject("driver", driver);
         } else {
             model.addObject("carList", carService.get_cars());
             model.setViewName("driver-car-information");
@@ -47,14 +54,13 @@ public class DriverController {
     }
 
     @RequestMapping("/update")
-    public ModelAndView update(String up_work_num, String up_name, String up_id_num, HttpSession session) throws IOException {
+    public ModelAndView update(String name, String id_num, HttpSession session) throws IOException {
         ModelAndView model = new ModelAndView();
         model.setViewName("driver-information");
         String work_num = (String) session.getAttribute("user");
         Driver driver = new Driver();
-        driver.setWork_num(up_work_num);
-        driver.setName(up_name);
-        driver.setId_num(up_id_num);
+        driver.setName(name);
+        driver.setId_num(id_num);
         driver.setWork_num(work_num);
         userService.update_driver(driver);
         model.addObject("driver", userService.driver_find_one(work_num));
@@ -99,10 +105,10 @@ public class DriverController {
         return model;
     }
 
-   /*  @RequestMapping("/in-car")
-    public ModelAndView in_car() throws IOException {
+    @RequestMapping("/in-car")
+    public ModelAndView in_car(HttpSession session) throws IOException {
         ModelAndView model = new ModelAndView();
-        model.setViewName("success");  //成功后跳转的界面
+        model.setViewName("welcome-driver");  //成功后跳转的界面
 
         //下面用于更新司机信息
        String work_num = (String) session.getAttribute("user");
@@ -112,7 +118,9 @@ public class DriverController {
         userService.update_driver(driver);
 
         //下面部分用于更新车辆信息
-        String license;
+        CarSend info1 = new CarSend();
+        info1.setDriver_id(work_num);
+        String license = carService.get_license(info1);
         Car car = new Car();
         car.setLicense(license);
         car.setStatus("空闲");
@@ -120,11 +128,21 @@ public class DriverController {
 
         //下面用于更新信息到派车信息表
         CarSend info = new CarSend();
-        info.setDriver_id(work_num);
+        info.setLicense(license);
         long return_time = System.currentTimeMillis();
         info.setReturn_time(return_time);
         carService.give_back(info);
 
         return model;
-    }*/
+    }
+
+    @RequestMapping("/status")
+    public ModelAndView status(HttpSession session) throws IOException {
+        ModelAndView model = new ModelAndView();
+        model.setViewName("driver-status");
+        String work_num = (String) session.getAttribute("user");
+        Driver driver = userService.driver_find_one(work_num);
+        model.addObject("driver", driver);
+        return model;
+    }
 }

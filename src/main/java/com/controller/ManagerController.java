@@ -3,7 +3,6 @@ package com.controller;
 import com.pojo.Driver;
 import com.pojo.Manager;
 import com.service.UserService;
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,13 +18,13 @@ public class ManagerController {
     @RequestMapping("/welcome")
     public ModelAndView welcome() throws IOException {
         ModelAndView model = new ModelAndView();
-        model.setViewName("welcome-manager");
+        model.setViewName("welcome/welcome-manager");
         return model;
     }
     @RequestMapping("/information-manager")
     public ModelAndView information_manager(Manager manager) throws IOException {
         ModelAndView model = new ModelAndView();
-        model.setViewName("welcome-manager");
+        model.setViewName("welcome/welcome-manager");
         if (manager != null) {
             model.addObject("managerList", userService.manager_find_condition(manager));
         } else {
@@ -36,7 +35,7 @@ public class ManagerController {
     @RequestMapping("/information-driver")
     public ModelAndView information_driver(Driver driver) throws IOException {
         ModelAndView model = new ModelAndView();
-        model.setViewName("welcome-manager");
+        model.setViewName("welcome/welcome-manager");
         if (driver != null) {
             model.addObject("driverList", userService.driver_find_condition(driver));
         } else {

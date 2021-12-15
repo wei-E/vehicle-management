@@ -1,21 +1,17 @@
 package com.controller;
 
-import com.mapper.Carmapper;
 import com.pojo.Car;
 import com.pojo.CarSend;
 import com.pojo.Driver;
-import com.pojo.Manager;
 import com.service.CarService;
 import com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Timer;
 
 @Controller
 @RequestMapping("/driver")
@@ -27,13 +23,13 @@ public class DriverController {
     @RequestMapping("/welcome")
     public ModelAndView welcome() throws IOException {
         ModelAndView model = new ModelAndView();
-        model.setViewName("welcome-driver");
+        model.setViewName("welcome/welcome-driver");
         return model;
     }
     @RequestMapping("/information")
     public ModelAndView information(HttpSession session) throws IOException {
         ModelAndView model = new ModelAndView();
-        model.setViewName("driver-information");
+        model.setViewName("driver/driver-information");
         String work_num = (String) session.getAttribute("user");
         model.addObject("driver", userService.driver_find_one(work_num));
         return model;
@@ -44,11 +40,11 @@ public class DriverController {
         String work_num = (String) session.getAttribute("user");
         Driver driver = userService.driver_find_one(work_num);
         if (driver.getStatus().equals("出车")) {
-            model.setViewName("driver-status");
+            model.setViewName("driver/driver-status");
             model.addObject("driver", driver);
         } else {
             model.addObject("carList", carService.get_cars());
-            model.setViewName("driver-car-information");
+            model.setViewName("driver/driver-car-information");
         }
         return model;
     }
@@ -56,7 +52,7 @@ public class DriverController {
     @RequestMapping("/update")
     public ModelAndView update(String name, String id_num, HttpSession session) throws IOException {
         ModelAndView model = new ModelAndView();
-        model.setViewName("driver-information");
+        model.setViewName("driver/driver-information");
         String work_num = (String) session.getAttribute("user");
         Driver driver = new Driver();
         driver.setName(name);
@@ -70,7 +66,7 @@ public class DriverController {
     @RequestMapping("driver-car-send")
     public ModelAndView driver_car_send(String license) throws IOException {
         ModelAndView model = new ModelAndView();
-        model.setViewName("driver-car-send");
+        model.setViewName("driver/driver-car-send");
         model.addObject("license", license);
         return model;
     }
@@ -78,7 +74,7 @@ public class DriverController {
     @RequestMapping("/out-car")
     public ModelAndView out_car(String reason, String license, HttpSession session) throws IOException {
         ModelAndView model = new ModelAndView();
-        model.setViewName("welcome-driver");  //成功后跳转的界面
+        model.setViewName("welcome/welcome-driver");  //成功后跳转的界面
 
         //下面部分用于更新车辆信息
         Car car = new Car();
@@ -108,7 +104,7 @@ public class DriverController {
     @RequestMapping("/in-car")
     public ModelAndView in_car(HttpSession session) throws IOException {
         ModelAndView model = new ModelAndView();
-        model.setViewName("welcome-driver");  //成功后跳转的界面
+        model.setViewName("welcome/welcome-driver");  //成功后跳转的界面
 
         //下面用于更新司机信息
        String work_num = (String) session.getAttribute("user");
@@ -139,7 +135,7 @@ public class DriverController {
     @RequestMapping("/status")
     public ModelAndView status(HttpSession session) throws IOException {
         ModelAndView model = new ModelAndView();
-        model.setViewName("driver-status");
+        model.setViewName("driver/driver-status");
         String work_num = (String) session.getAttribute("user");
         Driver driver = userService.driver_find_one(work_num);
         model.addObject("driver", driver);

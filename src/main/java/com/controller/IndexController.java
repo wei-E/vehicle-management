@@ -9,7 +9,7 @@ public class IndexController {
     @RequestMapping("/")
     public String index() {
         //设置视图名称
-        return "index";
+        return "welcome/index";
     }
 
 }

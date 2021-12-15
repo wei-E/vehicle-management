@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.annotation.HttpConstraint;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
@@ -19,9 +18,9 @@ public class UserController {
     @RequestMapping("/register-manager")
     public String register_manager(Manager manager) throws IOException {
         if (userService.manager_register(manager)) {
-            return "login-manager";
+            return "welcome/login-manager";
         } else {
-            return "register-manager";
+            return "welcome/register-manager";
         }
     }
 
@@ -31,16 +30,16 @@ public class UserController {
             session.setAttribute("user", manager.getWork_num());
             return "redirect:/manager/welcome";
         } else {
-            return "login-manager";
+            return "welcome/login-manager";
         }
     }
 
     @RequestMapping("/register-driver")
     public String register_driver(Driver driver) throws IOException {
         if (userService.driver_register(driver)) {
-            return "login-driver";
+            return "welcome/login-driver";
         } else {
-            return "register-driver";
+            return "welcome/register-driver";
         }
     }
 
@@ -50,7 +49,7 @@ public class UserController {
             session.setAttribute("user", driver.getWork_num());
             return "redirect:/driver/welcome";
         } else {
-            return "login-driver";
+            return "welcome/login-driver";
         }
     }
 }

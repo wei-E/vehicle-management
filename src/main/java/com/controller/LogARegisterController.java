@@ -9,36 +9,36 @@ public class LogARegisterController {
     @RequestMapping("/driver")
     public String driver() {
         //设置视图名称
-        return "index-driver";
+        return "welcome/index-driver";
     }
 
     @RequestMapping("/manager")
     public String manager() {
         //设置视图名称
-        return "index-manager";
+        return "welcome/index-manager";
     }
 
     @RequestMapping("/register-manager")
     public String register_manager() {
         //设置视图名称
-        return "register-manager";
+        return "welcome/register-manager";
     }
 
     @RequestMapping("/login-manager")
     public String login_manager() {
         //设置视图名称
-        return "login-manager";
+        return "welcome/login-manager";
     }
 
     @RequestMapping("/register-driver")
     public String register_driver() {
         //设置视图名称
-        return "register-driver";
+        return "welcome/register-driver";
     }
 
     @RequestMapping("/login-driver")
     public String login_driver() {
         //设置视图名称
-        return "login-driver";
+        return "welcome/login-driver";
     }
 }

@@ -20,6 +20,7 @@
             <li><a href="#">删除</a></li>
             <li><a href="#">修改</a></li>
         </ul>
+        <li><a href="#">管理员信息管理</a></li>
         <li><a href="#">车辆管理</a></li>
         <ul show="true">
             <li><a href="#">查看</a></li>

@@ -18,4 +18,5 @@ public interface UserService {
     public List<Driver> driver_find_condition(Driver driver) throws IOException;
     public Driver driver_find_one(String work_num) throws IOException;
     public void update_driver(Driver driver) throws IOException;
+    public void delete_driver(String work_num) throws IOException;
 }

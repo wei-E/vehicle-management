@@ -59,7 +59,7 @@ public class DriverController {
         driver.setId_num(id_num);
         driver.setWork_num(work_num);
         userService.update_driver(driver);
-        model.addObject("driver", userService.driver_find_one(work_num));
+        model.addObject("driver", driver);
         return model;
     }
 
@@ -104,7 +104,7 @@ public class DriverController {
     @RequestMapping("/in-car")
     public ModelAndView in_car(HttpSession session) throws IOException {
         ModelAndView model = new ModelAndView();
-        model.setViewName("welcome/welcome-driver");  //成功后跳转的界面
+        model.setViewName("redirect:/driver/status");  //成功后跳转的界面
 
         //下面用于更新司机信息
        String work_num = (String) session.getAttribute("user");

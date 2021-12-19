@@ -12,7 +12,7 @@
     <title>派车表</title>
 </head>
 <body>
-<form action="" method="post">
+<form action="${pageContext.request.contextPath}/manager/information-car-send" method="post">
     车牌:<input type="text" name="license"><br>
     工号:<input type="text" name="driver_id"><br>
     出车时间:<input type="text" name="departure_time"><br>
@@ -27,13 +27,13 @@
         <th>出车时间</th>
         <th>还车时间</th>
     </tr>
-    <c:forEach items="${managerList}" var="manager">
+    <c:forEach items="${carSendList}" var="carSend">
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>${carSend.license}</td>
+            <td>${carSend.driver_id}</td>
+            <td>${carSend.reason}</td>
+            <td>${carSend.departure_time}</td>
+            <td>${carSend.return_time}</td>
         </tr>
     </c:forEach>
 </table>

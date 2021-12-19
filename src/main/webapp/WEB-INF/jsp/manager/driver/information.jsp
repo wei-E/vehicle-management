@@ -12,28 +12,27 @@
     <title>驾驶员信息管理</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/driver/update" method="post">
+<form action="${pageContext.request.contextPath}/manager/information-driver" method="post">
     工号:<input type="text" name="work_num"><br>
     名称:<input type="text" name="name"><br>
     身份证:<input type="text" name="id_num"><br>
     <input type="submit" value="submit">
 </form>
     <table>
-        <td><button>增加</button></td>
+        <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/driver/jumpToAdd'">增加</button></td>
         <tr>
             <th>工号</th>
             <th>名称</th>
             <th>身份证</th>
             <th>操作</th>
         </tr>
-         <c:forEach items="${managerList}" var="manager">
+         <c:forEach items="${driverList}" var="driver">
         <tr>
-            <td><input value="${driver.work_num}" name="up_work_num"></td>
-            <td><input value="${driver.name}" name="up_name"></td>
-            <td><input value="${driver.id_num}" name="up_id_num"></td>
-
-            <td><button>修改</button></td>
-            <td><button>删除</button></td>
+            <td>${driver.work_num}</td>
+            <td>${driver.name}</td>
+            <td>${driver.id_num}</td>
+            <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/driver/jumpToUpdate?work_num=${driver.work_num}">修改</button></td>
+            <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/driver/delete?work_num=${driver.work_num}'">删除</button></td>
         </tr>
          </c:forEach>
     </table>

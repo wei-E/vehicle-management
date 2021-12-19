@@ -31,7 +31,7 @@
         <td>${driver.id_num}</td>
         <td>${driver.name}</td>
         <td>${driver.status}</td>
-        <td><button id="driver_status" ></button></td>
+        <td><button id="driver_status"></button></td>
     </tr>
 </table>
 </body>
@@ -46,7 +46,7 @@
             var info=rows[i].cells[2].innerHTML;
             //alert(info);
 
-            if(info == "未出车"){
+            if(info == "空闲"){
                // alert(1);
                 status.innerHTML="出车"
             }

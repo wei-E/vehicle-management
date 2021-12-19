@@ -98,4 +98,9 @@ public class UserServiceImpl implements UserService {
     public void update_driver(Driver driver) throws IOException {
         usermapper.driver_updateByCondition(driver);
     }
+
+    @Override
+    public void delete_driver(String work_num) throws IOException {
+        usermapper.driver_deleteById(work_num);
+    }
 }

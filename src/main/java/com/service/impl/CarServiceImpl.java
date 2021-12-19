@@ -45,4 +45,37 @@ public class CarServiceImpl implements CarService {
     public String get_license(CarSend carSend) throws IOException {
         return carSendmapper.carSend_selectLicense(carSend);
     }
+
+    @Override
+    public List<Car> find_car(Car car) throws IOException {
+        return carmapper.car_selectByCondition(car);
+    }
+
+    @Override
+    public void delete_car(String license) throws IOException {
+        carmapper.car_deleteBylicense(license);
+    }
+
+    @Override
+    public boolean add_car(Car car) throws IOException {
+        Car car1 = new Car();
+        car1.setLicense(car.getLicense());
+        List<Car> carList = carmapper.car_selectByCondition(car1);
+        if (carList.isEmpty()) {
+            carmapper.car_add(car);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public List<CarSend> find_car_sends(CarSend carSend) throws IOException {
+        return carSendmapper.carSend_selectByCondition(carSend);
+    }
+
+    @Override
+    public List<CarSend> get_car_sends() throws IOException {
+        return carSendmapper.carSend_selectAll();
+    }
 }

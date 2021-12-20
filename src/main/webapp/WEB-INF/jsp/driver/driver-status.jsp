@@ -36,7 +36,7 @@
 </table>
 </body>
 <script type="text/javascript">
-    window.onload=function (load) {
+    window.onload=function () {
         var tab=document.getElementById("table1");
         var rows=tab.rows;
         var status=document.getElementById("driver_status");
@@ -48,15 +48,20 @@
 
             if(info == "空闲"){
                // alert(1);
+                status.onclick=""
                 status.innerHTML="出车"
+                status.style.color="white"
+                status.style.backgroundColor="black"
             }
             else if(info == "出车"){
                // alert(2);
+                status.onclick=""
                 status.innerHTML="还车"
             }
 
         }
     }
+
 
 </script>
 </html>

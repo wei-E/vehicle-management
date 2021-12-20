@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.MaintenanceMapper">
+    <!--查询所有保养记录-->
+    <select id="maintenance_selectAll" resultType="com.pojo.Maintenance">
+        Select * from maintenance
+    </select>
+
+    <!--条件查询保养记录-->
+    <select id="maintenance_selectByCondition" parameterType="com.pojo.Maintenance" resultType="com.pojo.Maintenance">
+        select * from maintenance
+        <where>
+            <if test="license!=null">
+                and license like concat('%',#{license},'%')
+            </if>
+            <if test="pre_time!=0">
+            and  last_time&gt;=#{pre_time}
+            </if>
+            <if test="next_time!=0">
+                and last_time&lt;=#{next_time}
+            </if>
+
+        </where>
+    </select>
+
+    <!--  通过id删除  -->
+    <delete id="maintenance_deleteById" parameterType="Integer">
+        delete from maintenance where id = #{id}
+    </delete>
+
+    <!--  更新  -->
+    <update id="maintenance_updateByCondition" parameterType="com.pojo.Maintenance">
+        update maintenance
+        <set>
+            <if test="license!=null">
+                license=#{license},
+            </if>
+            <if test="last_time!=0">
+                last_time=#{last_time},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--增加车辆保养信息-->
+    <insert id="maintenance_add" parameterType="com.pojo.Maintenance">
+        insert into maintenance (license,last_time) values(#{license},#{last_time})
+    </insert>
+</mapper>

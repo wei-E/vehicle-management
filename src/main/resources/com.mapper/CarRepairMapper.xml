@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.CarRepairMapper">
+    <!--查询所有维修记录-->
+    <select id="carRepair_selectAll" resultType="com.pojo.CarRepair">
+        Select * from car_repair
+    </select>
+
+    <!--条件查询维修记录-->
+    <select id="carRepair_selectByCondition" parameterType="com.pojo.CarRepair" resultType="com.pojo.CarRepair">
+        select * from car_repair
+        <where>
+            <if test="license!=null">
+                and license like concat('%',#{license},'%')
+            </if>
+            <if test="pre_time!=0">
+                and  time&gt;=#{pre_time}
+            </if>
+            <if test="next_time!=0">
+                and time&lt;=#{next_time}
+            </if>
+        </where>
+    </select>
+
+    <!--  通过车牌号删除  -->
+    <delete id="carRepair_deleteById" parameterType="Integer">
+        delete from car_repair where id = #{id}
+    </delete>
+
+    <!--  更新  -->
+    <update id="carRepair_updateByCondition" parameterType="com.pojo.CarRepair">
+        update car_repair
+        <set>
+            <if test="license!=null">
+                license=#{license},
+            </if>
+            <if test="reason!=null">
+                reason=#{reason},
+            </if>
+            <if test="time!=0">
+                time=#{time},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--增加车辆-->
+    <insert id="carRepair_add" parameterType="com.pojo.CarRepair">
+        insert into car_repair (license,reason,time) values(#{license},#{reason},#{time})
+    </insert>
+</mapper>

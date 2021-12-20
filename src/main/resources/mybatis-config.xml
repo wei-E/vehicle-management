@@ -9,5 +9,9 @@
         <mapper resource="com.mapper/UserMapper.xml"/>
         <mapper resource="com.mapper/CarMapper.xml"/>
         <mapper resource="com.mapper/CarSendMapper.xml"/>
+        <mapper resource="com.mapper/ViolationsMapper.xml"/>
+        <mapper resource="com.mapper/CarBorrowMapper.xml"/>
+        <mapper resource="com.mapper/CarRepairMapper.xml"/>
+        <mapper resource="com.mapper/MaintenanceMapper.xml"/>
     </mappers>
 </configuration>

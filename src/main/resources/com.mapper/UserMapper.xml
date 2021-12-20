@@ -91,7 +91,7 @@
 
     <!--  通过工号删除  -->
     <delete id="driver_deleteById" parameterType="String">
-        delete driver where work_num = #{work_num}
+        delete from driver where work_num = #{work_num}
     </delete>
 
     <!--  更新  -->

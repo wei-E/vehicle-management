@@ -36,7 +36,7 @@
 
         <li><a href="#">保养管理</a></li>
         <ul show="true">
-            <li><a href="#">出借查看</a></li>
+            <li><a href="#">保养查看</a></li>
             <li><a href="#">历史信息</a></li>
         </ul>
 

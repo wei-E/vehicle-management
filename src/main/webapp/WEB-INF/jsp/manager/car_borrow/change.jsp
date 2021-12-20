@@ -12,7 +12,7 @@
 </head>
 <body>
 <form action>
-    车牌:<input type="text" name="license"><br>
+    车牌:<br>
     原因:<input type="text" name="reason"><br>
     出借时间:<input type="text" name="time"><br>
     <input type="submit" value="submit">

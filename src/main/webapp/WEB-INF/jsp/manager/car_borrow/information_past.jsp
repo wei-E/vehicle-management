@@ -9,25 +9,28 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>历史维修表</title>
+    <title>历史出借表</title>
 </head>
 <body>
 <form action="" method="post">
     车牌:<input type="text" name="license"><br>
-    累计出借时间:<input type="text" name="time"><br>
+    出借时间:<input type="text" name="time"><br>
+    原因:<input type="text" name="reason"><br>
     <input type="submit" value="find">
 </form>
 <table id="table1">
     <tr>
         <th>车牌</th>
-        <td>累计出借时间</td>
+        <td>出借时间</td>
+        <th>原因</th>
         <th>操作</th>
     </tr>
     <c:forEach items="" var="">
         <tr>
             <td></td>
             <td></td>
-            <td><button id="status"></button></td>       //累计时间大于300小时提醒需要保养 否则正常
+            <td></td>
+            <td><button>删除</button></td>
         </tr>
     </c:forEach>
 </table>
@@ -36,20 +39,19 @@
     window.onload=function (){
         var tab=document.getElementById("table1");
         var row=tab.rows;
-        var status=document.getElementById("status");
-            for(var i=1;i<row.length;i++){
-                var info=row[i].cells[1].innerHTML;
-                if(info>=300){
-                    alert("有车需要保养")
-                    status.innerHTML="需要保养"
-                    status.onclick=""
-                    status.style.color="red"
-                }
-                else{
-                    status.innerHTML="正常"
-                    status.onclick=""
-                }
-            }
+        for(var i=1;i<row.length;i++) {
+            var Y,M,D,h,m,s;
+            var strtime=row[i].cells[2].innerHTML;    //获取时间戳
+            var date=new date(strtime.replace(/-/g, '/')); //转换时间
+            Y = date.getFullYear() + '-';
+            M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+            D = date.getDate() + ' ';
+            h = date.getHours() + ':';
+            m = date.getMinutes() + ':';
+            s = date.getSeconds();
+            row[i].cells[2].innerText=Y+M+D+h+m+s;
+        }
+    }
     }
 </script>
 </html>

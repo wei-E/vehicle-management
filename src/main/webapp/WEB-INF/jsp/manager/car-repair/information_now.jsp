@@ -29,7 +29,7 @@
             <td></td>
             <td></td>
             <td><button>修改</button></td>
-            <td><button>保养完成</button></td>       //增加信息到information——past表中，并删除此行
+            <td><button>保养完成</button></td>       //删除此行
         </tr>
     </c:forEach>
 </table>

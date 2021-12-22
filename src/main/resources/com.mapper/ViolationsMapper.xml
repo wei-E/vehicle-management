@@ -14,6 +14,12 @@
             <if test="license!=null">
                 and license like concat('%',#{license},'%')
             </if>
+            <if test="name!=null">
+                and name like concat('%',#{name},'%')
+            </if>
+            <if test="work_num!=null">
+                and work_num like concat('%',#{work_num},'%')
+            </if>
             <if test="fines!=0">
                 and fines like concat('%',#{fines},'%')
             </if>

@@ -15,6 +15,8 @@
 <body>
 <form action="${pageContext.request.contextPath}/manager/information-violation" method="post">
     车牌:<input type="text" name="license"><br>
+    工号:<input type="text" name="work_num"><br>
+    姓名:<input type="text" name=""><br>
     原因:<input type="text" name="reason"><br>
     违规时间:<input type="text" name="time"><br>
     罚款金额:<input type="text" name="fines"><br>
@@ -24,6 +26,8 @@
     <td><button>增加</button></td>
     <tr>
         <th>车牌</th>
+        <th>工号</th>
+        <th>姓名</th>
         <th>原因</th>
         <th>违规时间</th>
         <th>罚款金额</th>

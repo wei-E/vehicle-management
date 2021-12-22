@@ -1,11 +1,9 @@
 package com.controller;
 
-import com.pojo.Car;
-import com.pojo.CarSend;
-import com.pojo.Driver;
-import com.pojo.Manager;
+import com.pojo.*;
 import com.service.CarService;
 import com.service.UserService;
+import com.service.ViolationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +18,8 @@ public class ManagerController {
     public UserService userService;
     @Autowired
     public CarService carService;
+    @Autowired
+    public ViolationService violationService;
     @RequestMapping("/welcome")
     public ModelAndView welcome() throws IOException {
         ModelAndView model = new ModelAndView();
@@ -67,6 +67,17 @@ public class ManagerController {
             model.addObject("carSendList", carService.find_car_sends(carSend));
         } else {    //显示全部信息
             model.addObject("carSendList", carService.get_car_sends());
+        }
+        return model;
+    }
+    @RequestMapping("/information-violation")
+    public ModelAndView information_violation(Violations violation) throws IOException {
+        ModelAndView model = new ModelAndView();
+        model.setViewName("manager/violations/information");
+        if (violation != null) {   //搜索信息
+            model.addObject("violationList", violationService.find_Violations(violation));
+        } else {    //显示全部信息
+            model.addObject("violationList", violationService.get_Violations());
         }
         return model;
     }

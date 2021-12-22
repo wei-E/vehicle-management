@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 @Controller
 @RequestMapping("/manager")
@@ -71,10 +72,34 @@ public class ManagerController {
         return model;
     }
     @RequestMapping("/information-violation")
-    public ModelAndView information_violation(Violations violation) throws IOException {
+    public ModelAndView information_violation(String license, String work_num, String name, String reason, String pre_time, String next_time, String fines) throws IOException {
         ModelAndView model = new ModelAndView();
         model.setViewName("manager/violations/information");
-        if (violation != null) {   //搜索信息
+        if (license != null && work_num != null && name != null && reason != null && pre_time != null && next_time != null && fines != null) {   //搜索信息
+            Violations violation = new Violations();
+            violation.setLicense(license);
+            violation.setWork_num(work_num);
+            violation.setName(name);
+            violation.setReason(reason);
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            if (!"".equals(pre_time) && !"".equals(next_time)) {
+                try {
+                    violation.setPre_time(sdf.parse(pre_time).getTime() / 1000);
+                    violation.setNext_time(sdf.parse(next_time).getTime() / 1000);
+                } catch (Exception e) {
+                    violation.setPre_time(0);
+                    violation.setNext_time(0);
+                    e.printStackTrace();
+                }
+            } else {
+                violation.setPre_time(0);
+                violation.setNext_time(0);
+            }
+            if (!"".equals(fines)) {
+                violation.setFines(Double.parseDouble(fines));
+            } else {
+                violation.setFines(0);
+            }
             model.addObject("violationList", violationService.find_Violations(violation));
         } else {    //显示全部信息
             model.addObject("violationList", violationService.get_Violations());

@@ -46,10 +46,9 @@
     </select>
 
     <!--查询违规信息-->
-    <select id="carSend_selectViolations" resultMap="carSendMap" parameterType="com.pojo.CarSend">
-        select * from car_send o,driver u
+    <select id="carSend_selectViolations" resultType="com.pojo.CarSend" parameterType="com.pojo.CarSend">
+        select * from car_send
         <where>
-            o.driver_id=u.work_num
             <if test="license!=null">
                 and license like concat('%',#{license},'%')
             </if>

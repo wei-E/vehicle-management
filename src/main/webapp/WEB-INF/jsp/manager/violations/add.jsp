@@ -11,7 +11,7 @@
     <title>违规信息添加</title>
 </head>
 <body>
-<form action="" method="post">
+<form action="${pageContext.request.contextPath}/manager/violation/add" method="post">
     车牌:<input type="text" name="license"><br>
     原因:<input type="text" name="reason"><br>
     违规时间:<input type="text" name="time"><br>

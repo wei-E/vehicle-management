@@ -18,12 +18,13 @@
     工号:<input type="text" name="work_num"><br>
     姓名:<input type="text" name="name"><br>
     原因:<input type="text" name="reason"><br>
-    违规时间:<input type="text" name="time"><br>
+    违规时间:<input type="text" name="pre_time"><br>
+    违规时间:<input type="text" name="next_time"><br>
     罚款金额:<input type="text" name="fines"><br>
     <input type="submit" value="find">
 </form>
 <table>
-    <td><button>增加</button></td>
+    <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/violation/jumpToAdd'">增加</button></td>
     <tr>
         <th>车牌</th>
         <th>工号</th>
@@ -38,7 +39,7 @@
         <td>${violation.work_num}</td>
         <td>${violation.name}</td>
         <td>${violation.reason}</td>
-        <td></td>
+        <td>${violation.time}</td>
         <td>${violation.fines}</td>
     </tr>
     </c:forEach>

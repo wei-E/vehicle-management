@@ -21,4 +21,8 @@ public class ViolationServiceImpl implements ViolationService {
     public List<Violations> find_Violations(Violations violation) throws IOException {
         return violationMapper.violations_selectByCondition(violation);
     }
+    @Override
+    public void add(Violations violation) throws IOException {
+        violationMapper.violations_add(violation);
+    }
 }

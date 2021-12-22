@@ -17,4 +17,5 @@ public interface CarService {
     public boolean add_car(Car car) throws IOException;
     public List<CarSend> find_car_sends(CarSend carSend) throws IOException;
     public List<CarSend> get_car_sends() throws IOException;
+    public List<CarSend> find_violation(CarSend carSend) throws IOException;
 }

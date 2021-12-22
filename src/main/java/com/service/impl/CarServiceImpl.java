@@ -20,6 +20,7 @@ import java.util.List;
 public class CarServiceImpl implements CarService {
     @Autowired
     public Carmapper carmapper;
+    @Autowired
     public CarSendmapper carSendmapper;
     @Override
     public List<Car> get_cars() throws IOException {
@@ -77,5 +78,10 @@ public class CarServiceImpl implements CarService {
     @Override
     public List<CarSend> get_car_sends() throws IOException {
         return carSendmapper.carSend_selectAll();
+    }
+
+    @Override
+    public List<CarSend> find_violation(CarSend carSend) throws IOException {
+        return carSendmapper.carSend_selectViolations(carSend);
     }
 }

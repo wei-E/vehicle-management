@@ -21,7 +21,7 @@
                 and work_num like concat('%',#{work_num},'%')
             </if>
             <if test="fines!=0">
-                and fines like concat('%',#{fines},'%')
+                and fines = #{fines}
             </if>
             <if test="pre_time!=0">
                 and  time&gt;=#{pre_time}

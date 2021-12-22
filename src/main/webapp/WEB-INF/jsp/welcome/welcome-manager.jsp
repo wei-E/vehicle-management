@@ -20,7 +20,7 @@
 
         <li><a href="${pageContext.request.contextPath}/manager/information-car">车辆管理</a></li>
 
-        <li><a href="#">违规管理</a></li>
+        <li><a href="${pageContext.request.contextPath}/manager/information-violation">违规管理</a></li>
 
         <li><a href="#">维修管理</a></li>
         <ul show="true">

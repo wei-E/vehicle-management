@@ -13,7 +13,7 @@
     <title>违规信息查看</title>
 </head>
 <body>
-<form action="" method="post">
+<form action="${pageContext.request.contextPath}/manager/information-violation" method="post">
     车牌:<input type="text" name="license"><br>
     工号:<input type="text" name="work_num"><br>
     姓名:<input type="text" name="name"><br>
@@ -32,12 +32,14 @@
         <th>违规时间</th>
         <th>罚款金额</th>
     </tr>
-    <c:forEach items="" var="">
+    <c:forEach items="${violationList}" var="violation">
     <tr>
+        <td>${violation.license}</td>
+        <td>${violation.work_num}</td>
+        <td>${violation.name}</td>
+        <td>${violation.reason}</td>
         <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>${violation.fines}</td>
     </tr>
     </c:forEach>
 

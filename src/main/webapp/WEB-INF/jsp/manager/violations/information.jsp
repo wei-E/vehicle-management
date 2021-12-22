@@ -35,8 +35,10 @@
     <c:forEach items="${violationList}" var="violation">
     <tr>
         <td>${violation.license}</td>
+        <td>${violation.work_num}</td>
+        <td>${violation.name}</td>
         <td>${violation.reason}</td>
-        <td>${violation.time}</td>
+        <td></td>
         <td>${violation.fines}</td>
     </tr>
     </c:forEach>

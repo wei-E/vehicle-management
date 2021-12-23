@@ -26,6 +26,12 @@ public class DriverController {
         model.setViewName("welcome/welcome-driver");
         return model;
     }
+    @RequestMapping("/welcome1")
+    public ModelAndView welcome1() throws IOException{
+        ModelAndView model = new ModelAndView();
+        model.setViewName("driver/welcome");
+        return model;
+    }
     @RequestMapping("/information")
     public ModelAndView information(HttpSession session) throws IOException {
         ModelAndView model = new ModelAndView();
@@ -141,4 +147,6 @@ public class DriverController {
         model.addObject("driver", driver);
         return model;
     }
+
+
 }

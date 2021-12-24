@@ -10,4 +10,5 @@ public interface MaintenanceMapper {
     public void maintenance_deleteById(Integer id);
     public void maintenance_updateByCondition(Maintenance maintenance);
     public void maintenance_add(Maintenance maintenance);
+    public void maintenance_updateTime(Maintenance maintenance);
 }

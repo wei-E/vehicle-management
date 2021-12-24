@@ -44,7 +44,12 @@
         </set>
         where id = #{id}
     </update>
-
+    <!-- 更新时间 -->
+    <update id="carRepair_updateTime" parameterType="com.pojo.CarRepair">
+        update car_repair
+        set time=#{time}
+        where license = #{license} and time=0
+    </update>
     <!--增加车辆-->
     <insert id="carRepair_add" parameterType="com.pojo.CarRepair">
         insert into car_repair (license,reason,time) values(#{license},#{reason},#{time})

@@ -11,11 +11,12 @@
     <title>车辆出借信息增加</title>
 </head>
 <body>
-<form action="" method="">
+<form action="" method="post">
     车牌:<input type="text" name="license"><br>
     原因:<input type="text" name="reason"><br>
-    出借时间:<input type="text" name="time"><br>
-    <input type="submit" value="添加">
+    时间:<input type="text" name="time"><br>
+    出借人名称:<input type="text" name="name"><br>
+    <input type="submit" value="submit">
 </form>
 </body>
 </html>

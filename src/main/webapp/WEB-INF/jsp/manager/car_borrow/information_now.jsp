@@ -12,12 +12,27 @@
     <title>车辆出借表</title>
 </head>
 <body>
-<%--套用car information.jsp--%>
 <form action="" method="post">
     车牌:<input type="text" name="license"><br>
     车辆型号:<input type="text" name="type"><br>
     状态:<input type="text" name="status"><br>
     <input type="submit" value="submit">
 </form>
+<table>
+    <tr>
+        <th>车牌</th>
+        <th>车辆型号</th>
+        <th>状态</th>
+        <th>操作</th>
+    </tr>
+    <c:forEach>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><button>还车</button></td>
+        </tr>
+    </c:forEach>
+</table>
 </body>
 </html>

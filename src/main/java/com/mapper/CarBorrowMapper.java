@@ -10,4 +10,5 @@ public interface CarBorrowMapper {
     public void carBorrow_deleteById(Integer id);
     public void carBorrow_updateByCondition(CarBorrow carBorrow);
     public void carBorrow_add(CarBorrow carBorrow);
+    public void carBorrow_updateReturn(CarBorrow carBorrow);
 }

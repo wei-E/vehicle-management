@@ -15,8 +15,8 @@
 <form action="" method="post">
     车牌:<input type="text" name="license"><br>
     原因:<input type="text" name="reason"><br>
-    时间范围: <input type="text" name="pre_time">
-            <input type="text" name="next_time"><br>
+    出借时间:<input type="text" name="pre_time"><br>
+    还车时间:<input type="text" name="next_time"><br>
     出借人名称:<input type="text" name="name"><br>
     <input type="submit" value="submit">
 </form>
@@ -24,9 +24,9 @@
     <tr>
         <th>车牌</th>
         <th>原因</th>
-        <th>时间</th>
+        <th>出借时间</th>
+        <th>还车时间</th>
         <th>出借人名称</th>
-        <th>操作</th>
     </tr>
     <c:forEach>
         <tr>
@@ -34,7 +34,7 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><button>还车</button></td>
+            <td></td>
         </tr>
     </c:forEach>
 </table>

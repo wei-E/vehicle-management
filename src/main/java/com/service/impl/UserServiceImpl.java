@@ -55,6 +55,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void update_manager(Manager manager) throws IOException {
+        usermapper.manager_updateByCondition(manager);
+    }
+
+    @Override
+    public void delete_manager(String work_num) throws IOException {
+        usermapper.manager_deleteById(work_num);
+    }
+
+    @Override
     public boolean driver_register(Driver driver) throws IOException {
         Driver driver1 = usermapper.driver_selectUserById(driver.getWork_num());
         if (driver1 == null) {

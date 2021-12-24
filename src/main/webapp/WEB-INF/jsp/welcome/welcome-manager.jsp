@@ -22,19 +22,19 @@
 
         <li><a href="${pageContext.request.contextPath}/manager/information-violation">违规管理</a></li>
 
-        <li><a href="#">维修管理</a></li>
+        <li>维修管理</li>
         <ul show="true">
             <li><a href="#">维修查看</a></li>
             <li><a href="#">历史信息</a></li>
         </ul>
 
-        <li><a href="#">出借管理</a></li>
+        <li>出借管理</li>
         <ul show="true">
             <li><a href="#">出借查看</a></li>
             <li><a href="#">历史信息</a></li>
         </ul>
 
-        <li><a href="#">保养管理</a></li>
+        <li>保养管理</li>
         <ul show="true">
             <li><a href="#">保养查看</a></li>
             <li><a href="#">历史信息</a></li>

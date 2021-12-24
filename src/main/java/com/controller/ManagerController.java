@@ -81,11 +81,11 @@ public class ManagerController {
             violation.setWork_num(work_num);
             violation.setName(name);
             violation.setReason(reason);
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Time time = new Time();
             if (!"".equals(pre_time) && !"".equals(next_time)) {
                 try {
-                    violation.setPre_time(sdf.parse(pre_time).getTime() / 1000);
-                    violation.setNext_time(sdf.parse(next_time).getTime() / 1000);
+                    violation.setPre_time(time.dateToStamp(pre_time));
+                    violation.setNext_time(time.dateToStamp(next_time));
                 } catch (Exception e) {
                     violation.setPre_time(0);
                     violation.setNext_time(0);

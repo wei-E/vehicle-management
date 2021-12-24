@@ -1,6 +1,7 @@
 package com.controller;
 
 import com.pojo.CarSend;
+import com.pojo.Time;
 import com.pojo.Violations;
 import com.service.CarService;
 import com.service.ViolationService;
@@ -29,14 +30,8 @@ public class ViolationController {
     @RequestMapping("/add")
     public ModelAndView add(String license, String reason, String time, String fines) throws IOException {
         ModelAndView model = new ModelAndView();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        long date_time;
-        try {
-            date_time = sdf.parse(time).getTime() / 1000;
-        } catch (Exception e) {
-            date_time = 0;
-            e.printStackTrace();
-        }
+        Time tool = new Time();
+        long date_time = tool.dateToStamp(time);
         CarSend carSend = new CarSend();
         carSend.setLicense(license);
         carSend.setDeparture_time(date_time);

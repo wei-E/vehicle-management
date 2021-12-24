@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 public class Time {
     public long dateToStamp(String date) {
         date = change(date);
-        System.out.println(date);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         long time = 0;
         try {

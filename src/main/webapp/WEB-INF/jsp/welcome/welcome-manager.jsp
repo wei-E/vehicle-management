@@ -38,9 +38,9 @@
 
         <li>保养管理</li>
         <ul show="true">
-            <li><a href="#">保养查看</a></li>
-            <li><a href="#">保养查看</a></li>
-            <li><a href="#">历史信息</a></li>
+            <li><a href="${pageContext.request.contextPath}/manager/main/now">保养查看</a></li>
+            <li><a href="${pageContext.request.contextPath}/manager/main/all">保养查看</a></li>
+            <li><a href="${pageContext.request.contextPath}/manager/main/past">历史信息</a></li>
         </ul>
 
         <li><a href="${pageContext.request.contextPath}/manager/information-car-send">派车情况</a></li>

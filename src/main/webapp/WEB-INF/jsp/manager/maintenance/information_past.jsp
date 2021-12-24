@@ -12,7 +12,7 @@
     <title>历史保养</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}" method="post">
+<form action="${pageContext.request.contextPath}/manager/main/past" method="post">
     车牌:<input type="text" name="license"><br>
     时间范围:<input type="text" name="pre_time">
             <input type="text" name="next_time"><br>
@@ -21,14 +21,12 @@
 <table>
     <tr>
         <th>车牌</th>
-        <th>原因</th>
         <th>时间</th>
     </tr>
-    <c:forEach >
+    <c:forEach items="${list}" var="each">
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>${each.license}</td>
+            <td>${each.last_time}</td>
         </tr>
     </c:forEach>
 </table>

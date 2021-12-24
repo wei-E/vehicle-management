@@ -12,7 +12,7 @@
     <title>车辆保养表</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}" method="post">
+<form action="${pageContext.request.contextPath}/manager/main/now" method="post">
     车牌:<input type="text" name="license"><br>
     车辆型号:<input type="text" name="type"><br>
     <input type="submit" value="find">
@@ -24,12 +24,12 @@
         <th>状态</th>
         <th>操作</th>
     </tr>
-    <c:forEach>
+    <c:forEach items="${list}" var="each">
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><button>保养完成</button></td>
+            <td>${each.license}</td>
+            <td>${each.type}</td>
+            <td>${each.status}</td>
+            <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/main/finish?license=${each.license}'">保养完成</button></td>
         </tr>
     </c:forEach>
 </table>

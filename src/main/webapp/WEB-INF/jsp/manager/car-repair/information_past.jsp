@@ -15,21 +15,17 @@
 <form action="" method="post">
     车牌:<input type="text" name="license"><br>
     原因:<input type="text" name="reason"><br>
-<%--    驾驶员:<input type="text" name="driver"><br>--%>
-
     <input type="submit" value="find">
 </form>
 <table>
     <tr>
         <th>车牌</th>
         <th>原因</th>
-        <th>操作</th>
     </tr>
     <c:forEach items="" var="">
         <tr>
             <td></td>
             <td></td>
-            <td>删除</td>
         </tr>
     </c:forEach>
 </table>

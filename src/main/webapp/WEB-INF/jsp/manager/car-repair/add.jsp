@@ -26,14 +26,12 @@
         <th>状态</th>
         <th>操作</th>
     </tr>
-    <c:forEach >
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><button>进行维修</button></td>
-        </tr>
-    </c:forEach>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><button>进行维修</button></td>
+    </tr>
 </table>
 </body>
 </html>

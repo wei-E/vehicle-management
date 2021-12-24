@@ -28,8 +28,7 @@
         <tr>
             <td></td>
             <td></td>
-            <td><button>修改</button></td>
-            <td><button>保养完成</button></td>       //删除此行
+            <td><button>保养完成</button></td>
         </tr>
     </c:forEach>
 </table>

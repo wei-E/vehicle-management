@@ -43,7 +43,9 @@ public class DriverController {
             model.setViewName("driver/driver-status");
             model.addObject("driver", driver);
         } else {
-            model.addObject("carList", carService.get_cars());
+            Car car = new Car();
+            car.setStatus("空闲");
+            model.addObject("carList", carService.find_car(car));
             model.setViewName("driver/driver-car-information");
         }
         return model;

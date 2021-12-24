@@ -19,7 +19,6 @@
     <input type="submit" value="submit">
 </form>
 <table>
-    <td><button>增加</button></td>
     <tr>
         <th>工号</th>
         <th>姓名</th>

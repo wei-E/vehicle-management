@@ -33,7 +33,6 @@
         <td>${driver.status}</td>
         <td><button id="driver_status1" onclick="javascript:window.location.href='${pageContext.request.contextPath}/driver/info-car'">出车</button></td>
         <td><button id="driver_status2" onclick="javascript:window.location.href='${pageContext.request.contextPath}/driver/in-car'">还车</button></td>
-
     </tr>
 </table>
 </body>
@@ -49,7 +48,7 @@
             if(info == "出车"){
                 status1.style.display="none"
             }
-            else{
+            else if(info=="还车"){
                 status2.style.display="none"
                 status2.style.color="white"
                 status2.style.backgroundColor="black"

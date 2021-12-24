@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>保养完成</title>
+    <title>维修完成</title>
 </head>
 <body>
 <%--从car表中找出维修车辆信息并显示，对车辆完成维修--%>

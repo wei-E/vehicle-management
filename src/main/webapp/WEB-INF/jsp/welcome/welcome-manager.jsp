@@ -7,49 +7,179 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>管理员登陆</title>
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/font.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/xadmin.css">
+    <!-- <link rel="stylesheet" href="./css/theme5.css"> -->
+    <script src="${pageContext.request.contextPath}/static/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/xadmin.js"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
 </head>
-<body>
-<div >
-    <ul>
-        <li><a href="${pageContext.request.contextPath}/manager/welcome">欢迎界面</a></li>
-
-        <li><a href="${pageContext.request.contextPath}/manager/information-driver">驾驶员信息管理</a></li>
-
-        <li><a href="${pageContext.request.contextPath}/manager/information-manager">管理员信息管理</a></li>
-
-        <li><a href="${pageContext.request.contextPath}/manager/information-car">车辆管理</a></li>
-
-        <li><a href="${pageContext.request.contextPath}/manager/information-violation">违规管理</a></li>
-
-        <li>维修管理</li>
-        <ul show="true">
-            <li><a href="${pageContext.request.contextPath}/manager/car-repair/now">维修查看</a></li>
-            <li><a href="${pageContext.request.contextPath}/manager/car-repair/all">维修查看</a></li>
-            <li><a href="${pageContext.request.contextPath}/manager/car-repair/past">历史信息</a></li>
-        </ul>
-
-        <li>出借管理</li>
-        <ul show="true">
-            <li><a href="${pageContext.request.contextPath}/manager/car-borrow/now">出借查看</a></li>
-            <li><a href="${pageContext.request.contextPath}/manager/car-borrow/all">出借查看</a></li>
-            <li><a href="${pageContext.request.contextPath}/manager/car-borrow/past">历史信息</a></li>
-        </ul>
-
-        <li>保养管理</li>
-        <ul show="true">
-            <li><a href="${pageContext.request.contextPath}/manager/main/now">保养查看</a></li>
-            <li><a href="${pageContext.request.contextPath}/manager/main/all">保养查看</a></li>
-            <li><a href="${pageContext.request.contextPath}/manager/main/past">历史信息</a></li>
-        </ul>
-
-        <li><a href="${pageContext.request.contextPath}/manager/information-car-send">派车情况</a></li>
-
-        <li><a href="${pageContext.request.contextPath}/manager/car/show">car-table</a></li>
-
-        <li><a href="${pageContext.request.contextPath}/manager/driver/show">driver-table</a></li>
-    </ul>
-</div>
+<body class="index">
+<!-- 顶部开始 -->
+     <div class="container">
+        <div class="logo">
+            <a href="${pageContext.request.contextPath}/manager/welcome">管理员登陆</a></div>
+        <div class="left_open">
+            <a><i title="展开左侧栏" class="iconfont">&#xe699;</i></a>
+        </div>
+         <ul class="layui-nav right" lay-filter="">
+             <li class="layui-nav-item">
+                 <a href="${pageContext.request.contextPath}/index/manager">退出</a></dd>
+             </li>
+         </ul>
+    </div>
+<!-- 顶部结束 -->
+<!-- 中部开始 -->
+<!-- 左侧菜单开始 -->
+    <div class="left-nav">
+        <div id="side-nav">
+            <ul id="nav">
+                <li>
+                    <a href="javascript:;">
+                        <i class="iconfont left-nav-li" lay-tips="管理员管理">&#xe6b8;</i>
+                        <cite>管理员管理</cite>
+                        <i class="iconfont nav_right">&#xe697;</i></a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a onclick="xadmin.add_tab('欢迎界面','${pageContext.request.contextPath}/manager/welcome1')">
+                                <i class="iconfont">&#xe6a7;</i>
+                                <cite>欢迎界面</cite></a>
+                        </li>
+                        <li>
+                            <a onclick="xadmin.add_tab('驾驶员信息管理','${pageContext.request.contextPath}/manager/information-driver')">
+                                <i class="iconfont">&#xe6a7;</i>
+                                <cite>驾驶员信息管理</cite></a>
+                        </li>
+                        <li>
+                            <a onclick="xadmin.add_tab('管理员信息管理','${pageContext.request.contextPath}/manager/information-manager',true)">
+                                <i class="iconfont">&#xe6a7;</i>
+                                <cite>管理员信息管理</cite></a>
+                        </li>
+                        <li>
+                            <a onclick="xadmin.add_tab('车辆管理','${pageContext.request.contextPath}/manager/information-car')">
+                                <i class="iconfont">&#xe6a7;</i>
+                                <cite>车辆管理</cite></a>
+                        </li>
+                        <li>
+                            <a onclick="xadmin.add_tab('违规管理','${pageContext.request.contextPath}/manager/information-violation')">
+                                <i class="iconfont">&#xe6a7;</i>
+                                <cite>违规管理</cite></a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="iconfont left-nav-li" lay-tips="维修管理">&#xe723;</i>
+                        <cite>维修管理</cite>
+                        <i class="iconfont nav_right">&#xe697;</i></a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a onclick="xadmin.add_tab('维修情况查看','${pageContext.request.contextPath}/manager/car-repair/now')">
+                                <i class="iconfont">&#xe6a7;</i>
+                                <cite>维修情况查看</cite></a>
+                        </li>
+                        <li>
+                            <a onclick="xadmin.add_tab('空闲车辆查看','${pageContext.request.contextPath}/manager/car-repair/all')">
+                                <i class="iconfont">&#xe6a7;</i>
+                                <cite>空闲车辆查看</cite></a>
+                        </li>
+                        <li>
+                            <a onclick="xadmin.add_tab('历史维修信息','${pageContext.request.contextPath}/manager/car-repair/past')">
+                                <i class="iconfont">&#xe6a7;</i>
+                                <cite>历史维修信息</cite></a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="iconfont left-nav-li" lay-tips="出借管理">&#xe723;</i>
+                        <cite>出借管理</cite>
+                        <i class="iconfont nav_right">&#xe697;</i></a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a onclick="xadmin.add_tab('维修情况查看','${pageContext.request.contextPath}/manager/car-repair/now')">
+                                <i class="iconfont">&#xe6a7;</i>
+                                <cite>维修情况查看</cite></a>
+                        </li>
+                        <li>
+                            <a onclick="xadmin.add_tab('空闲车辆查看','${pageContext.request.contextPath}/manager/car-repair/all')">
+                                <i class="iconfont">&#xe6a7;</i>
+                                <cite>空闲车辆查看</cite></a>
+                        </li>
+                        <li>
+                            <a onclick="xadmin.add_tab('历史维修信息','${pageContext.request.contextPath}/manager/car-repair/past')">
+                                <i class="iconfont">&#xe6a7;</i>
+                                <cite>历史维修信息</cite></a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="iconfont left-nav-li" lay-tips="保养管理">&#xe723;</i>
+                        <cite>保养管理</cite>
+                        <i class="iconfont nav_right">&#xe697;</i></a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a onclick="xadmin.add_tab('保养情况查看','${pageContext.request.contextPath}/manager/main/now')">
+                                <i class="iconfont">&#xe6a7;</i>
+                                <cite>维修情况查看</cite></a>
+                        </li>
+                        <li>
+                            <a onclick="xadmin.add_tab('空闲车辆查看','${pageContext.request.contextPath}/manager/main/all')">
+                                <i class="iconfont">&#xe6a7;</i>
+                                <cite>订单列表</cite></a>
+                        </li>
+                        <li>
+                            <a onclick="xadmin.add_tab('历史保养信息','${pageContext.request.contextPath}/manager/main/past')">
+                                <i class="iconfont">&#xe6a7;</i>
+                                <cite>订单列表1</cite></a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="iconfont left-nav-li" lay-tips="派车情况">&#xe723;</i>
+                        <cite>派车情况</cite>
+                        <i class="iconfont nav_right">&#xe697;</i></a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a onclick="xadmin.add_tab('派车情况查看','${pageContext.request.contextPath}/manager/information-car-send')">
+                                <i class="iconfont">&#xe6a7;</i>
+                                <cite>派车情况查看</cite></a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+<!-- 左侧菜单结束 -->
+<!-- 右侧主体开始 -->
+    <div class="page-content">
+        <div class="layui-tab tab" lay-filter="xbs_tab" lay-allowclose="false">
+            <ul class="layui-tab-title">
+                <li class="home">
+                    <i class="layui-icon">&#xe68e;</i>我的桌面</li></ul>
+            <div class="layui-unselect layui-form-select layui-form-selected" id="tab_right">
+                <dl>
+                    <dd data-type="this">关闭当前</dd>
+                    <dd data-type="other">关闭其它</dd>
+                    <dd data-type="all">关闭全部</dd></dl>
+            </div>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <iframe src='${pageContext.request.contextPath }/manager/welcome1' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+                </div>
+            </div>
+            <div id="tab_show"></div>
+        </div>
+    </div>
+    <div class="page-content-bg"></div>
+    <style id="theme_style"></style>
 
 </body>
 </html>

@@ -51,17 +51,11 @@ function get_car_data() {
         },
         series : [
             {
-                name:'访问来源',
+                name:'车辆类型',
                 type:'pie',
                 radius : '55%',
                 center: ['50%', '50%'],
-                data:[
-                    {value:335, name:'直接访问'},
-                    {value:310, name:'邮件营销'},
-                    {value:274, name:'联盟广告'},
-                    {value:235, name:'视频广告'},
-                    {value:400, name:'搜索引擎'}
-                ].sort(function (a, b) { return a.value - b.value}),
+                data:[],
                 roseType: 'angle',
                 label: {
                     normal: {
@@ -100,7 +94,7 @@ function get_car_data() {
     $.ajax({
         type : "post",
         async : true,
-        url : "${pageContext.request.contextPath}/manager/car-table",
+        url : "table1",
         data : {},
         dataType : "json",
 
@@ -137,38 +131,123 @@ function get_car_data() {
     $.ajax({
         type : "post",
         async : true,
-        url : "${pageContext.request.contextPath}/manager/car-table",
+        url : "table2",
         data : {},
         dataType : "json",
 
         success : function(result) {
             if (result) {
-                var cars = [];
-                var nums = [];
-                for (var i = 0; i < result.length; ++i) {
-                    cars.push(result[i].type);
-                }
-                for (var i = 0; i < result.length; ++i) {
-                    nums.push(result[i].num);
-                }
+                table2.hideLoading();
 
-                table1.hideLoading();
-
-                table1.setOption({
-                    xAxis : {
-                        data : cars
-                    },
-                    series : [ {
-                        name : '数量',
-                        data : nums
-                    } ]
+                table2.setOption({
+                    series : [
+                        {
+                            data : result.sort(function (a, b) { return a.value - b.value}),
+                        }
+                    ]
                 });
             }
 
         },
         error : function() {
             alert("图表请求数据失败!");
-            table1.hideLoading();
+            table2.hideLoading();
+        }
+    });
+}
+
+function get_driver_data() {
+    var table = echarts.init(document.getElementById('table'));
+
+    option = {
+        backgroundColor: '#2c343c',
+
+        title: {
+            text: '车辆状态',
+            left: 'center',
+            top: 20,
+            textStyle: {
+                color: '#ccc'
+            }
+        },
+
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+
+        visualMap: {
+            show: false,
+            min: 80,
+            max: 600,
+            inRange: {
+                colorLightness: [0, 1]
+            }
+        },
+        series : [
+            {
+                name:'车辆类型',
+                type:'pie',
+                radius : '55%',
+                center: ['50%', '50%'],
+                data:[],
+                roseType: 'angle',
+                label: {
+                    normal: {
+                        textStyle: {
+                            color: 'rgba(255, 255, 255, 0.3)'
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        lineStyle: {
+                            color: 'rgba(255, 255, 255, 0.3)'
+                        },
+                        smooth: 0.2,
+                        length: 10,
+                        length2: 20
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#c23531',
+                        shadowBlur: 200,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    };
+
+    table.setOption(option);
+
+    table.showLoading();
+
+    $.ajax({
+        type : "post",
+        async : true,
+        url : "table",
+        data : {},
+        dataType : "json",
+
+        success : function(result) {
+            if (result) {
+                table.hideLoading();
+
+                table.setOption({
+                    series : [
+                        {
+                            data : result.sort(function (a, b) { return a.value - b.value}),
+                        }
+                    ]
+                });
+            }
+
+        },
+        error : function() {
+            alert("图表请求数据失败!");
+            table.hideLoading();
         }
     });
 }

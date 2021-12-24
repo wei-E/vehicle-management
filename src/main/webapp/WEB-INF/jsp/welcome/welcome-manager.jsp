@@ -44,6 +44,10 @@
         </ul>
 
         <li><a href="${pageContext.request.contextPath}/manager/information-car-send">派车情况</a></li>
+
+        <li><a href="${pageContext.request.contextPath}/manager/car/show">car-table</a></li>
+
+        <li><a href="${pageContext.request.contextPath}/manager/driver/show">driver-table</a></li>
     </ul>
 </div>
 

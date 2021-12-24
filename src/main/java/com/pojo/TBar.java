@@ -2,10 +2,10 @@ package com.pojo;
 
 import java.io.Serializable;
 
-public class TCar implements Serializable {
+public class TBar implements Serializable {
     private String type;
     private int num;
-    public TCar(String type, int num) {
+    public TBar(String type, int num) {
         super();
         this.type = type;
         this.num = num;

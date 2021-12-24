@@ -2,17 +2,17 @@
 <%--
   Created by IntelliJ IDEA.
   User: jialj
-  Date: 2021/12/15
-  Time: 14:33
+  Date: 2021/12/24
+  Time: 12:18
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>车辆出借表</title>
+    <title>车辆闲置</title>
 </head>
 <body>
-<form action="" method="post">
+<form action="${pageContext.request.contextPath}/manager/car-borrow/all" method="post">
     车牌:<input type="text" name="license"><br>
     车辆型号:<input type="text" name="type"><br>
     状态:<input type="text" name="status"><br>
@@ -25,12 +25,12 @@
         <th>状态</th>
         <th>操作</th>
     </tr>
-    <c:forEach>
+    <c:forEach items="${list}" var="each">
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><button>还车</button></td>
+            <td>${each.license}</td>
+            <td>${each.type}</td>
+            <td>${each.status}</td>
+            <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car-borrow/jumpToBorrow?license=${each.license}'">出车</button></td>
         </tr>
     </c:forEach>
 </table>

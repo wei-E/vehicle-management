@@ -11,10 +11,9 @@
     <title>车辆出借信息增加</title>
 </head>
 <body>
-<form action="" method="post">
-    车牌:<input type="text" name="license"><br>
+<form action="${pageContext.request.contextPath}/manager/car-borrow/borrow" method="post">
+    车牌: ${license}<input type="text" name="license" value="${license}" hidden="hidden"><br>
     原因:<input type="text" name="reason"><br>
-    时间:<input type="text" name="time"><br>
     出借人名称:<input type="text" name="name"><br>
     <input type="submit" value="submit">
 </form>

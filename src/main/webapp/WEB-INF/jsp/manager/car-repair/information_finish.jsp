@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: jialj
@@ -12,10 +13,9 @@
 </head>
 <body>
 <%--从car表中找出维修车辆信息并显示，对车辆完成维修--%>
-<form action="">
+<form action="${pageContext.request.contextPath}/manager/car-repair/all" method="post">
     车牌:<input type="text" name="license"><br>
     车辆型号:<input type="text" name="type"><br>
-    状态:<input type="text" name="status"><br>
     <input type="submit" value="find">
 </form>
 <table>
@@ -25,12 +25,12 @@
         <th>状态</th>
         <th>操作</th>
     </tr>
-    <c:forEach>
+    <c:forEach items="${list}" var="each">
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><button>完成</button></td>
+            <td>${each.license}</td>
+            <td>${each.type}</td>
+            <td>${each.status}</td>
+            <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car-repair/jumpToRepair?license=${each.license}'">进行维修</button></td>
         </tr>
     </c:forEach>
 </table>

@@ -30,8 +30,8 @@
             <td>${manager.work_num}</td>
             <td>${manager.name}</td>
             <td>${manager.id_num}</td>
-            <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/jumpToChange?work_num=${work_num}'">修改</button></td>
-            <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/delete?work_num=${work_num}'">删除</button></td>
+            <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/jumpToChange?work_num=${manager.work_num}'">修改</button></td>
+            <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/delete?work_num=${manager.work_num}'">删除</button></td>
         </tr>
     </c:forEach>
 </table>

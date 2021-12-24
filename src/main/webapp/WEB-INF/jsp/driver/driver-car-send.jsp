@@ -22,7 +22,7 @@
     </ul>
 </div>
 <form action="${pageContext.request.contextPath}/driver/out-car" method="post">
-    车牌: <input type="text" name="license" value="${license}" disabled="disabled"><br>
+    车牌: ${license}<input type="text" name="license" value="${license}" hidden="hidden"><br>
     出车原因：<input type="text" name="reason"><br>
     <input type="submit" value="确认"><br>
     <input type="reset" value="返回"><br>

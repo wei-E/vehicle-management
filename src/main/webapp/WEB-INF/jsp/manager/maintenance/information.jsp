@@ -19,7 +19,6 @@
     <input type="submit" value="submit">
 </form>
 <table>
-    <td><button>添加</button></td>
     <tr>
         <th>车牌</th>
         <th>时间</th>

@@ -24,18 +24,21 @@
 
         <li>维修管理</li>
         <ul show="true">
-            <li><a href="#">维修查看</a></li>
-            <li><a href="#">历史信息</a></li>
+            <li><a href="${pageContext.request.contextPath}/manager/car-repair/now">维修查看</a></li>
+            <li><a href="${pageContext.request.contextPath}/manager/car-repair/all">维修查看</a></li>
+            <li><a href="${pageContext.request.contextPath}/manager/car-repair/past">历史信息</a></li>
         </ul>
 
         <li>出借管理</li>
         <ul show="true">
-            <li><a href="#">出借查看</a></li>
-            <li><a href="#">历史信息</a></li>
+            <li><a href="${pageContext.request.contextPath}/manager/car-borrow/now">出借查看</a></li>
+            <li><a href="${pageContext.request.contextPath}/manager/car-borrow/all">出借查看</a></li>
+            <li><a href="${pageContext.request.contextPath}/manager/car-borrow/past">历史信息</a></li>
         </ul>
 
         <li>保养管理</li>
         <ul show="true">
+            <li><a href="#">保养查看</a></li>
             <li><a href="#">保养查看</a></li>
             <li><a href="#">历史信息</a></li>
         </ul>

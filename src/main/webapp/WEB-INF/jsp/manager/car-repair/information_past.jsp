@@ -12,9 +12,8 @@
     <title>历史维修表</title>
 </head>
 <body>
-<form action="">
+<form action="${pageContext.request.contextPath}/manager/car-repair/past" method="post">
     车牌:<input type="text" name="license"><br>
-    原因:<input type="text" name="reason"><br>
     时间范围:<input type="text" name="pre_time">
             <input type="text" name="next_time"><br>
     <input type="submit" value="find">
@@ -25,11 +24,11 @@
         <th>原因</th>
         <th>时间</th>
     </tr>
-    <c:forEach>
+    <c:forEach items="${list}" var="each">
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>${each.license}</td>
+            <td>${each.reason}</td>
+            <td>${each.time}</td>
         </tr>
     </c:forEach>
 </table>

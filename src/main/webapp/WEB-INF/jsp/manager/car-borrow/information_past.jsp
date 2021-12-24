@@ -12,12 +12,11 @@
     <title>历史出借表</title>
 </head>
 <body>
-<form action="" method="post">
+<form action="${pageContext.request.contextPath}/manager/car-borrow/past" method="post">
     车牌:<input type="text" name="license"><br>
-    原因:<input type="text" name="reason"><br>
+    出借人名称:<input type="text" name="name"><br>
     出借时间:<input type="text" name="pre_time"><br>
     还车时间:<input type="text" name="next_time"><br>
-    出借人名称:<input type="text" name="name"><br>
     <input type="submit" value="submit">
 </form>
 <table>
@@ -28,13 +27,13 @@
         <th>还车时间</th>
         <th>出借人名称</th>
     </tr>
-    <c:forEach>
+    <c:forEach items="${list}" var="each">
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>${each.license}</td>
+            <td>${each.reason}</td>
+            <td>${each.borrow_time}</td>
+            <td>${each.return_time}</td>
+            <td>${each.name}</td>
         </tr>
     </c:forEach>
 </table>

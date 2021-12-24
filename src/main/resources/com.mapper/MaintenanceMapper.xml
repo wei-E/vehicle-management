@@ -47,4 +47,11 @@
     <insert id="maintenance_add" parameterType="com.pojo.Maintenance">
         insert into maintenance (license,last_time) values(#{license},#{last_time})
     </insert>
+
+    <!-- 更新时间 -->
+    <update id="maintenance_updateTime" parameterType="com.pojo.Maintenance">
+        update maintenance
+        set last_time=#{last_time}
+        where license = #{license} and last_time=0
+    </update>
 </mapper>

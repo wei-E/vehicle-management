@@ -18,10 +18,10 @@
                 and name like concat('%',#{name},'%')
             </if>
             <if test="pre_time!=0">
-                and  time&gt;=#{pre_time}
+                and  borrow_time&gt;=#{pre_time}
             </if>
             <if test="next_time!=0">
-                and time&lt;=#{next_time}
+                and return_time&lt;=#{next_time}
             </if>
         </where>
     </select>
@@ -53,6 +53,13 @@
 
     <!--增加出借车辆-->
     <insert id="carBorrow_add" parameterType="com.pojo.CarBorrow">
-        insert into car_borrow (license,reason,time,name) values(#{license},#{reason},#{time},#{name})
+        insert into car_borrow (license,reason,borrow_time,return_time,name) values(#{license},#{reason},#{borrow_time},#{return_time},#{name})
     </insert>
+
+    <!-- 更新还车信息 -->
+    <update id="carBorrow_updateReturn" parameterType="com.pojo.CarBorrow">
+        update car_borrow
+        set return_time=#{return_time}
+        where license = #{license} and return_time=0
+    </update>
 </mapper>

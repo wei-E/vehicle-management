@@ -14,23 +14,27 @@
 <body>
 <form action="" method="post">
     车牌:<input type="text" name="license"><br>
-    出借时间:<input type="text" name="time"><br>
     原因:<input type="text" name="reason"><br>
-    <input type="submit" value="find">
+    时间范围: <input type="text" name="pre_time">
+            <input type="text" name="next_time"><br>
+    出借人名称:<input type="text" name="name"><br>
+    <input type="submit" value="submit">
 </form>
-<table id="table1">
+<table>
     <tr>
         <th>车牌</th>
-        <td>出借时间</td>
         <th>原因</th>
+        <th>时间</th>
+        <th>出借人名称</th>
         <th>操作</th>
     </tr>
-    <c:forEach items="" var="">
+    <c:forEach>
         <tr>
             <td></td>
             <td></td>
             <td></td>
-            <td><button>删除</button></td>
+            <td></td>
+            <td><button>还车</button></td>
         </tr>
     </c:forEach>
 </table>
@@ -51,7 +55,6 @@
             s = date.getSeconds();
             row[i].cells[2].innerText=Y+M+D+h+m+s;
         }
-    }
     }
 </script>
 </html>

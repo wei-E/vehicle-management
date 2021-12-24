@@ -52,4 +52,10 @@ public class MDriverController {
         }
         return model;
     }
+    @RequestMapping("/show")
+    public ModelAndView show() throws IOException {
+        ModelAndView model = new ModelAndView();
+        model.setViewName("manager/driver/show");
+        return model;
+    }
 }

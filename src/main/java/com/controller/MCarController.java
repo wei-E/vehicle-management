@@ -55,4 +55,10 @@ public class MCarController {
         }
         return model;
     }
+    @RequestMapping("/show")
+    public ModelAndView show() throws IOException {
+        ModelAndView model = new ModelAndView();
+        model.setViewName("manager/car/show");
+        return model;
+    }
 }

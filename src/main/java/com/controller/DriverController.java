@@ -41,7 +41,7 @@ public class DriverController {
         return model;
     }
     @RequestMapping("/info-car")
-    public ModelAndView info_car(HttpSession session) throws IOException {
+    public ModelAndView info_car(HttpSession session, Car car) throws IOException {
         ModelAndView model = new ModelAndView();
         String work_num = (String) session.getAttribute("user");
         Driver driver = userService.driver_find_one(work_num);
@@ -49,8 +49,9 @@ public class DriverController {
             model.setViewName("driver/driver-status");
             model.addObject("driver", driver);
         } else {
-            Car car = new Car();
-            car.setStatus("空闲");
+            if (car == null) {
+                car = new Car();
+            }
             model.addObject("carList", carService.find_car(car));
             model.setViewName("driver/driver-car-information");
         }

@@ -31,37 +31,30 @@
         <td>${driver.id_num}</td>
         <td>${driver.name}</td>
         <td>${driver.status}</td>
-        <td><button id="driver_status"></button></td>
+        <td><button id="driver_status1" onclick="javascript:window.location.href='${pageContext.request.contextPath}/driver/info-car'">出车</button></td>
+        <td><button id="driver_status2" onclick="javascript:window.location.href='${pageContext.request.contextPath}/driver/in-car'">还车</button></td>
+
     </tr>
 </table>
 </body>
-<script type="text/javascript">
-    window.onload=function () {
-        var tab=document.getElementById("table1");
-        var rows=tab.rows;
-        var status=document.getElementById("driver_status");
-        for(var i=1;i<rows.length;i++)
-        {
-            //alert("第"+(i)+"行，第"+(3)+"列的值是:"+rows[i].cells[2].innerHTML);
+<script>
+    var tab=document.getElementById("table1");
+    var rows=tab.rows;
+    var status1=document.getElementById("driver_status1");
+    var status2=document.getElementById("driver_status2");
+    window.onload=function (){
+        for(var i=1;i<rows.length;i++) {
             var info=rows[i].cells[2].innerHTML;
-            //alert(info);
-
-            if(info == "空闲"){
-               // alert(1);
-                status.onclick=""
-                status.innerHTML="出车"
-                status.style.color="white"
-                status.style.backgroundColor="black"
+            // alert(info)
+            if(info == "出车"){
+                status1.style.display="none"
             }
-            else if(info == "出车"){
-               // alert(2);
-                status.onclick=""
-                status.innerHTML="还车"
+            else{
+                status2.style.display="none"
+                status2.style.color="white"
+                status2.style.backgroundColor="black"
             }
-
         }
     }
-
-
 </script>
 </html>

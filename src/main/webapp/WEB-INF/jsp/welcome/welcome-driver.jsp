@@ -22,14 +22,14 @@
     <!-- 顶部开始 -->
     <div class="container">
         <div class="logo">
-            <a href="welcome-driver.jsp">驾驶员登陆</a></div>
+            <a href="${pageContext.request.contextPath}/driver/welcome">驾驶员登陆</a></div>
         <div class="left_open">
             <a><i title="展开左侧栏" class="iconfont">&#xe699;</i></a>
         </div>
 
         <ul class="layui-nav right" lay-filter="">
             <li class="layui-nav-item">
-                <a href="index.jsp">退出</a></dd>
+                <a href="${pageContext.request.contextPath}/index/driver">退出</a></dd>
             </li>
         </ul>
     </div>
@@ -94,6 +94,5 @@
     <div class="page-content-bg"></div>
     <style id="theme_style"></style>
 
-</table>
 </body>
 </html>

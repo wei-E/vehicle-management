@@ -11,21 +11,46 @@
 <html>
 <head>
     <title>出车表</title>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/font.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/xadmin.css">
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/xadmin.js"></script>
 </head>
 <body>
-<div >
-    <ul>
-        <li><a href="${pageContext.request.contextPath }/driver/welcome">欢迎界面</a></li>
-        <li><a href="${pageContext.request.contextPath }/driver/info-car">车辆信息</a></li>
-        <li><a href="${pageContext.request.contextPath }/driver/status">当前状态</a></li>
-        <li><a href="${pageContext.request.contextPath }/driver/information">我的信息</a></li>
-    </ul>
+<div class="layui-fluid">
+    <div class="layui-row">
+        <form class="layui-form" action="${pageContext.request.contextPath}/driver/out-car" method="post">
+            <div class="layui-form-item">
+                <label for="license" class="layui-form-label">
+                    <span class="x-red">*</span>车牌
+                </label>
+                <div class="layui-input-inline">
+                    ${license}
+                    <input type="text" id="license" name="license" hidden="hidden">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="reason" class="layui-form-label">
+                    <span class="x-red">*</span>出车原因
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="reason" name="reason" required="" lay-verify="required"
+                           autocomplete="off" class="layui-input" hidden="hidden">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label  class="layui-form-label">
+                </label>
+                <button  class="layui-btn" lay-filter="add" lay-submit="">
+                    增加
+                </button>
+            </div>
+        </form>
+    </div>
 </div>
-<form action="${pageContext.request.contextPath}/driver/out-car" method="post">
-    车牌: ${license}<input type="text" name="license" value="${license}" hidden="hidden"><br>
-    出车原因：<input type="text" name="reason"><br>
-    <input type="submit" value="确认"><br>
-    <input type="reset" value="返回"><br>
-</form>
 </body>
 </html>

@@ -11,20 +11,47 @@
 <html>
 <head>
     <title>驾驶员信息</title>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/font.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/xadmin.css">
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/xadmin.js"></script>
 </head>
 <body>
-<div >
-    <ul>
-        <li><a href="${pageContext.request.contextPath }/driver/welcome">欢迎界面</a></li>
-        <li><a href="${pageContext.request.contextPath }/driver/info-car">车辆信息</a></li>
-        <li><a href="${pageContext.request.contextPath }/driver/status">当前状态</a></li>
-        <li><a href="${pageContext.request.contextPath }/driver/information">我的信息</a></li>
-    </ul>
+<div class="layui-fluid">
+    <div class="layui-row">
+        <form class="layui-form" action="${pageContext.request.contextPath}/driver/update" method="post">
+            <div class="layui-form-item">
+                <label for="name" class="layui-form-label">
+                    <span class="x-red">*</span>姓名
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="name" name="name" required="" lay-verify="required"
+                           autocomplete="off" class="layui-input" value="${driver.name}">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="id_num" class="layui-form-label">
+                    <span class="x-red">*</span>身份证
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="id_num" name="id_num" required="" lay-verify="phone"
+                           autocomplete="off" class="layui-input" value="${driver.id_num}">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label  class="layui-form-label">
+                </label>
+                <button  class="layui-btn" lay-filter="add" lay-submit="">
+                    修改
+                </button>
+            </div>
+        </form>
+    </div>
 </div>
-<form action="${pageContext.request.contextPath}/driver/update" method="post">
-    名称:<input type="text" name="name" value="${driver.name}"><br>
-    身份证:<input type="text" name="id_num" value="${driver.id_num}"><br>
-    <input type="submit" value="save">
-</form>
+
 </body>
 </html>

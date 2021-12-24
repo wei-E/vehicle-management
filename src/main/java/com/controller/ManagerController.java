@@ -27,6 +27,12 @@ public class ManagerController {
         model.setViewName("welcome/welcome-manager");
         return model;
     }
+    @RequestMapping("/welcome1")
+    public ModelAndView welcome1() throws IOException{
+        ModelAndView model = new ModelAndView();
+        model.setViewName("manager/welcome");
+        return model;
+    }
     @RequestMapping("/information-manager")
     public ModelAndView information_manager(Manager manager) throws IOException {
         ModelAndView model = new ModelAndView();

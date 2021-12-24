@@ -10,37 +10,66 @@
 <html>
 <head>
     <title>车辆信息</title>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/font.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/xadmin.css">
+    <!-- <link rel="stylesheet" href="./css/theme5.css"> -->
+    <script src="${pageContext.request.contextPath}/static/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/xadmin.js"></script>
 </head>
 <body>
-<div >
-    <ul>
-        <li><a href="${pageContext.request.contextPath }/driver/welcome">欢迎界面</a></li>
-        <li><a href="${pageContext.request.contextPath }/driver/info-car">车辆信息</a></li>
-        <li><a href="${pageContext.request.contextPath }/driver/status">当前状态</a></li>
-        <li><a href="${pageContext.request.contextPath }/driver/information">我的信息</a></li>
-    </ul>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-body ">
+                    <form class="layui-form layui-col-space5" action="${pageContext.request.contextPath}/driver/info-car" method="post">
+                        <div class="layui-inline layui-show-xs-block">
+                            <input class="layui-input" type="text"  autocomplete="off" placeholder="车牌" name="license">
+                        </div>
+                        <div class="layui-inline layui-show-xs-block">
+                            <input class="layui-input" type="text"  autocomplete="off" placeholder="车辆型号" name="type">
+                        </div>
+                        <div class="layui-inline layui-show-xs-block">
+                            <input class="layui-input" type="text" name="status"  placeholder="状态" autocomplete="off" >
+                        </div>
+                        <div class="layui-inline layui-show-xs-block">
+                            <button class="layui-btn"  type="submit" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="layui-card-body ">
+                    <table class="layui-table layui-form">
+                        <thead>
+                        <tr>
+                            <th>车牌</th>
+                            <th>车辆型号</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${carList}" var="car">
+                        <tr>
+                            <td>${car.license}</td>
+                            <td>${car.type}</td>
+                            <td>${car.status}</td>
+                            <td class="td-manage">
+                                <a onclick="javascript:window.location.href='${pageContext.request.contextPath}/driver/driver-car-send?license=${car.license}'"  title="出车">
+                                    <i class="layui-icon">&#xe601;</i>
+                                </a>
+                            </td>
+                        </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<form action="" method="post">
-    车牌:<input type="text" name="license"><br>
-    车辆型号:<input type="text" name="type"><br>
-    状态:<input type="text" name="status"><br>
-    <input type="submit" value="find">
-</form>
-    <table>
-        <tr>
-            <th>车牌</th>
-            <th>车辆型号</th>
-            <th>状态</th>
-            <th>操作</th>
-        </tr>
-        <c:forEach items="${carList}" var="car">
-            <tr>
-                <td>${car.license}</td>
-                <td>${car.type}</td>
-                <td>${car.status}</td>
-                <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/driver/driver-car-send?license=${car.license}'">出车</button></td>
-            </tr>
-        </c:forEach>
-    </table>
 </body>
 </html>

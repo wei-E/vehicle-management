@@ -10,44 +10,65 @@
 <html>
 <head>
     <title>车辆信息</title>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/font.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/xadmin.css">
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/xadmin.js"></script>
 </head>
 <body>
-<div >
-    <ul>
-        <li><a href="#">欢迎界面</a></li>
-        <li><a href="#">车辆管理</a></li>
-        <ul show="true">
-            <li><a href="#">查看</a></li>
-            <li><a href="#">增加</a></li>
-            <li><a href="#">删除</a></li>
-            <li><a href="#">修改</a></li>
-        </ul>
-        <li><a href="#">违规管理</a></li>
-        <ul show="true">
-            <li><a href="#">增加</a></li>
-            <li><a href="#">查看</a></li>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-body ">
+                    <form class="layui-form layui-col-space5" action="${pageContext.request.contextPath}/manager/information-car" method="post">
+                        <div class="layui-inline layui-show-xs-block">
+                            <input class="layui-input" type="text"  autocomplete="off" placeholder="车牌" name="license">
+                        </div>
+                        <div class="layui-inline layui-show-xs-block">
+                            <input class="layui-input" type="text"  autocomplete="off" placeholder="车辆型号" name="type">
+                        </div>
+                        <div class="layui-inline layui-show-xs-block">
+                            <input class="layui-input" type="text" autocomplete="off"   placeholder="状态" name="status">
+                        </div>
+                        <div class="layui-inline layui-show-xs-block">
+                            <button class="layui-btn"  type="submit" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="layui-card-header">
+                    <button class="layui-btn" onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car/jumpToAdd'"><i class="layui-icon"></i>添加</button>
+                </div>
+                <div class="layui-card-body ">
+                    <table class="layui-table layui-form">
 
-        </ul>
-        <li><a href="#">维修管理</a></li>
-        <ul show="true">
-            <li><a href="#">增加</a></li>
-            <li><a href="#">维修查看</a></li>
-            <li><a href="#">历史信息</a></li>
-        </ul>
-        <li><a href="#">出借管理</a></li>
-        <ul show="true">
-            <li><a href="#">增加</a></li>
-            <li><a href="#">出借查看</a></li>
-            <li><a href="#">历史信息</a></li>
-        </ul>
-        <li><a href="#">保养管理</a></li>
-        <ul show="true">
-            <li><a href="#">增加</a></li>
-            <li><a href="#">出借查看</a></li>
-            <li><a href="#">历史信息</a></li>
-        </ul>
-        <li><a href="#">派车情况</a></li>
-    </ul>
+                        <thead>
+                        <tr>
+                            <th>车牌</th>
+                            <th>车辆型号</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${carList}" var="car">
+                            <tr>
+                                <td>${car.license}</td>
+                                <td>${car.type}</td>
+                                <td>${car.status}</td>
+                                <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car/jumpToUpdate?license=${car.license}'">修改</button>
+                                <button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car/delete?license=${car.license}'">删除</button></td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <form action="${pageContext.request.contextPath}/manager/information-car" method="post">
     车牌:<input type="text" name="license"><br>
@@ -55,8 +76,9 @@
     状态:<input type="text" name="status"><br>
     <input type="submit" value="submit">
 </form>
+
 <table>
-    <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car/jumpToAdd">增加</button></td>
+    <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car/jumpToAdd'">增加</button></td>
     <tr>
         <th>车牌</th>
         <th>车辆型号</th>
@@ -68,8 +90,8 @@
             <td>${car.license}</td>
             <td>${car.type}</td>
             <td>${car.status}</td>
-            <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car/jumpToUpdate?license=${car.license}">修改</button></td>
-            <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car/delete?license=${car.license}">删除</button></td>
+            <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car/jumpToUpdate?license=${car.license}'">修改</button></td>
+            <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car/delete?license=${car.license}'">删除</button></td>
         </tr>
     </c:forEach>
 </table>

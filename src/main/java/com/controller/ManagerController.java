@@ -78,15 +78,14 @@ public class ManagerController {
         return model;
     }
     @RequestMapping("/information-violation")
-    public ModelAndView information_violation(String license, String work_num, String name, String reason, String pre_time, String next_time, String fines) throws IOException {
+    public ModelAndView information_violation(String license, String work_num, String name, String pre_time, String next_time, String fines) throws IOException {
         ModelAndView model = new ModelAndView();
         model.setViewName("manager/violations/information");
-        if (license != null && work_num != null && name != null && reason != null && pre_time != null && next_time != null && fines != null) {   //搜索信息
+        if (license != null && work_num != null && name != null  && pre_time != null && next_time != null && fines != null) {   //搜索信息
             Violations violation = new Violations();
             violation.setLicense(license);
             violation.setWork_num(work_num);
             violation.setName(name);
-            violation.setReason(reason);
             Time time = new Time();
             if (!"".equals(pre_time) && !"".equals(next_time)) {
                 try {

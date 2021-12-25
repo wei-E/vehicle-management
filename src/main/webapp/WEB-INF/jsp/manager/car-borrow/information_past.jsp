@@ -10,8 +10,67 @@
 <html>
 <head>
     <title>历史出借表</title>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/font.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/xadmin.css">
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/xadmin.js"></script>
 </head>
 <body>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-body ">
+                    <form class="layui-form layui-col-space5" aaction="${pageContext.request.contextPath}/manager/car-borrow/past" method="post" method="post">
+                        <div class="layui-inline layui-show-xs-block">
+                            <input class="layui-input" type="text"  autocomplete="off" placeholder="车牌" name="license">
+                        </div>
+                        <div class="layui-inline layui-show-xs-block">
+                            <input class="layui-input" type="text"  autocomplete="off" placeholder="车辆型号" name="type">
+                        </div>
+                        <div class="layui-inline layui-show-xs-block">
+                            <input class="layui-input" type="datetime-local" name="pre_time"  placeholder="出借时间" autocomplete="off" >
+                        </div>
+                        <div class="layui-inline layui-show-xs-block">
+                            <input class="layui-input" type="datetime-local" name="next_time"  placeholder="还车时间" autocomplete="off" >
+                        </div>
+                        <div class="layui-inline layui-show-xs-block">
+                            <button class="layui-btn"  type="submit" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="layui-card-body ">
+                    <table class="layui-table layui-form">
+
+                        <thead>
+                        <tr>
+                            <th>车牌</th>
+                            <th>原因</th>
+                            <th>出借时间</th>
+                            <th>还车时间</th>
+                            <th>出借人名称</th>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${list}" var="each">
+                            <tr>
+                                <td>${each.license}</td>
+                                <td>${each.reason}</td>
+                                <td>${each.borrow_time}</td>
+                                <td>${each.return_time}</td>
+                                <td>${each.name}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <form action="${pageContext.request.contextPath}/manager/car-borrow/past" method="post">
     车牌:<input type="text" name="license"><br>
     出借人名称:<input type="text" name="name"><br>

@@ -35,9 +35,6 @@
                             <input class="layui-input" type="text"  autocomplete="off" placeholder="车辆型号" name="type">
                         </div>
                         <div class="layui-inline layui-show-xs-block">
-                            <input class="layui-input" type="text" name="status"  placeholder="状态" autocomplete="off" >
-                        </div>
-                        <div class="layui-inline layui-show-xs-block">
                             <button class="layui-btn"  type="submit" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
                         </div>
                     </form>

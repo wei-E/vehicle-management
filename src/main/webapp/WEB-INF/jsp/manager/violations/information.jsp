@@ -17,7 +17,6 @@
     车牌:<input type="text" name="license"><br>
     工号:<input type="text" name="work_num"><br>
     姓名:<input type="text" name="name"><br>
-    原因:<input type="text" name="reason"><br>
     违规时间:<input type="text" name="pre_time"><br>
     违规时间:<input type="text" name="next_time"><br>
     罚款金额:<input type="text" name="fines"><br>

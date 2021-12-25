@@ -30,7 +30,7 @@
                 </label>
                 <div class="layui-input-inline">
                     ${license}
-                    <input type="text" id="license" name="license" hidden="hidden">
+                    <input type="text" id="license" name="license" hidden="hidden" value="${license}">
                 </div>
             </div>
             <div class="layui-form-item">

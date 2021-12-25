@@ -46,11 +46,6 @@
                         <i class="iconfont nav_right">&#xe697;</i></a>
                     <ul class="sub-menu">
                         <li>
-                            <a onclick="xadmin.add_tab('欢迎界面','${pageContext.request.contextPath }/driver/welcome1')">
-                                <i class="iconfont">&#xe6a7;</i>
-                                <cite>欢迎界面</cite></a>
-                        </li>
-                        <li>
                             <a onclick="xadmin.add_tab('车辆信息','${pageContext.request.contextPath }/driver/info-car')">
                                 <i class="iconfont">&#xe6a7;</i>
                                 <cite>车辆信息</cite></a>

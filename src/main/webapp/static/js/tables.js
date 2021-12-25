@@ -43,8 +43,8 @@ function get_car_data() {
 
         visualMap: {
             show: false,
-            min: 80,
-            max: 600,
+            min: 0,
+            max: 100,
             inRange: {
                 colorLightness: [0, 1]
             }
@@ -178,8 +178,8 @@ function get_driver_data() {
 
         visualMap: {
             show: false,
-            min: 80,
-            max: 600,
+            min: 0,
+            max: 100,
             inRange: {
                 colorLightness: [0, 1]
             }

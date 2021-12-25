@@ -46,29 +46,58 @@
                         <i class="iconfont nav_right">&#xe697;</i></a>
                     <ul class="sub-menu">
                         <li>
-                            <a onclick="xadmin.add_tab('欢迎界面','${pageContext.request.contextPath}/manager/welcome1')">
+                            <a onclick="xadmin.add_tab('管理员信息管理','${pageContext.request.contextPath}/manager/information-manager',true)">
                                 <i class="iconfont">&#xe6a7;</i>
-                                <cite>欢迎界面</cite></a>
+                                <cite>管理员信息管理</cite></a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="iconfont left-nav-li" lay-tips="驾驶员信息管理">&#xe723;</i>
+                        <cite>驾驶员信息管理</cite>
+                        <i class="iconfont nav_right">&#xe697;</i></a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a onclick="xadmin.add_tab('驾驶员概览','${pageContext.request.contextPath}/manager/driver/show')">
+                                <i class="iconfont">&#xe6a7;</i>
+                                <cite>驾驶员概览</cite></a>
                         </li>
                         <li>
                             <a onclick="xadmin.add_tab('驾驶员信息管理','${pageContext.request.contextPath}/manager/information-driver')">
                                 <i class="iconfont">&#xe6a7;</i>
                                 <cite>驾驶员信息管理</cite></a>
                         </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="iconfont left-nav-li" lay-tips="车辆管理">&#xe723;</i>
+                        <cite>车辆管理</cite>
+                        <i class="iconfont nav_right">&#xe697;</i></a>
+                    <ul class="sub-menu">
                         <li>
-                            <a onclick="xadmin.add_tab('管理员信息管理','${pageContext.request.contextPath}/manager/information-manager',true)">
+                            <a onclick="xadmin.add_tab('车辆概览','${pageContext.request.contextPath}/manager/car/show')">
                                 <i class="iconfont">&#xe6a7;</i>
-                                <cite>管理员信息管理</cite></a>
+                                <cite>车辆概览</cite></a>
                         </li>
                         <li>
-                            <a onclick="xadmin.add_tab('车辆管理','${pageContext.request.contextPath}/manager/information-car')">
+                            <a onclick="xadmin.add_tab('车辆信息','${pageContext.request.contextPath}/manager/information-car-send')">
                                 <i class="iconfont">&#xe6a7;</i>
-                                <cite>车辆管理</cite></a>
+                                <cite>车辆信息</cite></a>
                         </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="iconfont left-nav-li" lay-tips="违规管理">&#xe723;</i>
+                        <cite>违规管理</cite>
+                        <i class="iconfont nav_right">&#xe697;</i></a>
+                    <ul class="sub-menu">
                         <li>
-                            <a onclick="xadmin.add_tab('违规管理','${pageContext.request.contextPath}/manager/information-violation')">
+                            <a onclick="xadmin.add_tab('违规信息','${pageContext.request.contextPath}/manager/information-violation')">
                                 <i class="iconfont">&#xe6a7;</i>
-                                <cite>违规管理</cite></a>
+                                <cite>违规信息</cite></a>
                         </li>
                     </ul>
                 </li>

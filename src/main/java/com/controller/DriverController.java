@@ -52,6 +52,7 @@ public class DriverController {
             if (car == null) {
                 car = new Car();
             }
+            car.setStatus("空闲");
             model.addObject("carList", carService.find_car(car));
             model.setViewName("driver/driver-car-information");
         }
@@ -83,7 +84,7 @@ public class DriverController {
     @RequestMapping("/out-car")
     public ModelAndView out_car(String reason, String license, HttpSession session) throws IOException {
         ModelAndView model = new ModelAndView();
-        model.setViewName("welcome/welcome-driver");  //成功后跳转的界面
+        model.setViewName("redirect:/driver/info-car");  //成功后跳转的界面
 
         //下面部分用于更新车辆信息
         Car car = new Car();

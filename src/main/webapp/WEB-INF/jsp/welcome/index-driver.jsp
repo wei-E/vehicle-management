@@ -7,9 +7,21 @@
 <html>
 <head>
     <title>driver</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/static/css/welcome.css" />
+
 </head>
 <body>
-<a  href="${pageContext.request.contextPath }/index/login-driver">登录</a>
-<a  href="${pageContext.request.contextPath }/index/register-driver">注册</a>
+<div id="bigBox">
+    <h1>驾驶员</h1>
+    <div class="inputBox">
+        <form action="${pageContext.request.contextPath }/index/login-driver" method="post">
+            <input type="submit" class="inputButton" value="登录" />
+        </form>
+        <form action="${pageContext.request.contextPath }/index/register-driver" method="post">
+            <input type="submit" class="inputButton" value="注册" />
+        </form>
+    </div>
+</div>
+
 </body>
 </html>

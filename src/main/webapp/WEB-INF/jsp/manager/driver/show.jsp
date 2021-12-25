@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/table.css">
 </head>
 <body>
-<div class="table" id="table"></div>
+<div class="table2" id="table"></div>
 <script type='text/javascript'>
     get_driver_data();
 </script>

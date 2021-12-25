@@ -4,7 +4,7 @@ function get_car_data() {
 
     var option1 = {
         title : {
-            text : '不同车型的数量'
+            text : '车辆数量'
         },
         tooltip : {},
 
@@ -25,6 +25,9 @@ function get_car_data() {
     };
 
     var option2 = {
+        title : {
+            text : '车辆状态'
+        },
         tooltip : {
             trigger: 'item',
             formatter: "{a} <br/>{b} : {c} ({d}%)"
@@ -36,7 +39,7 @@ function get_car_data() {
         },
         series : [
             {
-                name: '访问来源',
+                name: '车辆状态',
                 type: 'pie',
                 radius : '55%',
                 center: ['50%', '60%'],
@@ -83,7 +86,6 @@ function get_car_data() {
                         data : cars
                     },
                     series : [ {
-                        name : '数量',
                         data : nums
                     } ]
                 });
@@ -135,6 +137,9 @@ function get_driver_data() {
     var table = echarts.init(document.getElementById('table'));
 
     var option = {
+        title : {
+            text : '驾驶员状态'
+        },
         tooltip : {
             trigger: 'item',
             formatter: "{a} <br/>{b} : {c} ({d}%)"
@@ -146,7 +151,7 @@ function get_driver_data() {
         },
         series : [
             {
-                name: '访问来源',
+                name: '驾驶员状态',
                 type: 'pie',
                 radius : '55%',
                 center: ['50%', '60%'],

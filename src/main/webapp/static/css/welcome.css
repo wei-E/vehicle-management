@@ -12,17 +12,17 @@ a{
     margin: 0 auto;
     margin-top: 100px;
     padding: 20px 50px;
-    background-color: #000000;
+    background-color: #94cba3;
     width: 500px;
     height: 400px;
     border-radius: 20px;
     text-align: center;
-    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+    background-image: linear-gradient(60deg, #cbd9c8 0%, #bcceb9 100%);
 }
 #bigBox h1
 {
     font-size: 40px;
-    color: floralwhite;
+    color: #18170f;
 }
 #bigBox .inputBox
 {
@@ -55,6 +55,6 @@ a{
     color: white;
     margin-top: 55px;
     border-radius:20px;
-    background-image: linear-gradient(to right, #b8cbb8 25%, #7eb07e 50%, #35a23b 75%, #08ad32 100%);
+    background-image: linear-gradient(to right, #b8cbb8 25%, #7eb07e 66%, #27812c 100%);
 }
 

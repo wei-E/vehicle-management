@@ -69,5 +69,12 @@
     </div>
 </div>
 
+<%
+    String message=request.getParameter("message");
+    if(message!=null){
+        out.println(message);
+    }
+%>
 </body>
+
 </html>

@@ -69,7 +69,7 @@ public class DriverController {
         driver.setId_num(id_num);
         driver.setWork_num(work_num);
         userService.update_driver(driver);
-        model.addObject("driver", driver);
+        model.addObject("driver", userService.driver_find_one(work_num));
         return model;
     }
 

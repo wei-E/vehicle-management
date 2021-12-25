@@ -2,7 +2,7 @@ function get_car_data() {
     var table1 = echarts.init(document.getElementById('table1'));
     var table2 = echarts.init(document.getElementById('table2'));
 
-    option1 = {
+    var option1 = {
         title : {
             text : '不同车型的数量'
         },
@@ -24,60 +24,27 @@ function get_car_data() {
         ]
     };
 
-    option2 = {
-        backgroundColor: '#2c343c',
-
-        title: {
-            text: '车辆状态',
-            left: 'center',
-            top: 20,
-            textStyle: {
-                color: '#ccc'
-            }
-        },
-
+    var option2 = {
         tooltip : {
             trigger: 'item',
             formatter: "{a} <br/>{b} : {c} ({d}%)"
         },
-
-        visualMap: {
-            show: false,
-            min: 0,
-            max: 100,
-            inRange: {
-                colorLightness: [0, 1]
-            }
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            data: []
         },
         series : [
             {
-                name:'车辆类型',
-                type:'pie',
+                name: '访问来源',
+                type: 'pie',
                 radius : '55%',
-                center: ['50%', '50%'],
+                center: ['50%', '60%'],
                 data:[],
-                roseType: 'angle',
-                label: {
-                    normal: {
-                        textStyle: {
-                            color: 'rgba(255, 255, 255, 0.3)'
-                        }
-                    }
-                },
-                labelLine: {
-                    normal: {
-                        lineStyle: {
-                            color: 'rgba(255, 255, 255, 0.3)'
-                        },
-                        smooth: 0.2,
-                        length: 10,
-                        length2: 20
-                    }
-                },
                 itemStyle: {
-                    normal: {
-                        color: '#c23531',
-                        shadowBlur: 200,
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
                         shadowColor: 'rgba(0, 0, 0, 0.5)'
                     }
                 }
@@ -137,12 +104,20 @@ function get_car_data() {
 
         success : function(result) {
             if (result) {
+                var names = [];
+                for (var i = 0; i < result.length; ++i) {
+                    names.push(result[i].name);
+                }
+
                 table2.hideLoading();
 
                 table2.setOption({
+                    legend: {
+                        data: names
+                    },
                     series : [
                         {
-                            data : result.sort(function (a, b) { return a.value - b.value}),
+                            data : result
                         }
                     ]
                 });
@@ -159,60 +134,27 @@ function get_car_data() {
 function get_driver_data() {
     var table = echarts.init(document.getElementById('table'));
 
-    option = {
-        backgroundColor: '#2c343c',
-
-        title: {
-            text: '车辆状态',
-            left: 'center',
-            top: 20,
-            textStyle: {
-                color: '#ccc'
-            }
-        },
-
+    var option = {
         tooltip : {
             trigger: 'item',
             formatter: "{a} <br/>{b} : {c} ({d}%)"
         },
-
-        visualMap: {
-            show: false,
-            min: 0,
-            max: 100,
-            inRange: {
-                colorLightness: [0, 1]
-            }
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            data: []
         },
         series : [
             {
-                name:'车辆类型',
-                type:'pie',
+                name: '访问来源',
+                type: 'pie',
                 radius : '55%',
-                center: ['50%', '50%'],
+                center: ['50%', '60%'],
                 data:[],
-                roseType: 'angle',
-                label: {
-                    normal: {
-                        textStyle: {
-                            color: 'rgba(255, 255, 255, 0.3)'
-                        }
-                    }
-                },
-                labelLine: {
-                    normal: {
-                        lineStyle: {
-                            color: 'rgba(255, 255, 255, 0.3)'
-                        },
-                        smooth: 0.2,
-                        length: 10,
-                        length2: 20
-                    }
-                },
                 itemStyle: {
-                    normal: {
-                        color: '#c23531',
-                        shadowBlur: 200,
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
                         shadowColor: 'rgba(0, 0, 0, 0.5)'
                     }
                 }
@@ -233,12 +175,20 @@ function get_driver_data() {
 
         success : function(result) {
             if (result) {
+                var names = [];
+                for (var i = 0; i < result.length; ++i) {
+                    names.push(result[i].name);
+                }
+
                 table.hideLoading();
 
                 table.setOption({
+                    legend: {
+                        data: names
+                    },
                     series : [
                         {
-                            data : result.sort(function (a, b) { return a.value - b.value}),
+                            data : result
                         }
                     ]
                 });

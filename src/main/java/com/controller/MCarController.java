@@ -47,6 +47,7 @@ public class MCarController {
     @RequestMapping("/add")
     public ModelAndView add(Car car) throws IOException {
         ModelAndView model = new ModelAndView();
+        car.setStatus("空闲");
         if (carService.add_car(car)) {
             model.setViewName("redirect:/manager/information-car");
         } else {

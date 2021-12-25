@@ -51,6 +51,7 @@
                             <th>工号</th>
                             <th>姓名</th>
                             <th>身份证</th>
+                            <th>状态</th>
                             <th>操作</th>
                         </thead>
                         <tbody>
@@ -59,6 +60,7 @@
                                 <td>${driver.work_num}</td>
                                 <td>${driver.name}</td>
                                 <td>${driver.id_num}</td>
+                                <td>${driver.status}</td>
                                 <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/driver/jumpToUpdate?work_num=${driver.work_num}'">修改</button>
                                <button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/driver/delete?work_num=${driver.work_num}'">删除</button></td>
                             </tr>

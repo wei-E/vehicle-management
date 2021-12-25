@@ -31,7 +31,8 @@ public class TableController {
         for (int i = 0; i < carList.size(); ++i) {
             String type = carList.get(i).getType();
             if (map.containsKey(type) == true) {
-                map.put(type, ++map.get(type));
+                int value = map.get(type);
+                map.put(type, ++value);
             } else {
                 map.put(type, 1);
             }
@@ -54,7 +55,8 @@ public class TableController {
         for (int i = 0; i < carList.size(); ++i) {
             String status = carList.get(i).getStatus();
             if (map.containsKey(status) == true) {
-                map.put(status, ++map.get(status));
+                int value = map.get(status);
+                map.put(status, ++value);
             } else {
                 map.put(status, 1);
             }
@@ -77,7 +79,8 @@ public class TableController {
         for (int i = 0; i < driverList.size(); ++i) {
             String status = driverList.get(i).getStatus();
             if (map.containsKey(status) == true) {
-                map.put(status, ++map.get(status));
+                int value = map.get(status);
+                map.put(status, ++value);
             } else {
                 map.put(status, 1);
             }

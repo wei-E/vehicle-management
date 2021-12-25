@@ -28,7 +28,7 @@ public class MCarController {
         model.setViewName("manager/car/change");
         Car car = new Car();
         car.setLicense(license);
-        model.addObject("car", carService.find_car(car));
+        model.addObject("car", carService.find_car(car).get(0));
         return model;
     }
     @RequestMapping("/update")

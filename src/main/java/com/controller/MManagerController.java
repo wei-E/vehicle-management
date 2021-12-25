@@ -26,14 +26,14 @@ public class MManagerController {
     @RequestMapping("/update")
     public ModelAndView update(Manager manager) throws IOException {
         ModelAndView model = new ModelAndView();
-        model.setViewName("redirect:/manager/information-driver");
+        model.setViewName("redirect:/manager/information-manager");
         userService.update_manager(manager);
         return model;
     }
     @RequestMapping("/delete")
     public ModelAndView delete(String work_num) throws IOException {
         ModelAndView model = new ModelAndView();
-        model.setViewName("redirect:/manager/information-driver");
+        model.setViewName("redirect:/manager/information-manager");
         userService.delete_manager(work_num);
         return model;
     }

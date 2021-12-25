@@ -25,9 +25,6 @@ function get_car_data() {
     };
 
     var option2 = {
-        title : {
-            text : '车辆状态'
-        },
         tooltip : {
             trigger: 'item',
             formatter: "{a} <br/>{b} : {c} ({d}%)"
@@ -137,9 +134,6 @@ function get_driver_data() {
     var table = echarts.init(document.getElementById('table'));
 
     var option = {
-        title : {
-            text : '驾驶员状态'
-        },
         tooltip : {
             trigger: 'item',
             formatter: "{a} <br/>{b} : {c} ({d}%)"

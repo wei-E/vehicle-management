@@ -33,9 +33,6 @@
                             <input class="layui-input" type="text"  autocomplete="off" placeholder="车辆型号" name="type">
                         </div>
                         <div class="layui-inline layui-show-xs-block">
-                            <input class="layui-input" type="text" name="status"  placeholder="状态" autocomplete="off" >
-                        </div>
-                        <div class="layui-inline layui-show-xs-block">
                             <button class="layui-btn"  type="submit" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
                         </div>
                     </form>
@@ -56,7 +53,7 @@
                                 <td>${each.license}</td>
                                 <td>${each.type}</td>
                                 <td>${each.status}</td>
-                                <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car-borrow/jumpToBorrow?license=${each.license}'">出车</button></td>
+                                <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car-borrow/jumpToBorrow?license=${each.license}'">出借</button></td>
                             </tr>
                         </c:forEach>
                         </tbody>
@@ -66,27 +63,6 @@
         </div>
     </div>
 </div>
-<form action="${pageContext.request.contextPath}/manager/car-borrow/all" method="post">
-    车牌:<input type="text" name="license"><br>
-    车辆型号:<input type="text" name="type"><br>
-    状态:<input type="text" name="status"><br>
-    <input type="submit" value="submit">
-</form>
-<table>
-    <tr>
-        <th>车牌</th>
-        <th>车辆型号</th>
-        <th>状态</th>
-        <th>操作</th>
-    </tr>
-    <c:forEach items="${list}" var="each">
-        <tr>
-            <td>${each.license}</td>
-            <td>${each.type}</td>
-            <td>${each.status}</td>
-            <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car-borrow/jumpToBorrow?license=${each.license}'">出车</button></td>
-        </tr>
-    </c:forEach>
-</table>
+
 </body>
 </html>

@@ -29,7 +29,7 @@
 
         <ul class="layui-nav right" lay-filter="">
             <li class="layui-nav-item">
-                <a href="${pageContext.request.contextPath}/index/driver">退出</a></dd>
+                <a href="${pageContext.request.contextPath}/">退出</a></dd>
             </li>
         </ul>
     </div>

@@ -70,30 +70,6 @@
         </div>
     </div>
 </div>
-<form action="${pageContext.request.contextPath}/manager/information-car" method="post">
-    车牌:<input type="text" name="license"><br>
-    车辆型号:<input type="text" name="type"><br>
-    状态:<input type="text" name="status"><br>
-    <input type="submit" value="submit">
-</form>
 
-<table>
-    <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car/jumpToAdd'">增加</button></td>
-    <tr>
-        <th>车牌</th>
-        <th>车辆型号</th>
-        <th>状态</th>
-        <th>操作</th>
-    </tr>
-    <c:forEach items="${carList}" var="car">
-        <tr>
-            <td>${car.license}</td>
-            <td>${car.type}</td>
-            <td>${car.status}</td>
-            <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car/jumpToUpdate?license=${car.license}'">修改</button></td>
-            <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car/delete?license=${car.license}'">删除</button></td>
-        </tr>
-    </c:forEach>
-</table>
 </body>
 </html>

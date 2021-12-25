@@ -10,10 +10,11 @@
     <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script>
     <script src="${pageContext.request.contextPath}/static/js/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/static/js/tables.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/table.css">
 </head>
 <body>
-<div id="table1" style="width: 600px; height: 400px;"></div>
-<div id="table2" style="width: 600px; height: 400px;"></div>
+<div class="table" id="table1"></div>
+<div class="table" id="table2"></div>
 <script type='text/javascript'>
     get_car_data();
 </script>

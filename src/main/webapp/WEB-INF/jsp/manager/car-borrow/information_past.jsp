@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/xadmin.css">
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/lib/layui/layui.js" charset="utf-8"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/xadmin.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/tables.js"></script>
 </head>
 <body>
 <div class="layui-fluid">
@@ -25,7 +26,7 @@
         <div class="layui-col-md12">
             <div class="layui-card">
                 <div class="layui-card-body ">
-                    <form class="layui-form layui-col-space5" aaction="${pageContext.request.contextPath}/manager/car-borrow/past" method="post" method="post">
+                    <form class="layui-form layui-col-space5" action="${pageContext.request.contextPath}/manager/car-borrow/past"  method="post">
                         <div class="layui-inline layui-show-xs-block">
                             <input class="layui-input" type="text"  autocomplete="off" placeholder="车牌" name="license">
                         </div>
@@ -44,7 +45,7 @@
                     </form>
                 </div>
                 <div class="layui-card-body ">
-                    <table class="layui-table layui-form">
+                    <table id="table1" class="layui-table layui-form">
 
                         <thead>
                         <tr>
@@ -71,47 +72,20 @@
         </div>
     </div>
 </div>
-<form action="${pageContext.request.contextPath}/manager/car-borrow/past" method="post">
-    车牌:<input type="text" name="license"><br>
-    出借人名称:<input type="text" name="name"><br>
-    出借时间:<input type="text" name="pre_time"><br>
-    还车时间:<input type="text" name="next_time"><br>
-    <input type="submit" value="submit">
-</form>
-<table>
-    <tr>
-        <th>车牌</th>
-        <th>原因</th>
-        <th>出借时间</th>
-        <th>还车时间</th>
-        <th>出借人名称</th>
-    </tr>
-    <c:forEach items="${list}" var="each">
-        <tr>
-            <td>${each.license}</td>
-            <td>${each.reason}</td>
-            <td>${each.borrow_time}</td>
-            <td>${each.return_time}</td>
-            <td>${each.name}</td>
-        </tr>
-    </c:forEach>
-</table>
+
 </body>
 <script>
     window.onload=function (){
         var tab=document.getElementById("table1");
         var row=tab.rows;
         for(var i=1;i<row.length;i++) {
-            var Y,M,D,h,m,s;
-            var strtime=row[i].cells[2].innerHTML;    //获取时间戳
-            var date=new date(strtime.replace(/-/g, '/')); //转换时间
-            Y = date.getFullYear() + '-';
-            M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
-            D = date.getDate() + ' ';
-            h = date.getHours() + ':';
-            m = date.getMinutes() + ':';
-            s = date.getSeconds();
-            row[i].cells[2].innerText=Y+M+D+h+m+s;
+            var strtime=row[i].cells[2].innerHTML; //获取时间戳
+            strtime=stampToDate(strtime);
+            row[i].cells[2].innerHTML=strtime;
+
+            strtime=row[i].cells[3].innerHTML; //获取时间戳
+            strtime=stampToDate(strtime);
+            row[i].cells[3].innerHTML=strtime;
         }
     }
 </script>

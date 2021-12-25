@@ -78,13 +78,6 @@
     </div>
 </div>
 
-<form action="${pageContext.request.contextPath}/manager/driver/update" method="post">
-    工号
-    名称:<input type="text" name="name"><br>
-    密码:<input type="text" name="password"><br>
-    身份证:<input type="text" name="id_num"><br>
-    状态
-    <input type="submit" value="submit">
-</form>
+
 </body>
 </html>

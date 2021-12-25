@@ -251,3 +251,6 @@ function get_driver_data() {
         }
     });
 }
+function stampToDate(stamp) {
+    return new Date(parseInt(stamp) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');
+}

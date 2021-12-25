@@ -104,8 +104,7 @@ public class DriverController {
         info.setDriver_id(work_num);
         info.setLicense(license);
         info.setReason(reason);
-        long departure_time = System.currentTimeMillis();
-        info.setDeparture_time(departure_time);
+        info.setDeparture_time(System.currentTimeMillis() / 1000);
         carService.add_info_car(info);
 
         return model;
@@ -135,8 +134,7 @@ public class DriverController {
         //下面用于更新信息到派车信息表
         CarSend info = new CarSend();
         info.setLicense(license);
-        long return_time = System.currentTimeMillis();
-        info.setReturn_time(return_time);
+        info.setReturn_time(System.currentTimeMillis() / 1000);
         carService.give_back(info);
 
         return model;

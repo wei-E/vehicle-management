@@ -29,7 +29,7 @@
         </div>
          <ul class="layui-nav right" lay-filter="">
              <li class="layui-nav-item">
-                 <a href="${pageContext.request.contextPath}/index/manager">退出</a></dd>
+                 <a href="${pageContext.request.contextPath}/">退出</a></dd>
              </li>
          </ul>
     </div>
@@ -82,7 +82,7 @@
                                 <cite>车辆概览</cite></a>
                         </li>
                         <li>
-                            <a onclick="xadmin.add_tab('车辆信息','${pageContext.request.contextPath}/manager/information-car-send')">
+                            <a onclick="xadmin.add_tab('车辆信息','${pageContext.request.contextPath}/manager/information-car')">
                                 <i class="iconfont">&#xe6a7;</i>
                                 <cite>车辆信息</cite></a>
                         </li>
@@ -131,19 +131,19 @@
                         <i class="iconfont nav_right">&#xe697;</i></a>
                     <ul class="sub-menu">
                         <li>
-                            <a onclick="xadmin.add_tab('维修情况查看','${pageContext.request.contextPath}/manager/car-repair/now')">
+                            <a onclick="xadmin.add_tab('出借情况查看','${pageContext.request.contextPath}/manager/car-borrow/now')">
                                 <i class="iconfont">&#xe6a7;</i>
-                                <cite>维修情况查看</cite></a>
+                                <cite>出借情况查看</cite></a>
                         </li>
                         <li>
-                            <a onclick="xadmin.add_tab('空闲车辆查看','${pageContext.request.contextPath}/manager/car-repair/all')">
+                            <a onclick="xadmin.add_tab('空闲车辆查看','${pageContext.request.contextPath}/manager/car-borrow/all')">
                                 <i class="iconfont">&#xe6a7;</i>
                                 <cite>空闲车辆查看</cite></a>
                         </li>
                         <li>
-                            <a onclick="xadmin.add_tab('历史维修信息','${pageContext.request.contextPath}/manager/car-repair/past')">
+                            <a onclick="xadmin.add_tab('历史出借信息','${pageContext.request.contextPath}/manager/car-borrow/past')">
                                 <i class="iconfont">&#xe6a7;</i>
-                                <cite>历史维修信息</cite></a>
+                                <cite>历史出借信息</cite></a>
                         </li>
                     </ul>
                 </li>
@@ -160,13 +160,13 @@
                         </li>
                         <li>
                             <a onclick="xadmin.add_tab('空闲车辆查看','${pageContext.request.contextPath}/manager/main/all')">
-                                <i class="iconfont">&#xe6a7;</i>
-                                <cite>订单列表</cite></a>
+                                    <i class="iconfont">&#xe6a7;</i>
+                                <cite>空闲车辆查看</cite></a>
                         </li>
                         <li>
                             <a onclick="xadmin.add_tab('历史保养信息','${pageContext.request.contextPath}/manager/main/past')">
                                 <i class="iconfont">&#xe6a7;</i>
-                                <cite>订单列表1</cite></a>
+                                <cite>历史保养信息</cite></a>
                         </li>
                     </ul>
                 </li>

@@ -67,10 +67,18 @@ public class ManagerController {
         return model;
     }
     @RequestMapping("/information-car-send")
-    public ModelAndView information_car_send(CarSend carSend) throws IOException {
+    public ModelAndView information_car_send(String license ,String driver_id,String departure_time, String return_time ) throws IOException {
         ModelAndView model = new ModelAndView();
         model.setViewName("manager/send-car");
-        if (carSend != null) {   //搜索信息
+        if (license != null && driver_id != null && departure_time !=null && return_time != null) {//搜索信息
+            CarSend carSend=new CarSend();
+            Time time = new Time();
+            carSend.setLicense(license);
+            carSend.setDriver_id(driver_id);
+            if(!"".equals(departure_time)&&!"".equals(return_time)){
+                carSend.setDeparture_time(time.dateToStamp(departure_time));
+                carSend.setReturn_time(time.dateToStamp(return_time));
+            }
             model.addObject("carSendList", carService.find_car_sends(carSend));
         } else {    //显示全部信息
             model.addObject("carSendList", carService.get_car_sends());

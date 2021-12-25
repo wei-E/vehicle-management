@@ -12,12 +12,13 @@ a{
     margin: 0 auto;
     margin-top: 100px;
     padding: 20px 50px;
-    background-color: #94cba3;
+    background-color: #ffffff;
     width: 500px;
     height: 400px;
-    border-radius: 20px;
+    border-radius: 10px;
     text-align: center;
-    background-image: linear-gradient(60deg, #cbd9c8 0%, #bcceb9 100%);
+    animation-name: myMove;
+    animation-duration: 0.5s;
 }
 #bigBox h1
 {
@@ -37,7 +38,7 @@ a{
     border: 0;
     padding: 10px 10px;
     border-bottom: 1px solid white;
-    background-color: #00000000;
+    background-color: #000000;
     color: white;
     width: 200px;
     height: 40px;
@@ -50,11 +51,29 @@ a{
 #bigBox .inputBox .inputButton
 {
     border: 0;
-    width: 200px;
-    height: 50px;
+    width: 400px;
+    height: 100px;
     color: white;
-    margin-top: 55px;
-    border-radius:20px;
-    background-image: linear-gradient(to right, #b8cbb8 25%, #7eb07e 66%, #27812c 100%);
+    border-radius:10px;
+    background-color:  #189F92 ;
+    font-size: 35px;
+    transition: all 0.5s;
+    font-family: "fangsong";
+}
+#bigBox .inputBox .inputButton:hover
+{
+    border: 0;
+    width: 400px;
+    height: 100px;
+    color: white;
+    border-radius:10px;
+    background-color: #0f675f;
+    font-size: 35px;
+    font-family: "fangsong";
+
 }
 
+@keyframes myMove {
+    from {margin-top: 300px}
+    to {margin-top: 100px}
+}

@@ -27,8 +27,7 @@
                     <span class="x-red">*</span>工号
                 </label>
                 <div class="layui-input-inline">
-                    ${driver.work_num}
-                    <input type="text" id="work_num" name="work_num" value="${driver.work_num}" hidden="hidden">
+                    <input type="text" id="work_num" name="work_num" value="${driver.work_num}" readonly="readonly" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item">
@@ -37,7 +36,7 @@
                 </label>
                 <div class="layui-input-inline">
                     <input type="text" id="name" name="name" required="" lay-verify="phone"
-                           autocomplete="off" class="layui-input" >
+                           autocomplete="off" class="layui-input" value="${driver.name}">
                 </div>
             </div>
             <div class="layui-form-item">
@@ -46,7 +45,7 @@
                 </label>
                 <div class="layui-input-inline">
                     <input type="text" id="password" name="password" required="" lay-verify="phone"
-                           autocomplete="off" class="layui-input" >
+                           autocomplete="off" class="layui-input" value="${driver.password}" >
                 </div>
             </div>
             <div class="layui-form-item">
@@ -55,7 +54,7 @@
                 </label>
                 <div class="layui-input-inline">
                     <input type="text" id="id_num" name="id_num" required="" lay-verify="phone"
-                           autocomplete="off" class="layui-input" >
+                           autocomplete="off" class="layui-input" value="${driver.id_num}" >
                 </div>
             </div>
             <div class="layui-form-item">
@@ -63,8 +62,7 @@
                     <span class="x-red">*</span>状态
                 </label>
                 <div class="layui-input-inline">
-                    ${driver.status}
-                    <input type="text" id="status" name="status"class="layui-input" value="${driver.status}" hidden="hidden">
+                    <input type="text" id="status" name="status" value="${driver.status}" readonly="readonly" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item">

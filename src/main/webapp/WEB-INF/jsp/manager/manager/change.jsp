@@ -27,8 +27,7 @@
                     <span class="x-red">*</span>工号
                 </label>
                 <div class="layui-input-inline">
-                    ${manager.work_num}
-                    <input type="text" id="work_num" name="work_num" value="${manager.work_num}" hidden="hidden">
+                    <input class="layui-input" type="text" id="work_num" name="work_num" value="${manager.work_num}" readonly="readonly">
                 </div>
             </div>
             <div class="layui-form-item">

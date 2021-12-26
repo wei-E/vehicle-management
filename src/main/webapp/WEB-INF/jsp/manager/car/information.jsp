@@ -59,8 +59,16 @@
                                 <td>${car.license}</td>
                                 <td>${car.type}</td>
                                 <td>${car.status}</td>
-                                <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car/jumpToUpdate?license=${car.license}'">修改</button>
-                                <button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car/delete?license=${car.license}'">删除</button></td>
+                                <td>
+
+                                    <a title="编辑"  onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car/jumpToUpdate?license=${car.license}'">
+                                        <i class="layui-icon">&#xe642;编辑</i>
+                                    </a>
+                                    <a title="删除" onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car/delete?license=${car.license}'">
+                                        <i class="layui-icon">&#xe640;删除</i>
+                                    </a>
+<%--                                    <button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car/jumpToUpdate?license=${car.license}'">修改</button>--%>
+<%--                                <button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car/delete?license=${car.license}'">删除</button></td>--%>
                             </tr>
                         </c:forEach>
                         </tbody>

@@ -31,6 +31,12 @@
         <input type="password" placeholder="密码" name="password" lay-verify="required"  required="required" class="layui-input"><br/>
         <hr class="hr15">
         <input type="submit" value="登录" lay-submit lay-filter="login" style="width:100%;" lay-verify="required"><br/>
+        <%
+            String message=request.getParameter("message");
+            if(message!=null){
+                out.println(message);
+            }
+        %>
 </form>
 </div>
 </body>

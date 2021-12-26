@@ -79,6 +79,12 @@
                 </button>
             </div>
         </form>
+        <%
+            String message=request.getParameter("message");
+            if(message!=null){
+                out.println(message);
+            }
+        %>
 <%--        <form action="${pageContext.request.contextPath}/user/register-manager" method="post">--%>
 <%--            姓名<input type="text" name="name"><br/>--%>
 <%--            身份证号<input type="text" name="id_num"><br/>--%>

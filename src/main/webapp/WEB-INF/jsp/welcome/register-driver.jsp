@@ -79,6 +79,12 @@
                 </button>
             </div>
         </form>
+        <%
+            String message=request.getParameter("message");
+            if(message!=null){
+                out.println(message);
+            }
+        %>
     </div>
 </div>
 </body>

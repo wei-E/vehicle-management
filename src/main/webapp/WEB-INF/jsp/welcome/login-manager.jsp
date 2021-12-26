@@ -24,20 +24,24 @@
 <body class="login-bg">
 <div class="login layui-anim layui-anim-up">
     <div class="message">管理员登陆</div>
-    <div id="darkbannerwrap"></div>
-    <form action="${pageContext.request.contextPath}/user/login-manager" method="post"class="layui-form">
-        <input type="text" placeholder="工号" name="work_num" lay-verify="required"  required="required" class="layui-input"><br/>
-        <hr class="hr15">
-        <input type="password" placeholder="密码" name="password" lay-verify="required"  required="required" class="layui-input"><br/>
-        <hr class="hr15">
-        <input type="submit" value="登录" lay-submit lay-filter="login" style="width:100%;" lay-verify="required"><br/>
-        <%
-            String message=request.getParameter("message");
-            if(message!=null){
-                out.println(message);
-            }
-        %>
-</form>
+        <div id="darkbannerwrap"></div>
+            <form action="${pageContext.request.contextPath}/user/login-manager" method="post"class="layui-form">
+                <input type="text" placeholder="工号" name="work_num" lay-verify="required"  required="required" class="layui-input"><br/>
+                <hr class="hr15">
+                <input type="password" placeholder="密码" name="password" lay-verify="required"  required="required" class="layui-input"><br/>
+                <hr class="hr15">
+                <input type="submit" value="登录" lay-submit lay-filter="login" style="width:100%;" lay-verify="required"><br/>
+
+            </form>
 </div>
 </body>
+<script type="text/javascript">
+    window.onload=function (){
+        var message='${message}';
+        if( message != null && message != ""){
+            alert(message);
+        }
+    }
+
+</script>
 </html>

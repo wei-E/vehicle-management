@@ -72,20 +72,24 @@
                 </div>
             </div>
             <div class="layui-form-item">
-                <label for="L_repass" class="layui-form-label">
+                <label class="layui-form-label">
                 </label>
                 <button  class="layui-btn" lay-filter="add" lay-submit="" >
                     确认
                 </button>
             </div>
         </form>
-        <%
-            String message=request.getParameter("message");
-            if(message!=null){
-                out.println(message);
-            }
-        %>
+
     </div>
 </div>
 </body>
+<script type="text/javascript">
+    window.onload=function (){
+        var message='${message}';
+        if( message != null && message != ""){
+            alert(message);
+        }
+    }
+
+</script>
 </html>

@@ -31,13 +31,17 @@
             <input type="password" placeholder="密码" name="password" lay-verify="required"  required="required" class="layui-input" lay-verify="required"><br/>
             <hr class="hr15">
             <input type="submit" value="登录" lay-submit lay-filter="login" style="width:100%;" ><br/>
-            <%
-                String message=request.getParameter("message");
-                if(message!=null){
-                    out.println(message);
-                }
-            %>
+
         </form>
 </div>
 </body>
+<script type="text/javascript">
+    window.onload=function (){
+        var message='${message}';
+        if( message != null && message != ""){
+            alert(message);
+        }
+    }
+
+</script>
 </html>

@@ -45,6 +45,7 @@
                                     <a id="driver_status2" title="还车" onclick="javascript:window.location.href='${pageContext.request.contextPath}/driver/in-car'">
                                         <i class="layui-icon">&#xe640;还车</i>
                                     </a>
+                                </td>
 <%--                                    <button id="driver_status1" onclick="javascript:window.location.href='${pageContext.request.contextPath}/driver/info-car'">出车</button>--%>
 <%--                                    <button id="driver_status2" onclick="javascript:window.location.href='${pageContext.request.contextPath}/driver/in-car'">还车</button></td>--%>
                             </tr>

@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/xadmin.css">
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/lib/layui/layui.js" charset="utf-8"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/xadmin.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/tables.js"></script>
 </head>
 <body>
 <div class="layui-fluid">
@@ -38,14 +39,17 @@
                     </form>
                 </div>
                 <div class="layui-card-body ">
-                    <table class="layui-table layui-form">
+                    <table id="table1" class="layui-table layui-form">
 
                         <thead>
                         <tr>
                             <th>车牌</th>
                             <th>车辆型号</th>
                             <th>状态</th>
+                            <th>上次保养时间</th>
+                            <th>保养建议</th>
                             <th>操作</th>
+                        </tr>
                         </thead>
                         <tbody>
                         <c:forEach items="${list}" var="each">
@@ -53,10 +57,13 @@
                                 <td>${each.license}</td>
                                 <td>${each.type}</td>
                                 <td>${each.status}</td>
+                                <td>${each.time}</td>
+                                <td></td>
                                 <td>
                                     <a title="保养"  onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/main/main?license=${each.license}'">
                                         <i class="layui-icon">&#xe716;保养</i>
                                     </a>
+                                </td>
 
 <%--                                    <button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/main/main?license=${each.license}'">保养</button></td>--%>
                             </tr>
@@ -71,4 +78,29 @@
 
 
 </body>
+<script>
+    window.onload=function (){
+        var tab=document.getElementById("table1");
+        var row=tab.rows;
+        for(var i=1;i<row.length;i++) {
+            var strtime=row[i].cells[3].innerHTML; //获取时间戳
+            if(strtime==0){
+                row[i].cells[3].innerHTML="无保养记录"
+                row[i].cells[4].innerHTML="/";
+            }
+            else{
+                var current = Date.parse(new Date()) / 1000;
+                if (current - strtime > 15811200) {
+                    strtime=stampToDate(strtime);
+                    row[i].cells[3].innerHTML=strtime;
+                    row[i].cells[4].innerHTML="建议保养";
+                } else {
+                    strtime=stampToDate(strtime);
+                    row[i].cells[3].innerHTML=strtime;
+                    row[i].cells[4].innerHTML="不需保养";
+                }
+            }
+        }
+    }
+</script>
 </html>

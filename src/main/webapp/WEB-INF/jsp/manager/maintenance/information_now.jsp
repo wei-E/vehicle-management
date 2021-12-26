@@ -58,6 +58,7 @@
                                     <a title="保养完成"  onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/main/finish?license=${each.license}'">
                                         <i class="layui-icon">&#x1005;保养完成</i>
                                     </a>
+                                </td>
 <%--                                    <button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/main/finish?license=${each.license}'">保养完成</button></td>--%>
                             </tr>
                         </c:forEach>

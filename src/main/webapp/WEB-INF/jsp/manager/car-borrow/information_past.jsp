@@ -84,11 +84,11 @@
             row[i].cells[2].innerHTML=strtime;
 
             strtime=row[i].cells[3].innerHTML; //获取时间戳
-            strtime=stampToDate(strtime);
             if(strtime==0){
                 row[i].cells[3].innerHTML='/'
             }
             else{
+                strtime=stampToDate(strtime);
                 row[i].cells[3].innerHTML=strtime;
             }
         }

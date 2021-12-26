@@ -68,6 +68,7 @@
                                     <a title="删除" onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/manager/delete?work_num=${manager.work_num}'">
                                         <i class="layui-icon">&#xe640;删除</i>
                                     </a>
+                                </td>
 <%--                                    <button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/driver/jumpToUpdate?work_num=${driver.work_num}'">修改</button>--%>
 <%--                               <button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/driver/delete?work_num=${driver.work_num}'">删除</button></td>--%>
                             </tr>

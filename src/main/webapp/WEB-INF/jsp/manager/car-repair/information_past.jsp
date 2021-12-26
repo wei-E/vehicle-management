@@ -72,8 +72,13 @@
         var row=tab.rows;
         for(var i=1;i<row.length;i++) {
             var strtime=row[i].cells[2].innerHTML; //获取时间戳
-            strtime=stampToDate(strtime);
-            row[i].cells[2].innerHTML=strtime;
+            if(strtime==0){
+                row[i].cells[2].innerHTML='/'
+            }
+            else{
+                strtime=stampToDate(strtime);
+                row[i].cells[2].innerHTML=strtime;
+            }
         }
     }
 </script>

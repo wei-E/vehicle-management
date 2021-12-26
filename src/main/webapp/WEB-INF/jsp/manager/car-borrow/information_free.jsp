@@ -57,6 +57,7 @@
                                     <a title="出借"  onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car-borrow/jumpToBorrow?license=${each.license}'">
                                         <i class="layui-icon">&#xe609;</i>
                                     </a>
+                                </td>
 <%--                                    <button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car-borrow/jumpToBorrow?license=${each.license}'">出借</button></td>--%>
                             </tr>
                         </c:forEach>

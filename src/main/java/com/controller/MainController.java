@@ -1,9 +1,6 @@
 package com.controller;
 
-import com.pojo.Car;
-import com.pojo.CarBorrow;
-import com.pojo.Maintenance;
-import com.pojo.Time;
+import com.pojo.*;
 import com.service.BorrowService;
 import com.service.CarService;
 import com.service.MainService;
@@ -13,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/manager/main")
@@ -54,7 +53,22 @@ public class MainController {
             car = new Car();
         }
         car.setStatus("空闲");
-        model.addObject("list", carService.find_car(car));
+        List<Car> carList= carService.find_car(car);
+        List<MC> list = new ArrayList<MC>();
+        for (int i = 0; i < carList.size(); ++i) {
+            Maintenance main = new Maintenance();
+            main.setLicense(carList.get(i).getLicense());
+            List<Maintenance> mainList = mainService.find(main);
+            long max_time = 0;
+            for (int j = 0; j < mainList.size(); ++j) {
+                long time = mainList.get(j).getLast_time();
+                if (time > max_time) {
+                    max_time = time;
+                }
+            }
+            list.add(new MC(carList.get(i).getLicense(), carList.get(i).getType(), carList.get(i).getStatus(), max_time));
+        }
+        model.addObject("list", list);
         return model;
     }
     @RequestMapping("/main")

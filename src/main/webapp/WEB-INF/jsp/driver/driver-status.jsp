@@ -35,7 +35,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>${driver.id_num}</td>
+                                <td>${driver.work_num}</td>
                                 <td>${driver.name}</td>
                                 <td>${driver.status}</td>
                                 <td>

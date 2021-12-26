@@ -103,7 +103,7 @@
                 </li>
                 <li>
                     <a href="javascript:;">
-                        <i class="iconfont left-nav-li" lay-tips="维修管理">&#xe63c;</i>
+                        <i class="iconfont left-nav-li" lay-tips="维修管理">&#xe723;</i>
                         <cite>维修管理</cite>
                         <i class="iconfont nav_right">&#xe697;</i></a>
                     <ul class="sub-menu">
@@ -113,9 +113,9 @@
                                 <cite>维修情况查看</cite></a>
                         </li>
                         <li>
-                            <a onclick="xadmin.add_tab('空闲车辆查看','${pageContext.request.contextPath}/manager/car-repair/all')">
+                            <a onclick="xadmin.add_tab('车辆维修','${pageContext.request.contextPath}/manager/car-repair/all')">
                                 <i class="iconfont">&#xe6a7;</i>
-                                <cite>空闲车辆查看</cite></a>
+                                <cite>车辆维修</cite></a>
                         </li>
                         <li>
                             <a onclick="xadmin.add_tab('历史维修信息','${pageContext.request.contextPath}/manager/car-repair/past')">
@@ -126,7 +126,7 @@
                 </li>
                 <li>
                     <a href="javascript:;">
-                        <i class="iconfont left-nav-li" lay-tips="出借管理">&#xe60a;</i>
+                        <i class="iconfont left-nav-li" lay-tips="出借管理">&#xe6b2;</i>
                         <cite>出借管理</cite>
                         <i class="iconfont nav_right">&#xe697;</i></a>
                     <ul class="sub-menu">
@@ -136,9 +136,9 @@
                                 <cite>出借情况查看</cite></a>
                         </li>
                         <li>
-                            <a onclick="xadmin.add_tab('空闲车辆查看','${pageContext.request.contextPath}/manager/car-borrow/all')">
+                            <a onclick="xadmin.add_tab('车辆出借','${pageContext.request.contextPath}/manager/car-borrow/all')">
                                 <i class="iconfont">&#xe6a7;</i>
-                                <cite>空闲车辆查看</cite></a>
+                                <cite>车辆出借</cite></a>
                         </li>
                         <li>
                             <a onclick="xadmin.add_tab('历史出借信息','${pageContext.request.contextPath}/manager/car-borrow/past')">
@@ -149,19 +149,19 @@
                 </li>
                 <li>
                     <a href="javascript:;">
-                        <i class="iconfont left-nav-li" lay-tips="保养管理">&#xe614;</i>
+                        <i class="iconfont left-nav-li" lay-tips="保养管理">&#xe723;</i>
                         <cite>保养管理</cite>
                         <i class="iconfont nav_right">&#xe697;</i></a>
                     <ul class="sub-menu">
                         <li>
                             <a onclick="xadmin.add_tab('保养情况查看','${pageContext.request.contextPath}/manager/main/now')">
                                 <i class="iconfont">&#xe6a7;</i>
-                                <cite>维修情况查看</cite></a>
+                                <cite>保养情况查看</cite></a>
                         </li>
                         <li>
-                            <a onclick="xadmin.add_tab('空闲车辆查看','${pageContext.request.contextPath}/manager/main/all')">
+                            <a onclick="xadmin.add_tab('车辆保养','${pageContext.request.contextPath}/manager/main/all')">
                                     <i class="iconfont">&#xe6a7;</i>
-                                <cite>空闲车辆查看</cite></a>
+                                <cite>车辆保养</cite></a>
                         </li>
                         <li>
                             <a onclick="xadmin.add_tab('历史保养信息','${pageContext.request.contextPath}/manager/main/past')">
@@ -172,7 +172,7 @@
                 </li>
                 <li>
                     <a href="javascript:;">
-                        <i class="iconfont left-nav-li" lay-tips="派车情况">&#xe60a;</i>
+                        <i class="iconfont left-nav-li" lay-tips="派车情况">&#xe6b2;</i>
                         <cite>派车情况</cite>
                         <i class="iconfont nav_right">&#xe697;</i></a>
                     <ul class="sub-menu">

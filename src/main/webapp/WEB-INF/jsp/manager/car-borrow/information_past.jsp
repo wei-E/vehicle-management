@@ -85,7 +85,12 @@
 
             strtime=row[i].cells[3].innerHTML; //获取时间戳
             strtime=stampToDate(strtime);
-            row[i].cells[3].innerHTML=strtime;
+            if(strtime==0){
+                row[i].cells[3].innerHTML='/'
+            }
+            else{
+                row[i].cells[3].innerHTML=strtime;
+            }
         }
     }
 </script>

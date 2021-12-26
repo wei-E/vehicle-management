@@ -38,8 +38,15 @@
                                 <td>${driver.id_num}</td>
                                 <td>${driver.name}</td>
                                 <td>${driver.status}</td>
-                                <td><button id="driver_status1" onclick="javascript:window.location.href='${pageContext.request.contextPath}/driver/info-car'">出车</button>
-                                    <button id="driver_status2" onclick="javascript:window.location.href='${pageContext.request.contextPath}/driver/in-car'">还车</button></td>
+                                <td>
+                                    <a title="编辑"  onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/driver/jumpToUpdate?work_num=${driver.work_num}'">
+                                        <i class="layui-icon">&#xe642;编辑</i>
+                                    </a>
+                                    <a title="删除" onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/manager/delete?work_num=${manager.work_num}'">
+                                        <i class="layui-icon">&#xe640;删除</i>
+                                    </a>
+<%--                                    <button id="driver_status1" onclick="javascript:window.location.href='${pageContext.request.contextPath}/driver/info-car'">出车</button>--%>
+<%--                                    <button id="driver_status2" onclick="javascript:window.location.href='${pageContext.request.contextPath}/driver/in-car'">还车</button></td>--%>
                             </tr>
                         </tbody>
                     </table>
@@ -63,8 +70,6 @@
             }
             else if(info=="空闲"){
                 status2.style.display="none"
-                status2.style.color="white"
-                status2.style.backgroundColor="black"
             }
         }
     }

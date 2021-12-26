@@ -41,7 +41,7 @@
             <ul id="nav">
                 <li>
                     <a href="javascript:;">
-                        <i class="iconfont left-nav-li" lay-tips="管理员管理">&#xe6b8;</i>
+                        <i class="iconfont left-nav-li" lay-tips="管理员管理">&#xe726;</i>
                         <cite>管理员管理</cite>
                         <i class="iconfont nav_right">&#xe697;</i></a>
                     <ul class="sub-menu">
@@ -54,7 +54,7 @@
                 </li>
                 <li>
                     <a href="javascript:;">
-                        <i class="iconfont left-nav-li" lay-tips="驾驶员信息管理">&#xe723;</i>
+                        <i class="iconfont left-nav-li" lay-tips="驾驶员信息管理">&#xe6b8;</i>
                         <cite>驾驶员信息管理</cite>
                         <i class="iconfont nav_right">&#xe697;</i></a>
                     <ul class="sub-menu">
@@ -90,7 +90,7 @@
                 </li>
                 <li>
                     <a href="javascript:;">
-                        <i class="iconfont left-nav-li" lay-tips="违规管理">&#xe723;</i>
+                        <i class="iconfont left-nav-li" lay-tips="违规管理">&#xe6b2;</i>
                         <cite>违规管理</cite>
                         <i class="iconfont nav_right">&#xe697;</i></a>
                     <ul class="sub-menu">
@@ -103,7 +103,7 @@
                 </li>
                 <li>
                     <a href="javascript:;">
-                        <i class="iconfont left-nav-li" lay-tips="维修管理">&#xe723;</i>
+                        <i class="iconfont left-nav-li" lay-tips="维修管理">&#xe63c;</i>
                         <cite>维修管理</cite>
                         <i class="iconfont nav_right">&#xe697;</i></a>
                     <ul class="sub-menu">
@@ -126,7 +126,7 @@
                 </li>
                 <li>
                     <a href="javascript:;">
-                        <i class="iconfont left-nav-li" lay-tips="出借管理">&#xe723;</i>
+                        <i class="iconfont left-nav-li" lay-tips="出借管理">&#xe60a;</i>
                         <cite>出借管理</cite>
                         <i class="iconfont nav_right">&#xe697;</i></a>
                     <ul class="sub-menu">
@@ -149,7 +149,7 @@
                 </li>
                 <li>
                     <a href="javascript:;">
-                        <i class="iconfont left-nav-li" lay-tips="保养管理">&#xe723;</i>
+                        <i class="iconfont left-nav-li" lay-tips="保养管理">&#xe614;</i>
                         <cite>保养管理</cite>
                         <i class="iconfont nav_right">&#xe697;</i></a>
                     <ul class="sub-menu">
@@ -172,7 +172,7 @@
                 </li>
                 <li>
                     <a href="javascript:;">
-                        <i class="iconfont left-nav-li" lay-tips="派车情况">&#xe723;</i>
+                        <i class="iconfont left-nav-li" lay-tips="派车情况">&#xe60a;</i>
                         <cite>派车情况</cite>
                         <i class="iconfont nav_right">&#xe697;</i></a>
                     <ul class="sub-menu">

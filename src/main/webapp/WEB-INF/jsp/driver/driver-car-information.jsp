@@ -56,7 +56,7 @@
                             <td>${car.status}</td>
                             <td class="td-manage">
                                 <a onclick="javascript:window.location.href='${pageContext.request.contextPath}/driver/driver-car-send?license=${car.license}'"  title="出车">
-                                    <i class="layui-icon">&#xe601;</i>
+                                    <i class="layui-icon">&#xe601;出车</i>
                                 </a>
                             </td>
                         </tr>

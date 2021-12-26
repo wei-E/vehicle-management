@@ -53,7 +53,12 @@
                                 <td>${each.license}</td>
                                 <td>${each.type}</td>
                                 <td>${each.status}</td>
-                                <td><button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car-repair/jumpToRepair?license=${each.license}'">进行维修</button></td>
+                                <td>
+                                    <a title="进行维修"  onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car-repair/jumpToRepair?license=${each.license}'">
+                                        <i class="layui-icon">&#xe631;进行维修</i>
+                                    </a>
+
+<%--                                    <button onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/car-repair/jumpToRepair?license=${each.license}'">进行维修</button></td>--%>
                             </tr>
                         </c:forEach>
                         </tbody>

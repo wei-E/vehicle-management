@@ -27,7 +27,7 @@
                     <span class="x-red">*</span>车牌
                 </label>
                 <div class="layui-input-inline">
-                    <input type="text" id="license" name="license" class="layui-input" value="${license}"  readonly="readonly" class="layui-input">
+                    <input type="text" id="license" name="license" class="layui-input"   >
                 </div>
             </div>
             <div class="layui-form-item">
@@ -68,12 +68,13 @@
     </div>
 </div>
 
-<%
-    String message=request.getParameter("message");
-    if(message!=null){
-        out.println(message);
-    }
-%>
 </body>
-
+<script type="text/javascript">
+    window.onload=function (){
+        var message='${message}';
+        if( message != null && message != ""){
+        alert(message);
+        }
+    }
+</script>
 </html>

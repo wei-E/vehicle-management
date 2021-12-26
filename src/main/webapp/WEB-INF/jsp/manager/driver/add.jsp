@@ -68,12 +68,15 @@
         </form>
     </div>
 </div>
-<%
-    String message=request.getParameter("message");
-    if(message!=null){
-        out.println(message);
-    }
-%>
+
 
 </body>
+<script type="text/javascript">
+    window.onload=function (){
+        var message='${message}';
+        if( message != null && message != ""){
+            alert(message);
+        }
+    }
+</script>
 </html>

@@ -27,8 +27,7 @@
                     <span class="x-red">*</span>车牌
                 </label>
                 <div class="layui-input-inline">
-                    ${license}
-                    <input type="text" id="license" name="license" class="layui-input" value="${license}"  hidden="hidden">
+                    <input type="text" id="license" name="license" class="layui-input" value="${license}"  readonly="readonly" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item">

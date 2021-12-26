@@ -39,11 +39,11 @@
                                 <td>${driver.name}</td>
                                 <td>${driver.status}</td>
                                 <td>
-                                    <a title="编辑"  onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/driver/jumpToUpdate?work_num=${driver.work_num}'">
-                                        <i class="layui-icon">&#xe642;编辑</i>
+                                    <a id="driver_status1" title="出车"  onclick="javascript:window.location.href='${pageContext.request.contextPath}/driver/info-car'">
+                                        <i class="layui-icon">&#xe642;出车</i>
                                     </a>
-                                    <a title="删除" onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/manager/delete?work_num=${manager.work_num}'">
-                                        <i class="layui-icon">&#xe640;删除</i>
+                                    <a id="driver_status2" title="还车" onclick="javascript:window.location.href='${pageContext.request.contextPath}/driver/in-car'">
+                                        <i class="layui-icon">&#xe640;还车</i>
                                     </a>
 <%--                                    <button id="driver_status1" onclick="javascript:window.location.href='${pageContext.request.contextPath}/driver/info-car'">出车</button>--%>
 <%--                                    <button id="driver_status2" onclick="javascript:window.location.href='${pageContext.request.contextPath}/driver/in-car'">还车</button></td>--%>

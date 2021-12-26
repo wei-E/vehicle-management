@@ -6,6 +6,7 @@ import com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -16,40 +17,52 @@ public class UserController {
     @Autowired
     public UserService userService;
     @RequestMapping("/register-manager")
-    public String register_manager(Manager manager) throws IOException {
+    public ModelAndView register_manager(Manager manager) throws IOException {
+        ModelAndView model = new ModelAndView();
         if (userService.manager_register(manager)) {
-            return "welcome/login-manager";
+            model.setViewName("welcome/login-manager");
         } else {
-            return "welcome/register-manager";
+            model.addObject("message", "工号已存在");
+            model.setViewName("welcome/register-manager");
         }
+        return model;
     }
 
     @RequestMapping("/login-manager")
-    public String login_manager(Manager manager, HttpSession session) throws IOException {
+    public ModelAndView login_manager(Manager manager, HttpSession session) throws IOException {
+        ModelAndView model = new ModelAndView();
         if(userService.manager_login(manager)){
             session.setAttribute("user", manager.getWork_num());
-            return "redirect:/manager/welcome";
+            model.setViewName("redirect:/manager/welcome");
         } else {
-            return "welcome/login-manager";
+            model.addObject("message", "用户名或密码错误");
+            model.setViewName("welcome/login-manager");
         }
+        return model;
     }
 
     @RequestMapping("/register-driver")
-    public String register_driver(Driver driver) throws IOException {
+    public ModelAndView register_driver(Driver driver) throws IOException {
+        ModelAndView model = new ModelAndView();
         if (userService.driver_register(driver)) {
-            return "welcome/login-driver";
+            model.setViewName("welcome/login-driver");
         } else {
-            return "welcome/register-driver";
+            model.addObject("message", "工号已存在");
+            model.setViewName("welcome/register-driver");
         }
+        return model;
     }
 
     @RequestMapping("/login-driver")
-    public String login_driver(Driver driver, HttpSession session) throws IOException {
+    public ModelAndView login_driver(Driver driver, HttpSession session) throws IOException {
+        ModelAndView model = new ModelAndView();
         if(userService.driver_login(driver)){
             session.setAttribute("user", driver.getWork_num());
-            return "redirect:/driver/welcome";
+            model.setViewName("redirect:/driver/welcome");
         } else {
-            return "welcome/login-driver";
+            model.addObject("message", "用户名或密码错误");
+            model.setViewName("welcome/login-driver");
         }
+        return model;
     }
 }

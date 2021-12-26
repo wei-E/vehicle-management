@@ -29,8 +29,7 @@
                     <span class="x-red">*</span>车牌
                 </label>
                 <div class="layui-input-inline">
-                    ${license}
-                    <input type="text" id="license" name="license" hidden="hidden" value="${license}">
+                    <input type="text" id="license" name="license" class="layui-input"  readonly="readonly" value="${license}">
                 </div>
             </div>
             <div class="layui-form-item">
@@ -39,7 +38,7 @@
                 </label>
                 <div class="layui-input-inline">
                     <input type="text" id="reason" name="reason" required="" lay-verify="required"
-                           autocomplete="off" class="layui-input" hidden="hidden">
+                           autocomplete="off" class="layui-input" >
                 </div>
             </div>
             <div class="layui-form-item">

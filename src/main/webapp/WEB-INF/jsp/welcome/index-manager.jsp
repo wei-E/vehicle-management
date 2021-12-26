@@ -6,7 +6,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>manager</title>
+    <title>管理员主页</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/static/css/welcome.css" />
 
 </head>

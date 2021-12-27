@@ -65,7 +65,7 @@
                                     <a title="编辑"  onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/driver/jumpToUpdate?work_num=${driver.work_num}'">
                                         <i class="layui-icon">&#xe642;编辑</i>
                                     </a>
-                                    <a title="删除" onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/manager/delete?work_num=${manager.work_num}'">
+                                    <a title="删除" onclick="javascript:window.location.href='${pageContext.request.contextPath}/manager/driver/delete?work_num=${driver.work_num}'">
                                         <i class="layui-icon">&#xe640;删除</i>
                                     </a>
                                 </td>

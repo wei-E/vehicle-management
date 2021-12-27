@@ -68,7 +68,7 @@ public class UserServiceImpl implements UserService {
     public boolean driver_register(Driver driver) throws IOException {
         Driver driver1 = usermapper.driver_selectUserById(driver.getWork_num());
         if (driver1 == null) {
-            driver.setStatus("未出车");
+            driver.setStatus("空闲");
             usermapper.driver_register(driver);
             return true;
         } else {

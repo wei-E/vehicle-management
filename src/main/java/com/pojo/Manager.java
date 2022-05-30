@@ -5,6 +5,18 @@ public class Manager {
     private String work_num;
     private String name;
     private String password;
+
+    @Override
+    public String toString() {
+        return "Manager{" +
+                "id=" + id +
+                ", work_num='" + work_num + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", id_num='" + id_num + '\'' +
+                '}';
+    }
+
     private String id_num;
 
     public Integer getId() {return id;}

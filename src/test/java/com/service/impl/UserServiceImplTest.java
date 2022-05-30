@@ -40,9 +40,16 @@ public class UserServiceImplTest extends BaseTest {
     private String id_num;
 
     boolean bool;
-    public UserServiceImplTest(String work_num,String password,boolean bool){
+    /*public UserServiceImplTest(String work_num,String password,boolean bool){
         this.password=password;
         this.work_num=work_num;
+        this.bool=bool;
+    }*/
+    public UserServiceImplTest(String work_num,String name,String password,String id_num,boolean bool){
+        this.password=password;
+        this.work_num=work_num;
+        this.id_num=id_num;
+        this.name=name;
         this.bool=bool;
     }
     @Before
@@ -52,32 +59,48 @@ public class UserServiceImplTest extends BaseTest {
     }
 
 
-    @Parameterized.Parameters(name = "{0} and {1} ")
+    @Parameterized.Parameters(name = "{0},{1},{2},{3} ")
     public static  Iterable<Object[]> data() {
         return Arrays.asList(new Object[][] {
-                {"admin123","admin123",true},
-                {"admin","admin",false},
-                {"test","test",false},
-                {"","",false},
-                {"aaaaaa","aaaaaa",false}
+                {"testaaa","zhangsan","testaaa","330362200012224021",true},
+                {"aaaaaa","aaaaaa",true},
+                {"AAAAAA","AAAAAA",true},
+                {"111111","111111",true},
+                {"AAAaaa","AAAaaa",true},
+                {"aaa111","aaa111",true},
+                {"AAAaaa111","AAAaaa111",true},
+                {"123","123",false},
+                {"1234a","1234a",false},
+                {"123%","123%",false},
+                {"aaaaa","aaaaa",false},
+                {"aaaaaaa","aaaaaaa",true},
+                {"aaaaaaaaaaa","aaaaaaaaaaa",true},
+                {"aaaaaaaaaaaa","aaaaaaaaaaaa",false},
+                {"aaaaaaaaaaaaa","aaaaaaaaaaaaa",false}
         });
     }
 
-    @Test
+   /* @Test
     public void test_manager_login() throws IOException {
         UserService userService=(UserService)applicationContext.getBean("userService");
         Manager manager=new Manager();
         manager.setWork_num(work_num);
         manager.setPassword(password);
         System.out.println(manager);
-        assertTrue(userService.manager_login(manager));
+        assertEquals(bool,userService.manager_login(manager));
 
     }
-
-   /* @Test
-    public void test_manager_register(){
+    */
+    @Test
+    public void test_manager_register() throws IOException {
         UserService userService=(UserService)applicationContext.getBean("userService");
         Manager manager=new Manager();
+        manager.setPassword(password);
+        manager.setName(name);
+        manager.setWork_num(work_num);
+        manager.setId_num(id_num);
+        System.out.println(manager);
+        assertEquals(bool,userService.manager_register(manager));
 
-    }*/
+    }
 }

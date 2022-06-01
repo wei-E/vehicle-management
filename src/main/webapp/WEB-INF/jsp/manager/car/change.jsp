@@ -45,7 +45,7 @@
                 </label>
                 <div class="layui-input-inline">
                     <input type="text" id="status" name="status" required="" lay-verify="phone"
-                           autocomplete="off" class="layui-input" value="${car.status}">
+                           autocomplete="off" class="layui-input" value="${car.status}" readonly="readonly">
                 </div>
             </div>
             <div class="layui-form-item">

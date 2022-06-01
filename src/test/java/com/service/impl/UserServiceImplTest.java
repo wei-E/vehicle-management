@@ -44,41 +44,64 @@ public class UserServiceImplTest extends BaseTest {
         this.password=password;
         this.work_num=work_num;
         this.bool=bool;
-    }*/
+    }
     public UserServiceImplTest(String work_num,String name,String password,String id_num,boolean bool){
         this.password=password;
         this.work_num=work_num;
         this.id_num=id_num;
         this.name=name;
         this.bool=bool;
-    }
+    }*/
     @Before
     public void setUp() throws Exception {
         applicationContext = new ClassPathXmlApplicationContext(
                 "classpath*:applicationContext.xml");
     }
 
-
-    @Parameterized.Parameters(name = "{0},{1},{2},{3} ")
+   /* @Parameterized.Parameters(name = "{0} and {1}")
     public static  Iterable<Object[]> data() {
         return Arrays.asList(new Object[][] {
-                {"testaaa","zhangsan","testaaa","330362200012224021",true},
                 {"aaaaaa","aaaaaa",true},
                 {"AAAAAA","AAAAAA",true},
                 {"111111","111111",true},
                 {"AAAaaa","AAAaaa",true},
                 {"aaa111","aaa111",true},
                 {"AAAaaa111","AAAaaa111",true},
-                {"123","123",false},
-                {"1234a","1234a",false},
-                {"123%","123%",false},
-                {"aaaaa","aaaaa",false},
                 {"aaaaaaa","aaaaaaa",true},
-                {"aaaaaaaaaaa","aaaaaaaaaaa",true},
-                {"aaaaaaaaaaaa","aaaaaaaaaaaa",false},
-                {"aaaaaaaaaaaaa","aaaaaaaaaaaaa",false}
+                {"aaaaaaaaaaa","aaaaaaaaaaaaaa",true},
+                {"aaaaa","aaaaa",false},
+                {"aaaaaaaaaaaa","aaaaaaaaaaaaaaaaa",false},
+                {"aaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaa",false},
+                {"1234%%","1234%%",false},
+                {"","",false},
+
         });
     }
+    @Parameterized.Parameters(name = "{0},{1},{2},{3} ")
+    public static  Iterable<Object[]> data() {
+        return Arrays.asList(new Object[][] {
+                {"aaaaaa","zhangsan","aaaaaa","330362200012224021",true},
+                {"AAAAAA","zhangsan","AAAAAA","330362200012224021",true},
+                {"111111","zhangsan","111111","330362200012224021",true},
+                {"AAAaaa","zhangsan","AAAaaa","330362200012224021",true},
+                {"aaa111","zhangsan","aaa111","330362200012224021",true},
+                {"AAAaaa111","zhangsan","AAAaaa111","330362200012224021",true},
+                {"aaaaaaa","zhangsan","aaaaaaa","330362200012224021",true},
+                {"aaaaaaaaaaa","zhangsan","aaaaaaaaaaaaaa","330362200012224021",true},
+                {"aaaaa","zhangsan","aaaaa","330362200012224021",false},
+                {"aaaaaaaaaaaa","zhangsan","aaaaaaaaaaaaaaaaa","330362200012224021",false},
+                {"aaaaaaaaaaaaa","zhangsan","aaaaaaaaaaaaaaaaaaa","330362200012224021",false},
+                {"1234%%","zhangsan","1234%%","330362200012224021",false},
+                {"","zhangsan","","330362200012224021",false},
+                {"aaa123","zhangsan","aaa123","",false},
+                {"aaa234","","aaa234","330362200012224021",false},
+                {"aaa345","zhangsan1","aaa345","330362200012224021",false},
+                {"aaa456","zhangsan","aaa456","123456",false},
+                {"aaa567","zhangsan","aaa567","330362200012224#$%",false},
+                {"aaa678","","aaa678","",false},
+                {"","","","",false}
+        });
+    }*/
 
    /* @Test
     public void test_manager_login() throws IOException {
@@ -90,9 +113,9 @@ public class UserServiceImplTest extends BaseTest {
         assertEquals(bool,userService.manager_login(manager));
 
     }
-    */
-    @Test
-    public void test_manager_register() throws IOException {
+
+     @Test
+   public void test_manager_register() throws IOException {
         UserService userService=(UserService)applicationContext.getBean("userService");
         Manager manager=new Manager();
         manager.setPassword(password);
@@ -102,5 +125,5 @@ public class UserServiceImplTest extends BaseTest {
         System.out.println(manager);
         assertEquals(bool,userService.manager_register(manager));
 
-    }
+    }*/
 }

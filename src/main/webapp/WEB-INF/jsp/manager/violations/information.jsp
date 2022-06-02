@@ -28,15 +28,15 @@
         <div class="layui-col-md12">
             <div class="layui-card">
                 <div class="layui-card-body ">
-                    <form class="layui-form layui-col-space5" action="${pageContext.request.contextPath}/manager/information-violation" method="post" >
+                    <form class="layui-form layui-col-space5"  onsubmit="return check()" action="${pageContext.request.contextPath}/manager/information-violation" method="post" >
                         <div class="layui-inline layui-show-xs-block">
-                            <input class="layui-input" type="text"  autocomplete="off" placeholder="车牌" name="license">
+                            <input class="layui-input" type="text" id="license" autocomplete="off" placeholder="车牌" name="license">
                         </div>
                         <div class="layui-inline layui-show-xs-block">
-                            <input class="layui-input" type="text"  autocomplete="off" placeholder="工号" name="work_num">
+                            <input class="layui-input" type="text" id="work_num" autocomplete="off" placeholder="工号" name="work_num">
                         </div>
                         <div class="layui-inline layui-show-xs-block">
-                            <input class="layui-input" type="text"  autocomplete="off" placeholder="姓名" name="name">
+                            <input class="layui-input" type="text" id="name" autocomplete="off" placeholder="姓名" name="name">
                         </div>
                         <div class="layui-inline layui-show-xs-block">
                             <input class="layui-input" type="datetime-local" name="pre_time"  placeholder="违规时间" autocomplete="off" >
@@ -45,7 +45,7 @@
                             <input class="layui-input" type="datetime-local" name="next_time"  placeholder="违规时间" autocomplete="off" >
                         </div>
                         <div class="layui-inline layui-show-xs-block">
-                            <input class="layui-input" type="text"  autocomplete="off" placeholder="罚款金额" name="fines">
+                            <input class="layui-input" type="text" id="fines" autocomplete="off" placeholder="罚款金额" name="fines">
                         </div>
                         <div class="layui-inline layui-show-xs-block">
                             <button class="layui-btn"  type="submit" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
@@ -99,5 +99,40 @@
 
         }
     }
+    var flag=0;
+    function check(){
+
+        var license = $('#license').val();
+        var work_num = $('#work_num').val();
+        var name = $('#name').val();
+        var fines=$('#fines').val();
+        var reallicense=/^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/;
+        var realnum = /^[a-zA-Z0-9]{6,12}$/;
+        var realname = /[^0-9]{1,10}/;
+        var realfines=/^[0-9]+(\.[0-9]{2})?$/;
+        if (reallicense.test(license)){
+            if (realnum.test(work_num)){
+                if (realname.test(name)){
+                    if (realfines.test(fines)){
+                        flag=1;
+                    }else {
+                        alert("罚款格式错误")
+                    }
+                }else {
+                    alert("姓名格式错误")
+                }
+            }else {
+                alert("工号格式错误")
+            }
+        }else {
+            alert("车牌格式错误")
+        }
+        if (flag == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 </script>
 </html>

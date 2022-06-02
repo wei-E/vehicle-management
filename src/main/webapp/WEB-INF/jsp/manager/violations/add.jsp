@@ -21,7 +21,7 @@
 <body>
 <div class="layui-fluid">
     <div class="layui-row">
-        <form class="layui-form" action="${pageContext.request.contextPath}/manager/violation/add" method="post">
+        <form class="layui-form" onsubmit="return check()" action="${pageContext.request.contextPath}/manager/violation/add" method="post">
             <div class="layui-form-item">
                 <label for="license" class="layui-form-label">
                     <span class="x-red">*</span>车牌
@@ -74,6 +74,27 @@
         var message='${message}';
         if( message != null && message != ""){
         alert(message);
+        }
+    }
+    function check() {
+        var flag = 0;
+        var license=$('#license').val();
+        var fines=$('#fines').val();
+        var reallicense=/^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/;
+        var realfines=/^[0-9]+(\.[0-9]{2})?$/;
+        if(reallicense.test(license)){
+            if (realfines.test(fines)){
+                flag=1;
+            }else {
+                alert("罚款格式错误")
+            }
+        }else {
+            alert("车牌格式错误")
+        }
+        if (flag == 1) {
+            return true;
+        } else {
+            return false;
         }
     }
 </script>

@@ -27,9 +27,9 @@
         <div class="layui-col-md12">
             <div class="layui-card">
                 <div class="layui-card-body ">
-                    <form class="layui-form layui-col-space5" action="${pageContext.request.contextPath}/manager/car-repair/past" method="post" >
+                    <form class="layui-form layui-col-space5" onsubmit="return check()" action="${pageContext.request.contextPath}/manager/car-repair/past" method="post" >
                         <div class="layui-inline layui-show-xs-block">
-                            <input class="layui-input" type="text"  autocomplete="off" placeholder="车牌" name="license">
+                            <input class="layui-input" type="text" id="lincese" autocomplete="off" placeholder="车牌" name="license">
                         </div>
                         <div class="layui-inline layui-show-xs-block">
                             <input class="layui-input" type="datetime-local" name="pre_time"  placeholder="维修时间" autocomplete="off" >
@@ -81,6 +81,23 @@
             }
         }
     }
+    function check() {
+        var flag = 0;
+        var license = $('#license').val();
+        var reallicense=/^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/;
+        if (reallicense.test(license)) {
+            flag=1;
+        } else {
+            alert("车牌格式错误")
+        }
+        if (flag == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
 </script>
 </body>
 </html>

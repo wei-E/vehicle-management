@@ -27,12 +27,12 @@
         <div class="layui-col-md12">
             <div class="layui-card">
                 <div class="layui-card-body ">
-                    <form class="layui-form layui-col-space5" action="${pageContext.request.contextPath}/manager/information-car-send" method="post" >
+                    <form class="layui-form layui-col-space5" onsubmit="return check()" action="${pageContext.request.contextPath}/manager/information-car-send" method="post" >
                         <div class="layui-inline layui-show-xs-block">
-                            <input class="layui-input" type="text"  autocomplete="off" placeholder="车牌" name="license">
+                            <input class="layui-input" type="text" id="license" autocomplete="off" placeholder="车牌" name="license">
                         </div>
                         <div class="layui-inline layui-show-xs-block">
-                            <input class="layui-input" type="text"  autocomplete="off" placeholder="工号" name="driver_id">
+                            <input class="layui-input" type="text" id="work_num" autocomplete="off" placeholder="工号" name="driver_id">
                         </div>
                         <div class="layui-inline layui-show-xs-block">
                             <input class="layui-input" type="datetime-local" name="departure_time"  placeholder="出车时间" autocomplete="off" >
@@ -93,6 +93,27 @@
                 row[i].cells[4].innerHTML=strtime;
             }
 
+        }
+    }
+    function check() {
+        var flag = 0;
+        var license=$('#license').val();
+        var work_num = $('#work_num').val();
+        var reallicense=/^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/;
+        var realnum = /^[a-zA-Z0-9]{6,12}$/;
+        if (reallicense.test(license)){
+            if (realnum.test(work_num)){
+                flag=1;
+            }else {
+                alert("工号格式错误")
+            }
+        }else {
+            alert("车牌格式错误")
+        }
+        if (flag == 1) {
+            return true;
+        } else {
+            return false;
         }
     }
 </script>

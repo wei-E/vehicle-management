@@ -41,18 +41,18 @@ public class UserServiceImplTest extends BaseTest {
     private String id_num;
 
     boolean bool;
-    /*public UserServiceImplTest(String work_num,String password,boolean bool){
+    public UserServiceImplTest(String work_num,String password,boolean bool){
         this.password=password;
         this.work_num=work_num;
         this.bool=bool;
-    }*/
-    public UserServiceImplTest(String work_num,String name,String password,String id_num,boolean bool){
+    }
+   /** public UserServiceImplTest(String work_num,String name,String password,String id_num,boolean bool){
         this.password=password;
         this.work_num=work_num;
         this.id_num=id_num;
         this.name=name;
         this.bool=bool;
-    }
+    }**/
     @Before
     public void setUp() throws Exception {
         applicationContext = new ClassPathXmlApplicationContext(
@@ -104,7 +104,7 @@ public class UserServiceImplTest extends BaseTest {
         });
     }
 
-   /* @Test
+    @Test
     public void test_manager_login() throws IOException {
         UserService userService=(UserService)applicationContext.getBean("userService");
         Manager manager=new Manager();
@@ -114,9 +114,8 @@ public class UserServiceImplTest extends BaseTest {
         assertEquals(bool,userService.manager_login(manager));
 
     }
-
-     @Test
-   public void test_manager_register() throws IOException {
+    @Test
+    public void test_manager_register() throws IOException {
         UserService userService=(UserService)applicationContext.getBean("userService");
         Manager manager=new Manager();
         manager.setPassword(password);
@@ -126,8 +125,8 @@ public class UserServiceImplTest extends BaseTest {
         System.out.println(manager);
         assertEquals(bool,userService.manager_register(manager));
 
-    }*/
-   @Test
+    }
+   /*@Test
    public void test_manager_add_driver() throws IOException {
        UserService userService = (UserService) applicationContext.getBean("userService");
        Driver driver = new Driver();
@@ -137,5 +136,5 @@ public class UserServiceImplTest extends BaseTest {
        driver.setId_num(id_num);
        System.out.println(driver);
        assertEquals(bool, userService.driver_register(driver));
-   }
+   }*/
 }

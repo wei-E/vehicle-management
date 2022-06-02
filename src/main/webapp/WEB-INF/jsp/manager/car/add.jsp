@@ -21,7 +21,7 @@
 <body>
 <div class="layui-fluid">
     <div class="layui-row">
-        <form class="layui-form" action="${pageContext.request.contextPath}/manager/car/add" method="post">
+        <form class="layui-form" action="${pageContext.request.contextPath}/manager/car/add" method="post"onsubmit="return check()">
             <div class="layui-form-item">
                 <label for="license" class="layui-form-label">
                     <span class="x-red">*</span>车牌
@@ -59,5 +59,27 @@
             alert(message);
         }
     }
+    function check() {
+        var flag = 0;
+        var license = $('#license').val();
+        var type = $('#type').val();
+        var realtype=/^[重中轻微]{1}型车/;
+        var reallicense=/^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/;
+        if (reallicense.test(license)) {
+            if (realtype.test(type)) {
+                flag=1;
+            } else {
+                alert("车辆型号格式错误")
+            }
+        } else {
+            alert("车牌格式错误")
+        }
+        if (flag == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 </script>
 </html>

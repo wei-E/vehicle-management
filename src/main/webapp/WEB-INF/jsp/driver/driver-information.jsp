@@ -23,7 +23,7 @@
 <body>
 <div class="layui-fluid">
     <div class="layui-row">
-        <form class="layui-form" action="${pageContext.request.contextPath}/driver/update" method="post">
+        <form class="layui-form" action="${pageContext.request.contextPath}/driver/update" method="post" onsubmit="return check()">
             <div class="layui-form-item">
                 <label for="name" class="layui-form-label">
                     <span class="x-red">*</span>姓名
@@ -54,4 +54,28 @@
 </div>
 
 </body>
+<script>
+    var name=$('#name').val();
+    var id_num=$('#id_num').val();
+    var realname = /[^0-9]{1,10}/;
+    var realid_num = /\d{17}[\d|x]/;
+    var flag=0;
+    function check() {
+        if(realname.test(name)){
+            if (realid_num.test(id_num)){
+                flag=1;
+            }else {
+                alert("身份证格错误")
+            }
+        }else {
+            alert("姓名格式错误")
+        }
+        if (flag == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+</script>
 </html>

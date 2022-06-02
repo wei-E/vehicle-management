@@ -22,7 +22,7 @@
 <body>
 <div class="layui-fluid">
     <div class="layui-row">
-        <form action="${pageContext.request.contextPath}/user/register-driver" method="post" class="layui-form">
+        <form action="${pageContext.request.contextPath}/user/register-driver" method="post" class="layui-form" onsubmit="return check()">
             <div class="layui-form-item">
                 <label for="work_num" class="layui-form-label">
                     <span class="x-red">*</span>工号
@@ -68,7 +68,7 @@
                            autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-form-mid layui-word-aux">
-                    6到16个字符
+                    6到18个字符
                 </div>
             </div>
             <div class="layui-form-item">
@@ -89,6 +89,41 @@
         if( message != null && message != ""){
             alert(message);
         }
+    }
+    function check() {
+        var flag=0;
+        var work_num=$('#work_num').val();
+        var name=$('#name').val();
+        var id_num=$('#id_num').val();
+        var password=$('#password').val();
+        var realnum=/^[a-zA-Z0-9]{6,12}$/;
+        var realname=/[^0-9]{1,10}/;
+        var realid_num=/\d{17}[\d|x]/;
+        var realpassword=/^[a-zA-Z0-9]{6,18}$/
+        if(realnum.test(work_num)){
+            if (realname.test(name)){
+                if(realid_num.test(id_num)){
+                    if (realpassword.test(password)){
+                        flag=1;
+                    }else {
+                        alert("密码格式错误")
+                    }
+                }else {
+                    alert("身份证格式错误")
+                }
+            }else {
+                alert("姓名格式错误")
+            }
+        }else {
+            alert("工号格式错误")
+        }
+        if (flag==1){
+            return true;
+        }else {
+            return false;
+        }
+
+
     }
 
 </script>

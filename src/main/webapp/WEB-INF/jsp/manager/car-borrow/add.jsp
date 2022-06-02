@@ -21,7 +21,7 @@
 <body>
 <div class="layui-fluid">
     <div class="layui-row">
-        <form class="layui-form" action="${pageContext.request.contextPath}/manager/car-borrow/borrow" method="post">
+        <form class="layui-form" action="${pageContext.request.contextPath}/manager/car-borrow/borrow" method="post" onsubmit="return check()">
             <div class="layui-form-item">
                 <label for="license" class="layui-form-label">
                     <span class="x-red">*</span>车牌
@@ -61,4 +61,16 @@
 
 
 </body>
+<script>
+    var name=$('#name').val();
+    var realname = /[^0-9]{1,10}/;
+    function check() {
+        if (realname.test(name))
+            return true;
+        else {
+            alert("出借人名称错误")
+            return false;
+        }
+    }
+</script>
 </html>

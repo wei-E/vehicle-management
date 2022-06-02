@@ -21,7 +21,7 @@
 <body>
 <div class="layui-fluid">
     <div class="layui-row">
-        <form class="layui-form" action="${pageContext.request.contextPath}/manager/car/update" method="post">
+        <form class="layui-form" action="${pageContext.request.contextPath}/manager/car/update" method="post" onsubmit="return check()">
             <div class="layui-form-item">
                 <label for="license" class="layui-form-label">
                     <span class="x-red">*</span>车牌
@@ -60,4 +60,23 @@
 </div>
 
 </body>
+<script>
+    function check() {
+        var flag = 0;
+        var type = $('#type').val();
+        var realtype=/^[重中轻微]{1}型车/;
+            if (realtype.test(type)) {
+                flag=1;
+            } else {
+                alert("车辆型号格式错误")
+            }
+
+        if (flag == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+</script>
 </html>

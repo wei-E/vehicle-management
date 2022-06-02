@@ -25,10 +25,10 @@
 <div class="login layui-anim layui-anim-up">
     <div class="message">管理员登陆</div>
         <div id="darkbannerwrap"></div>
-            <form action="${pageContext.request.contextPath}/user/login-manager" method="post"class="layui-form">
-                <input type="text" placeholder="工号" name="work_num" lay-verify="required"  required="required" class="layui-input"><br/>
+            <form action="${pageContext.request.contextPath}/user/login-manager" method="post"class="layui-form"onsubmit="return check()">
+                <input type="text" placeholder="工号" id="work_num" name="work_num" lay-verify="required"  required="required" class="layui-input"><br/>
                 <hr class="hr15">
-                <input type="password" placeholder="密码" name="password" lay-verify="required"  required="required" class="layui-input"><br/>
+                <input type="password" placeholder="密码" id="password" name="password" lay-verify="required"  required="required" class="layui-input"><br/>
                 <hr class="hr15">
                 <input type="submit" value="登录" lay-submit lay-filter="login" style="width:100%;" lay-verify="required"><br/>
 
@@ -41,6 +41,17 @@
         if( message != null && message != ""){
             alert(message);
         }
+    }
+    function check() {
+        var worknum=$('#work_num').val();
+        var password=$('#password').val();
+        var realnum=/^[a-zA-Z0-9]{6,12}$/;
+        var realpassword=/^[a-zA-Z0-9]{6,18}$/;
+        if (realpassword.test(password) && realnum.test(worknum) ){
+            return true;
+        }else
+            alert("用户名密码格式错误")
+        return false;
     }
 
 </script>

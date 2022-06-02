@@ -42,6 +42,15 @@
             alert(message);
         }
     }
+    function text() {
+        var worknum=document.getElementsByClassName("work_num");
+        var passsword=document.getElementsByClassName("password");
+        var real=;
+        if(worknum){
+
+        }
+
+    }
 
 </script>
 </html>

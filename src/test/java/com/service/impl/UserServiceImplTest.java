@@ -2,6 +2,7 @@ package com.service.impl;
 
 import com.BaseTest;
 import com.mapper.Usermapper;
+import com.pojo.Driver;
 import com.pojo.Manager;
 import com.service.UserService;
 import org.easymock.EasyMock;
@@ -44,14 +45,14 @@ public class UserServiceImplTest extends BaseTest {
         this.password=password;
         this.work_num=work_num;
         this.bool=bool;
-    }
+    }*/
     public UserServiceImplTest(String work_num,String name,String password,String id_num,boolean bool){
         this.password=password;
         this.work_num=work_num;
         this.id_num=id_num;
         this.name=name;
         this.bool=bool;
-    }*/
+    }
     @Before
     public void setUp() throws Exception {
         applicationContext = new ClassPathXmlApplicationContext(
@@ -76,7 +77,7 @@ public class UserServiceImplTest extends BaseTest {
                 {"","",false},
 
         });
-    }
+    }*/
     @Parameterized.Parameters(name = "{0},{1},{2},{3} ")
     public static  Iterable<Object[]> data() {
         return Arrays.asList(new Object[][] {
@@ -101,7 +102,7 @@ public class UserServiceImplTest extends BaseTest {
                 {"aaa678","","aaa678","",false},
                 {"","","","",false}
         });
-    }*/
+    }
 
    /* @Test
     public void test_manager_login() throws IOException {
@@ -126,4 +127,15 @@ public class UserServiceImplTest extends BaseTest {
         assertEquals(bool,userService.manager_register(manager));
 
     }*/
+   @Test
+   public void test_manager_add_driver() throws IOException {
+       UserService userService = (UserService) applicationContext.getBean("userService");
+       Driver driver = new Driver();
+       driver.setPassword(password);
+       driver.setName(name);
+       driver.setWork_num(work_num);
+       driver.setId_num(id_num);
+       System.out.println(driver);
+       assertEquals(bool, userService.driver_register(driver));
+   }
 }

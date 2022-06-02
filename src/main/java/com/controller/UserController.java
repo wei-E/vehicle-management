@@ -33,6 +33,7 @@ public class UserController {
         ModelAndView model = new ModelAndView();
         if(userService.manager_login(manager)){
             session.setAttribute("user", manager.getWork_num());
+            model.addObject("message", "正确");
             model.setViewName("redirect:/manager/welcome");
         } else {
             model.addObject("message", "用户名或密码错误");

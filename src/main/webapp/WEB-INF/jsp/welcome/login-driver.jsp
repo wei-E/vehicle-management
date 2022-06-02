@@ -45,7 +45,7 @@
     function text() {
         var worknum=document.getElementsByClassName("work_num");
         var passsword=document.getElementsByClassName("password");
-        var real=;
+        var real=/^[a-zA-Z0-9]{4,16}$/;
         if(worknum){
 
         }

@@ -25,7 +25,7 @@
         <div class="layui-col-md12">
             <div class="layui-card">
                 <div class="layui-card-body ">
-                    <form class="layui-form layui-col-space5" onsubmit="return check()" action="${pageContext.request.contextPath}/manager/information-manager" method="post">
+                    <form class="layui-form layui-col-space5"  action="${pageContext.request.contextPath}/manager/information-manager" method="post">
                         <div class="layui-inline layui-show-xs-block">
                             <input class="layui-input" type="text"  id="work_num" autocomplete="off" placeholder="工号" name="work_num">
                         </div>
@@ -77,32 +77,6 @@
 
 </body>
 <script>
-    function check() {
-        var flag = 0;
-        var work_num = $('#work_num').val();
-        var name = $('#name').val();
-        var id_num = $('#id_num').val();
-        var realnum = /^[a-zA-Z0-9]{6,12}$/;
-        var realname = /[^0-9]{1,10}/;
-        var realid_num = /\d{17}[\d|x]/;
-        if (realnum.test(work_num)) {
-            if (realname.test(name)) {
-                if (realid_num.test(id_num)) {
-                    flag=1;
-                } else {
-                    alert("身份证格式错误")
-                }
-            } else {
-                alert("姓名格式错误")
-            }
-        } else {
-            alert("工号格式错误")
-        }
-        if (flag == 1) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+
 </script>
 </html>

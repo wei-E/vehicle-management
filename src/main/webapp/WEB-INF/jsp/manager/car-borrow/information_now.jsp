@@ -25,7 +25,7 @@
         <div class="layui-col-md12">
             <div class="layui-card">
                 <div class="layui-card-body ">
-                    <form class="layui-form layui-col-space5" onsubmit="return check()" action="${pageContext.request.contextPath}/manager/information-driver" method="post">
+                    <form class="layui-form layui-col-space5"  action="${pageContext.request.contextPath}/manager/information-driver" method="post">
                         <div class="layui-inline layui-show-xs-block">
                             <input class="layui-input" type="text" id="license" autocomplete="off" placeholder="车牌" name="license">
                         </div>

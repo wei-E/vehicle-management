@@ -41,8 +41,9 @@ public class UserServiceImplTest extends BaseTest {
     private String id_num;
 
     boolean bool;
-    public UserServiceImplTest(String work_num,String password,boolean bool){
-        this.password=password;
+    public UserServiceImplTest(String work_num,String name,String id_num,boolean bool){
+        this.id_num=id_num;
+        this.name=name;
         this.work_num=work_num;
         this.bool=bool;
     }
@@ -78,33 +79,49 @@ public class UserServiceImplTest extends BaseTest {
 
         });
     }*/
-    @Parameterized.Parameters(name = "{0},{1},{2},{3} ")
+    @Parameterized.Parameters(name = "{0},{1},{2} ")
     public static  Iterable<Object[]> data() {
         return Arrays.asList(new Object[][] {
-                {"aaaaaa","zhangsan","aaaaaa","330362200012224021",true},
-                {"AAAAAA","zhangsan","AAAAAA","330362200012224021",true},
-                {"111111","zhangsan","111111","330362200012224021",true},
-                {"AAAaaa","zhangsan","AAAaaa","330362200012224021",true},
-                {"aaa111","zhangsan","aaa111","330362200012224021",true},
-                {"AAAaaa111","zhangsan","AAAaaa111","330362200012224021",true},
-                {"aaaaaaa","zhangsan","aaaaaaa","330362200012224021",true},
-                {"aaaaaaaaaaa","zhangsan","aaaaaaaaaaaaaa","330362200012224021",true},
-                {"aaaaa","zhangsan","aaaaa","330362200012224021",false},
-                {"aaaaaaaaaaaa","zhangsan","aaaaaaaaaaaaaaaaa","330362200012224021",false},
-                {"aaaaaaaaaaaaa","zhangsan","aaaaaaaaaaaaaaaaaaa","330362200012224021",false},
-                {"1234%%","zhangsan","1234%%","330362200012224021",false},
-                {"","zhangsan","","330362200012224021",false},
-                {"aaa123","zhangsan","aaa123","",false},
-                {"aaa234","","aaa234","330362200012224021",false},
-                {"aaa345","zhangsan1","aaa345","330362200012224021",false},
-                {"aaa456","zhangsan","aaa456","123456",false},
-                {"aaa567","zhangsan","aaa567","330362200012224#$%",false},
-                {"aaa678","","aaa678","",false},
-                {"","","","",false}
+                {"","","",true},
+                {"","zhangsanlisiwangwuzhaoliu","33033220001002",false},
+                {"","jia","330682200010254000",true},
+                {"","jjj","330332200010024444",false},
+
+                {"123456789101112","","33033220001002",false},
+                {"123456789101112","zhangsanlisiwangwuzhaoliu","@@@@",false},
+                {"123456789101112","jia","330332200010024444",false},
+                {"123456789101112","jjj","330682200010254000",false},
+
+                {"admin123","","330822200110024111",false},
+                {"admin123","zhangsanlisiwangwuzhaoliu","330332200010024444",false},
+                {"admin123","jia","",true},
+                {"admin123","jjj","33033220001002",false},
+
+                {"admin999","","330332200010024444",false},
+                {"admin999","zhangsanlisiwangwuzhaoliu","330682200010254000",false},
+                {"admin999","","33033220001002",false},
+                {"admin999","jjj","",false},
         });
     }
-
     @Test
+    public void test_manager_find_condition() throws IOException{
+        UserService userService=(UserService)applicationContext.getBean("userService");
+        Manager manager=new Manager();
+        manager.setWork_num(work_num);
+        manager.setName(name);
+        manager.setId_num(id_num);
+        System.out.println(manager);
+        boolean f;
+        if(userService.manager_find_condition(manager).size()!=0)
+             f=true;
+        else {
+             f=false;
+
+        }
+        assertEquals(bool,f);
+
+    }
+   /* @Test
     public void test_manager_login() throws IOException {
         UserService userService=(UserService)applicationContext.getBean("userService");
         Manager manager=new Manager();
@@ -126,7 +143,7 @@ public class UserServiceImplTest extends BaseTest {
         assertEquals(bool,userService.manager_register(manager));
 
     }
-   /*@Test
+   @Test
    public void test_manager_add_driver() throws IOException {
        UserService userService = (UserService) applicationContext.getBean("userService");
        Driver driver = new Driver();
